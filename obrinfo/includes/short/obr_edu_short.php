@@ -136,7 +136,7 @@
 			<tbody itemprop="eduNir">
 				<?php $i = 0; foreach($edu as $key => $val): $i++;?>
 				<?php if(isset($val['edu_name']) && !empty($val['edu_name'])) :?>
-				<tr class="signal-line" itemprop="eduOp">
+				<tr class="signal-line" itemprop="eduOp adeduOp">
 					<td itemprop="eduCode">
 						<?php if(isset($val['edu_code']) && !empty($val['edu_code'])) : ?>
 							<?php echo wp_unslash($val['edu_code'])?>
