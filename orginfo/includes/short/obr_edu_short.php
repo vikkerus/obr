@@ -1,47 +1,62 @@
 <?php $data = obr_edu_front(); ?>
 
 <div class="obr-front edu">
-	<?php if(isset($data['edu_main_lev']) && !empty($data['edu_main_lev'])) : ?>
 	<div class="info-block">
 		<div class="title">Реализуемые уровни образования</div>
-		<div class="content" itemprop="eduLevel">
-			<?php echo wp_unslash($data['edu_main_lev']);?>
-		</div>
+		<?php if(isset($data['edu_main_lev']) && !empty($data['edu_main_lev'])) : ?>
+			<div class="content" itemprop="eduLevel">
+			<?php echo wp_unslash($data['edu_main_lev'])?>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>		
 	</div>
-	<?php endif;?>
 	
-	<?php if(isset($data['edu_main_form']) && !empty($data['edu_main_form'])) : ?>
 	<div class="info-block">
-		<div class="title">Формы обучения</div>
-		<div class="content" itemprop="eduForm">
-			<?php echo wp_unslash($data['edu_main_form']);?>
-		</div>
+		<div class="title">Формы обучения</div>	
+		<?php if(isset($data['edu_main_form']) && !empty($data['edu_main_form'])) : ?>
+			<div class="content" itemprop="eduForm">
+			<?php echo wp_unslash($data['edu_main_form'])?>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
 	</div>
-	<?php endif;?>
 	
-	<?php if(isset($data['edu_main_norm']) && !empty($data['edu_main_norm'])) : ?>
 	<div class="info-block">
-		<div class="title">Нормативные сроки обучения</div>
-		<div class="content" itemprop="learningTerm">
-			<?php echo wp_unslash($data['edu_main_norm']);?>
-		</div>
+		<div class="title">Нормативные сроки обучения</div>	
+		<?php if(isset($data['edu_main_norm']) && !empty($data['edu_main_norm'])) : ?>
+			<div class="content" itemprop="learningTerm">
+			<?php echo wp_unslash($data['edu_main_norm'])?>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
 	</div>
-	<?php endif;?>
-	
-	<?php if(isset($data['edu_main_accr']) && !empty($data['edu_main_accr'])) : ?>
+
 	<div class="info-block">
-		<div class="title">Срок действия государственной аккредитации</div>
-		<div class="content" itemprop="eduAccred dateEnd">
-			<?php echo wp_unslash($data['edu_main_accr']);?>
-		</div>
+		<div class="title">Срок действия государственной аккредитации</div>	
+		<?php if(isset($data['edu_main_accr']) && !empty($data['edu_main_accr'])) : ?>
+			<div class="content" itemprop="eduAccred dateEnd">
+			<?php echo wp_unslash($data['edu_main_accr'])?>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
 	</div>
-	<?php endif;?>
 
 	<?php if(isset($data['edu_uch_id']) && !empty($data['edu_uch_id'])) : ?>
 	<div class="info-block">
 		<div class="title">Учебный план</div>
 		<div class="content">
 			<a itemprop="educationPlan adEducationPlan" href="<?php echo (isset($data['edu_uch_url']) && !empty($data['edu_uch_url'])) ? $data['edu_uch_url'] : ''?>" title="Учебный план" target="_blank"><?php echo (isset($data['edu_uch_name']) && !empty($data['edu_uch_name'])) ? wp_unslash($data['edu_uch_name']) : 'Учебный план'?></a>
+		</div>
+	</div>
+	<?php else:?>
+	<div class="info-block">
+		<div class="title">Учебный план</div>
+		<div class="content">
+			<div class="none-data">нет данных</div>
 		</div>
 	</div>
 	<?php endif;?>
@@ -53,61 +68,80 @@
 			<a itemprop= "educationShedule adEducationShedule" href="<?php echo (isset($data['edu_cal_url']) && !empty($data['edu_cal_url'])) ? $data['edu_cal_url'] : ''?>" title="Календарный учебный график" target="_blank"><?php echo (isset($data['edu_cal_name']) && !empty($data['edu_cal_name'])) ? wp_unslash($data['edu_cal_name']) : 'Календарный учебный график'?></a>
 		</div>
 	</div>
-	<?php endif;?>
-	
-	<?php if(isset($data['edumet']) && !empty($data['edumet'])) : ?>
+	<?php else:?>
 	<div class="info-block">
-		<div class="title">Методические и иные документы, разработанные образовательной организацией для обеспечения образовательного процесса</div>
-		<div class="content" itemprop= "methodology adMethodology">
-			<?php echo $data['edumet']?>
+		<div class="title">Календарный учебный график</div>
+		<div class="content">
+			<div class="none-data">нет данных</div>
 		</div>
 	</div>
 	<?php endif;?>
 	
-	<?php if(isset($data['edu_lang']) && !empty($data['edu_lang'])) : ?>
+	<div class="info-block">
+		<div class="title">Методические и иные документы, разработанные образовательной организацией для обеспечения образовательного процесса</div>	
+		<?php if(isset($data['edumet']) && !empty($data['edumet'])) : ?>
+			<div class="content" itemprop= "methodology adMethodology">
+			<?php echo $data['edumet']?>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
+	</div>
+	
 	<div class="info-block">
 		<div class="title">Языки, на которых осуществляется образование (обучение)</div>
-		<div class="content" itemprop="language">
+		<?php if(isset($data['edu_lang']) && !empty($data['edu_lang'])) : ?>
+			<div class="content" itemprop="language">
 			<?php echo wp_unslash($data['edu_lang'])?>
-		</div>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
 	</div>
-	<?php endif;?>
 	
-	<?php if(isset($data['eduino']) && !empty($data['eduino'])) : ?>
 	<div class="info-block">
-		<div class="title">О заключенных и планируемых к заключению договорах с иностранными и (или) международными организациями по вопросам образования и науки</div>
-		<div class="content">
+		<div class="title">О заключенных и планируемых к заключению договорах с иностранными и (или) международными организациями по вопросам образования и науки</div>	
+		<?php if(isset($data['eduino']) && !empty($data['eduino'])) : ?>
+			<div class="content">
 			<?php echo $data['eduino']?>
-		</div>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
 	</div>
-	<?php endif;?>
 	
-	<?php if(isset($data['edu_nid']) && !empty($data['edu_nid'])) : ?>
 	<div class="info-block">
-		<div class="title">Направления и результаты научной (научно-исследовательской) деятельности и научно-исследовательская база для ее осуществления</div>
-		<div class="content" itemprop="eduNir">
+		<div class="title">Направления и результаты научной (научно-исследовательской) деятельности и научно-исследовательская база для ее осуществления</div>	
+		<?php if(isset($data['edu_nid']) && !empty($data['edu_nid'])) : ?>
+			<div class="content" itemprop="eduNir">
 			<?php echo wp_unslash($data['edu_nid'])?>
-		</div>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
 	</div>
-	<?php endif;?>
 	
-	<?php if(isset($data['edurespr']) && !empty($data['edurespr'])) : ?>
 	<div class="info-block">
-		<div class="title">Результаты приема</div>
-		<div class="content" itemprop="eduPriem">
+		<div class="title">Результаты приема</div>	
+		<?php if(isset($data['edurespr']) && !empty($data['edurespr'])) : ?>
+			<div class="content" itemprop="eduPriem">
 			<?php echo $data['edurespr']?>
-		</div>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
 	</div>
-	<?php endif;?>
 	
-	<?php if(isset($data['edu_resot']) && !empty($data['edu_resot'])) : ?>
 	<div class="info-block">
-		<div class="title">Результаты перевода, восстановления и отчисления</div>
-		<div class="content" itemprop="eduPerevod">
+		<div class="title">Результаты перевода, восстановления и отчисления</div>		
+		<?php if(isset($data['edu_resot']) && !empty($data['edu_resot'])) : ?>
+			<div class="content" itemprop="eduPerevod">
 			<?php echo wp_unslash($data['edu_resot'])?>
-		</div>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
 	</div>
-	<?php endif;?>
 	
 	<?php if(isset($data['edu_copy_id']) && !empty($data['edu_copy_id'])) : ?>
 	<div class="info-block">
