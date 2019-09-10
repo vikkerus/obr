@@ -1,0 +1,21 @@
+<?php $data = obr_fhd_front(); ?>
+
+<div class="obr-front fhd" itemprop="volume">
+	<?php if(isset($data['finob']) && !empty($data['finob'])) : ?>
+	<div class="info-block">
+		<div class="title">Объем образовательной деятельности, финансовое обеспечение которой осуществляется за счет бюджетных ассигнований федерального бюджета, бюджетов субъектов Российской Федерации, местных бюджетов, по договорам об образовании за счет средств физических и (или) юридических лиц</div>
+		<div class="content" itemprop="finBFVolume finBRVolume finBMVolume finPVolume">
+			<?php echo $data['finob']?>
+		</div>
+	</div>
+	<?php endif;?>
+	
+	<?php if(isset($data['finpo']) && !empty($data['finpo'])) : ?>
+	<div class="info-block">
+		<div class="title">Поступление и расходовании финансовых и материальных средств</div>
+		<div class="content" itemprop="finRec">
+			<?php echo $data['finpo']?>
+		</div>
+	</div>
+	<?php endif;?>
+</div>
