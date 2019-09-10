@@ -23,64 +23,85 @@
 
 			<div id="collapse<?php echo $key?>" class="panel-collapse collapse" aria-labelledby="heading<?php echo $key?>" data-parent="#obr_struct" itemprop="structOrgUprav" role="tabpanel">
 				<div class="panel-body">
-					<?php if(isset($val['name']) && !empty($val['name'])) : ?>
 					<div class="str-block">
-						<div class="title">Наименование</div>
-						<div class="content" itemprop="name">
+						<div class="title">Наименование</div>				
+						<?php if(isset($val['name']) && !empty($val['name'])) : ?>
+							<div class="content" itemprop="name">
 							<?php echo wp_unslash($val['name'])?>
-						</div>
+							</div>
+						<?php else:?>
+							<div class="none-data">нет данных</div>
+						<?php endif;?>		
 					</div>
-					<?php endif;?>
 					
-					<?php if(isset($val['fio']) && !empty($val['fio'])) : ?>
+
 					<div class="str-block">
-						<div class="title">Ф.И.О. руководителя</div>
-						<div class="content" itemprop="fio post">
+						<div class="title">Ф.И.О. руководителя</div>				
+						<?php if(isset($val['fio']) && !empty($val['fio'])) : ?>
+							<div class="content" itemprop="fio post">
 							<?php echo wp_unslash($val['fio'])?>
-						</div>
+							</div>
+						<?php else:?>
+							<div class="none-data">нет данных</div>
+						<?php endif;?>	
 					</div>
-					<?php endif;?>
-					
-					<?php if(isset($val['place']) && !empty($val['place'])) : ?>
+
+
 					<div class="str-block">
-						<div class="title">Адрес</div>
-						<div class="content" itemprop="addressStr">
+						<div class="title">Адрес</div>		
+						<?php if(isset($val['place']) && !empty($val['place'])) : ?>
+							<div class="content" itemprop="addressStr">
 							<?php echo wp_unslash($val['place'])?>
-						</div>
+							</div>
+						<?php else:?>
+							<div class="none-data">нет данных</div>
+						<?php endif;?>					
 					</div>
-					<?php endif;?>
+
 					
-					<?php if(isset($val['site']) && !empty($val['site'])) : ?>
 					<div class="str-block">
-						<div class="title">Сайт</div>
-						<div class="content" itemprop="site">
+						<div class="title">Сайт</div>					
+						<?php if(isset($val['site']) && !empty($val['site'])) : ?>
+							<div class="content" itemprop="site">
 							<?php echo wp_unslash($val['site'])?>
-						</div>
+							</div>
+						<?php else:?>
+							<div class="none-data">нет данных</div>
+						<?php endif;?>		
 					</div>
-					<?php endif;?>
+
 					
-					<?php if(isset($val['mail']) && !empty($val['mail'])) : ?>
 					<div class="str-block">
-						<div class="title">Электронная почта</div>
-						<div class="content" itemprop="email">
+						<div class="title">Электронная почта</div>				
+						<?php if(isset($val['mail']) && !empty($val['mail'])) : ?>
+							<div class="content" itemprop="email">
 							<?php echo wp_unslash($val['mail'])?>
-						</div>
+							</div>
+						<?php else:?>
+							<div class="none-data">нет данных</div>
+						<?php endif;?>
 					</div>
-					<?php endif;?>
 					
-					<?php if(isset($val['docs']) && !empty($val['docs'])) : ?>
+					
 					<div class="str-block">
-						<div class="title">Положение с приложением копии</div>
+						<div class="title">Положение с приложением копии</div>			
+						<?php if(isset($val['url']) && !empty($val['url'])) : ?>
 						<div class="content" itemprop="divisionClauseDocLink">
 							<a href="<?php echo (isset($val['url']) && !empty($val['url'])) ? $val['url'] : ''?>" title="Положение" target="_blank"><?php echo (isset($val['docs_name']) && !empty($val['docs_name'])) ? wp_unslash($val['docs_name']) : 'Положение о структурном подразделении'?></a>
 						</div>
+						<?php else:?>
+							<div class="none-data">нет данных</div>
+						<?php endif;?>						
 					</div>
-					<?php endif;?>
 				</div>
 			</div>
 		</div>
+		<?php else:?>
+			<div class="none-data">нет данных о структурных подразделениях</div>
 		<?php endif;?>
 		<?php endforeach;?>
 	</div>
+	<?php else:?>
+			<div class="none-data">нет данных</div>
 	<?php endif;?>
 </div>
