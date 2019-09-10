@@ -12,6 +12,7 @@ var front_class = function () {
     /****************************** METHOD'S ******************************/
 	
 	// функция скрытия шапки блока замов и педагогов на странице педсостава, если замов или педагогов нет
+	// показ фразы "нет данных" на странице документов, если документы отсутствуют (для предписаний, фхд, отчетов, самообследований)
 	self.InitHideBlock = function()
 	{
 		var zamBlock = jQuery('#obr_zam .panel').length;
@@ -23,21 +24,43 @@ var front_class = function () {
 		var obrSam = jQuery('#obr_sam .panel-body').length;
 		var obrPred = jQuery('#obr_pred .panel-body').length;
 		var obrOtch = jQuery('#obr_otch .panel-body').length;
+		var obrStand = jQuery('#stand_links').length;
+		var obrPlat = jQuery('#paid_links').length;
 		
 		if(zamBlock == 0)
 		{
-			jQuery('.zam-block').hide();
+			jQuery('.zam-block').html('<div>Заместители руководителя:</div><div class="none-data">нет данных</div>');
 		}
 		
 		if(pedBlock == 0)
 		{
-			jQuery('.ped-block').hide();
+			jQuery('.ped-block').html('<div>Педагогические работники:</div><div class="none-data">нет данных</div>');
 		}
 		
-		// скрытие шапки таблицы на странице образования, если программ нет
+		// скрытие шапки таблицы на странице образования, если программ нет и показ фразы "нет данных по образовательным программам"
 		if(obrBlock == 0)
 		{
-			jQuery('#obr_edu').hide();
+			jQuery('#obr_edu table').hide();
+			
+			jQuery('#obr_edu').html('<div class="none-data">нет данных по образовательным программам</div>');	
+		}
+		
+		// показ фразы "нет данных" на странице образовательных стандартов, если документы отсутствуют
+		if(obrStand != 0)
+		{
+			if (jQuery('#stand_links').html().trim() === '')
+			{
+				jQuery('#stand_links').html('<div class="none-data">нет данных</div>');
+			}
+		}
+		
+		// показ фразы "нет данных" на странице платных услуг, если ссылки отсутствуют
+		if(obrPlat != 0)
+		{
+			if (jQuery('#paid_links').html().trim() === '')
+			{
+				jQuery('#paid_links').html('<div class="none-data">нет данных</div>');
+			}
 		}
 		
 		// скрытие коллапса а странице документов, если содержимого нет
@@ -61,7 +84,7 @@ var front_class = function () {
 		{
 			if (jQuery('#obr_fhd .panel-body').html().trim() === '')
 			{
-				jQuery('#obr_fhd').hide();
+				jQuery('#obr_fhd .panel-body').html('<div class="none-data">нет данных</div>');
 			}
 		}
 		
@@ -69,7 +92,7 @@ var front_class = function () {
 		{
 			if (jQuery('#obr_sam .panel-body').html().trim() === '')
 			{
-				jQuery('#obr_sam').hide();
+				jQuery('#obr_sam .panel-body').html('<div class="none-data">нет данных</div>');
 			}
 		}
 		
@@ -77,7 +100,7 @@ var front_class = function () {
 		{
 			if (jQuery('#obr_pred .panel-body').html().trim() === '')
 			{
-				jQuery('#obr_pred').hide();
+				jQuery('#obr_pred .panel-body').html('<div class="none-data">нет данных</div>');
 			}
 		}
 		
@@ -85,7 +108,7 @@ var front_class = function () {
 		{
 			if (jQuery('#obr_otch .panel-body').html().trim() === '')
 			{
-				jQuery('#obr_otch').hide();
+				jQuery('#obr_otch .panel-body').html('<div class="none-data">нет данных</div>');
 			}
 		}
 	}
