@@ -7,10 +7,12 @@
 ?>
 
 <div class="obr-front stand">
-	<?php if(is_array($data)) : ?>
+	<?php if(is_array($data) && !empty($data)) : ?>
 	<div class="link-title">
 		Копии федеральных государственных образовательных стандартов:
 	</div>
+	
+	<div id="stand_links">
 	<?php foreach($data as $key => $val):?>
 		<?php if(isset($val['link']) && !empty($val['link'])) : ?>
 		<div class="info-link">
@@ -19,5 +21,8 @@
 		</div>
 		<?php endif;?>						
 	<?php endforeach;?>
+	</div>
+	<?php else:?>
+		<div class="none-data">нет данных</div>
 	<?php endif;?>
 </div>
