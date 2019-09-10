@@ -11,36 +11,50 @@
 			</div>
 			<?php endif;?>
 			<div class="text-block">
-				<?php if(isset($data['ped_name']) && !empty($data['ped_name'])) : ?>
 					<div class="title">Ф.И.О. руководителя</div>
-					<div class="content"  itemprop="fio">
-						<?php echo wp_unslash($data['ped_name']);?>
-					</div>
-				<?php endif;?>
+					<?php if(isset($data['ped_name']) && !empty($data['ped_name'])) : ?>
+						<div class="content"  itemprop="fio">
+						<?php echo wp_unslash($data['ped_name'])?>
+						</div>
+					<?php else:?>
+						<div class="none-data">нет данных</div>
+					<?php endif;?>				
 				
-				<?php if(isset($data['ped_pos']) && !empty($data['ped_pos'])) : ?>
-					<div class="title">Должность</div>
-					<div class="content" itemprop="post">
-						<?php echo wp_unslash($data['ped_pos']);?>
-					</div>
-				<?php endif;?>
+					<div class="title">Должность</div>				
+					<?php if(isset($data['ped_pos']) && !empty($data['ped_pos'])) : ?>
+						<div class="content" itemprop="post">
+						<?php echo wp_unslash($data['ped_pos'])?>
+						</div>
+					<?php else:?>
+						<div class="none-data">нет данных</div>
+					<?php endif;?>
+					
 				
-				<?php if(isset($data['ped_tel']) && !empty($data['ped_tel'])) : ?>
-					<div class="title">Контактные телефоны</div>
-					<div class="content" itemprop="telephone">
-						<?php echo wp_unslash($data['ped_tel']);?>
-					</div>
-				<?php endif;?>
+					<div class="title">Контактные телефоны</div>					
+					<?php if(isset($data['ped_tel']) && !empty($data['ped_tel'])) : ?>
+						<div class="content" itemprop="telephone">
+						<?php echo wp_unslash($data['ped_tel'])?>
+						</div>
+					<?php else:?>
+						<div class="none-data">нет данных</div>
+					<?php endif;?>
+					
 				
-				<?php if(isset($data['ped_mail']) && !empty($data['ped_mail'])) : ?>
-					<div class="title">Электронная почта</div>
-					<div class="content" itemprop="email">
-						<?php echo wp_unslash($data['ped_mail']);?>
-					</div>
-				<?php endif;?>
+					<div class="title">Электронная почта</div>			
+					<?php if(isset($data['ped_mail']) && !empty($data['ped_mail'])) : ?>
+						<div class="content" itemprop="email">
+						<?php echo wp_unslash($data['ped_mail'])?>
+						</div>
+					<?php else:?>
+						<div class="none-data">нет данных</div>
+					<?php endif;?>					
 			</div>
 		</div>
 	</div>
+	<?php else:?>
+	<div>Руководитель:</div>
+	<div class="none-data">нет данных</div>
+	
 	<?php endif;?>
 	
 	<div class="zam-block" itemprop="rucovodstvo rucovodstvoFil">
@@ -75,32 +89,41 @@
 						</div>
 						<?php endif;?>
 						
-						<?php if(isset($val['post']) && !empty($val['post'])) : ?>
+
 						<div class="zam-item">
-							<div class="title">Должность</div>
-							<div class="content" itemprop="post">
+							<div class="title">Должность</div>							
+							<?php if(isset($val['post']) && !empty($val['post'])) : ?>
+								<div class="content" itemprop="post">
 								<?php echo wp_unslash($val['post'])?>
-							</div>
+								</div>
+							<?php else:?>
+								<div class="none-data">нет данных</div>
+							<?php endif;?>					
 						</div>
-						<?php endif;?>
+
 						
-						<?php if(isset($val['tel']) && !empty($val['tel'])) : ?>
 						<div class="zam-item">
-							<div class="title">Контактные телефоны</div>
-							<div class="content" itemprop="telephone">
+							<div class="title">Контактные телефоны</div>						
+							<?php if(isset($val['tel']) && !empty($val['tel'])) : ?>
+								<div class="content" itemprop="telephone">
 								<?php echo wp_unslash($val['tel'])?>
-							</div>
+								</div>
+							<?php else:?>
+								<div class="none-data">нет данных</div>
+							<?php endif;?>			
 						</div>
-						<?php endif;?>
+
 						
-						<?php if(isset($val['mail']) && !empty($val['mail'])) : ?>
 						<div class="zam-item">
-							<div class="title">Электронная почта</div>
-							<div class="content" itemprop="email">
+							<div class="title">Электронная почта</div>						
+							<?php if(isset($val['mail']) && !empty($val['mail'])) : ?>
+								<div class="content" itemprop="email">
 								<?php echo wp_unslash($val['mail'])?>
-							</div>
+								</div>
+							<?php else:?>
+								<div class="none-data">нет данных</div>
+							<?php endif;?>					
 						</div>
-						<?php endif;?>
 					</div>
 				</div>
 			</div>
@@ -142,77 +165,96 @@
 						</div>
 						<?php endif;?>
 						
-						<?php if(isset($val['post']) && !empty($val['post'])) : ?>
 						<div class="zam-item">
-							<div class="title">Должность</div>
-							<div class="content" itemprop="post">
+							<div class="title">Должность</div>					
+							<?php if(isset($val['post']) && !empty($val['post'])) : ?>
+								<div class="content" itemprop="post">
 								<?php echo wp_unslash($val['post'])?>
-							</div>
+								</div>
+							<?php else:?>
+								<div class="none-data">нет данных</div>
+							<?php endif;?>			
 						</div>
-						<?php endif;?>
 						
-						<?php if(isset($val['dis']) && !empty($val['dis'])) : ?>
 						<div class="zam-item">
-							<div class="title">Преподаваемые дисциплины</div>
-							<div class="content" itemprop= "teachingDiscipline">
+							<div class="title">Преподаваемые дисциплины</div>				
+							<?php if(isset($val['dis']) && !empty($val['dis'])) : ?>
+								<div class="content" itemprop= "teachingDiscipline">
 								<?php echo wp_unslash($val['dis'])?>
-							</div>
+								</div>
+							<?php else:?>
+								<div class="none-data">нет данных</div>
+							<?php endif;?>						
 						</div>
-						<?php endif;?>
 						
-						<?php if(isset($val['step']) && !empty($val['step'])) : ?>
 						<div class="zam-item">
-							<div class="title">Ученая степень (или уровень образования)</div>
-							<div class="content" itemprop= "teachingLevel degree">
+							<div class="title">Ученая степень (или уровень образования)</div>				
+							<?php if(isset($val['step']) && !empty($val['step'])) : ?>
+								<div class="content" itemprop= "teachingLevel degree">
 								<?php echo wp_unslash($val['step'])?>
-							</div>
+								</div>
+							<?php else:?>
+								<div class="none-data">нет данных</div>
+							<?php endif;?>						
 						</div>
-						<?php endif;?>
+
 						
-						<?php if(isset($val['zvan']) && !empty($val['zvan'])) : ?>
 						<div class="zam-item">
-							<div class="title">Ученое звание (или квалификация)</div>
-							<div class="content" itemprop= "teachingQual academStat">
+							<div class="title">Ученое звание (или квалификация)</div>						
+							<?php if(isset($val['zvan']) && !empty($val['zvan'])) : ?>
+								<div class="content" itemprop= "teachingQual academStat">
 								<?php echo wp_unslash($val['zvan'])?>
-							</div>
+								</div>
+							<?php else:?>
+								<div class="none-data">нет данных</div>
+							<?php endif;?>					
 						</div>
-						<?php endif;?>
+
 						
-						<?php if(isset($val['spec']) && !empty($val['spec'])) : ?>
 						<div class="zam-item">
-							<div class="title">Направления подготовки (или специальности)</div>
-							<div class="content" itemprop= "employeeQualification">
+							<div class="title">Направления подготовки (или специальности)</div>					
+							<?php if(isset($val['spec']) && !empty($val['spec'])) : ?>
+								<div class="content" itemprop= "employeeQualification">
 								<?php echo wp_unslash($val['spec'])?>
-							</div>
+								</div>
+							<?php else:?>
+								<div class="none-data">нет данных</div>
+							<?php endif;?>						
 						</div>
-						<?php endif;?>
+
 						
-						<?php if(isset($val['qual']) && !empty($val['qual'])) : ?>
 						<div class="zam-item">
 							<div class="title">Данные о повышении квалификации (или профессиональной переподготовке) </div>
-							<div class="content" itemprop= "profDevelopment">
+							<?php if(isset($val['qual']) && !empty($val['qual'])) : ?>
+								<div class="content" itemprop= "profDevelopment">
 								<?php echo wp_unslash($val['qual'])?>
-							</div>
+								</div>
+							<?php else:?>
+								<div class="none-data">нет данных</div>
+							<?php endif;?>						
 						</div>
-						<?php endif;?>
 						
-						<?php if(isset($val['sum']) && ($val['sum'] !='')) : ?>
 						<div class="zam-item">
-							<div class="title">Общий стаж работы</div>
-							<div class="content" itemprop= "genExperience">
+							<div class="title">Общий стаж работы</div>			
+							<?php if(isset($val['sum']) && !empty($val['sum'])) : ?>
+								<div class="content" itemprop= "genExperience">
 								<?php echo wp_unslash($val['sum'])?>
-							</div>
+								</div>
+							<?php else:?>
+								<div class="none-data">нет данных</div>
+							<?php endif;?>						
 						</div>
-						<?php endif;?>
 						
-						<?php if(isset($val['ped']) && ($val['ped'] !='')) : ?>
 						<div class="zam-item">
-							<div class="title">Педагогический стаж работы</div>
-							<div class="content" itemprop= "specExperience">
+							<div class="title">Педагогический стаж работы</div>						
+							<?php if(isset($val['ped']) && !empty($val['ped'])) : ?>
+								<div class="content" itemprop= "specExperience">
 								<?php echo wp_unslash($val['ped'])?>
-							</div>
+								</div>
+							<?php else:?>
+								<div class="none-data">нет данных</div>
+							<?php endif;?>					
 						</div>
-						<?php endif;?>
 					</div>
 				</div>
 			</div>
