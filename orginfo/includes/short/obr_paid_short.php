@@ -11,6 +11,7 @@
 	<div class="link-title">
 		Документы о порядке оказания платных образовательных услуг, в том числе образец договора об оказании платных образовательных услуг, документ об утверждении стоимости обучения по каждой образовательной программе:
 	</div>
+	<div id="paid_links">
 	<?php foreach($plat as $key => $val):?>
 		<?php if((isset($val['docs_plat_link']) && !empty($val['docs_plat_link'])) || (isset($val['docs_plat_url']) && !empty($val['docs_plat_url']))) : ?>
 		<div class="doc-block">
@@ -21,5 +22,11 @@
 		</div>
 		<?php endif;?>	
 	<?php endforeach;?>
+	</div>
+	<?php else:?>
+	<div class="link-title">
+		Документы о порядке оказания платных образовательных услуг, в том числе образец договора об оказании платных образовательных услуг, документ об утверждении стоимости обучения по каждой образовательной программе:
+	</div>
+	<div class="none-data">нет данных</div>
 	<?php endif;?>
 </div>
