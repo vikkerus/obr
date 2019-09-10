@@ -24,6 +24,12 @@
 							<a itemprop="ustavDocLink" href="<?php echo ((isset($data['docs_ust_link'])) && (!empty($data['docs_ust_link'])) ? $data['docs_ust_link'] : $data['docs_ust_url'])?>" title="Копия устава" target="_blank"><?php echo (isset($data['docs_ust_name']) && !empty($data['docs_ust_name'])) ? wp_unslash($data['docs_ust_name']) : 'Копия устава образовательной организации'?></a>
 						</div>
 					</div>
+					<?php else:?>
+						<div class="doc-block">
+							<div>Копия устава образовательной организации</div>
+							<div class="none-data">нет данных</div>
+						</div>
+						<br>
 					<?php endif;?>
 					
 					<?php if((isset($data['docs_lic_link']) && !empty($data['docs_lic_link'])) || (isset($data['docs_lic_url']) && !empty($data['docs_lic_url']))) : ?>	
@@ -33,6 +39,12 @@
 							<a itemprop="licenseDocLink" href="<?php echo (isset($data['docs_lic_link']) && !empty($data['docs_lic_link']) ? $data['docs_lic_link'] : $data['docs_lic_url'])?>" title="Копия лицензии" target="_blank"><?php echo (isset($data['docs_lic_name']) && !empty($data['docs_lic_name'])) ? wp_unslash($data['docs_lic_name']) : 'Копия лицензии на осуществление образовательной деятельности (с приложениями)'?></a>
 						</div>
 					</div>
+					<?php else:?>
+						<div class="doc-block">
+							<div>Копия лицензии на осуществление образовательной деятельности (с приложениями)</div>
+							<div class="none-data">нет данных</div>
+						</div>
+						<br>
 					<?php endif;?>
 					
 					<?php if((isset($data['docs_accr_link']) && !empty($data['docs_accr_link'])) || (isset($data['docs_accr_url']) && !empty($data['docs_accr_url']))) : ?>	
@@ -42,6 +54,11 @@
 							<a itemprop="accreditationDocLink" href="<?php echo (isset($data['docs_accr_link']) && !empty($data['docs_accr_link']) ? $data['docs_accr_link'] : $data['docs_accr_url'])?>" title="Копия свидетельства" target="_blank"><?php echo (isset($data['docs_accr_name']) && !empty($data['docs_accr_name'])) ? wp_unslash($data['docs_accr_name']) : 'Копия свидетельства о государственной аккредитации (с приложениями)'?></a>
 						</div>
 					</div>
+					<?php else:?>
+						<div class="doc-block">
+							<div>Копия свидетельства о государственной аккредитации (с приложениями)</div>
+							<div class="none-data">нет данных</div>
+						</div>
 					<?php endif;?>
 				</div>
 			</div>
@@ -65,6 +82,12 @@
 							<a itemprop="priemDocLink" href="<?php echo (isset($data['docs_priem_link']) && !empty($data['docs_priem_link']) ? $data['docs_priem_link'] : $data['docs_priem_url'])?>" title="Копия акта" target="_blank"><?php echo (isset($data['docs_priem_name']) && !empty($data['docs_priem_name'])) ? wp_unslash($data['docs_priem_name']) : 'Копия локального нормативного акта, регламентирующего правила приема обучающихся'?></a>
 						</div>
 					</div>
+					<?php else:?>
+						<div class="doc-block">
+							<div>Копия локального нормативного акта, регламентирующего правила приема обучающихся</div>
+							<div class="none-data">нет данных</div>
+						</div>
+						<br>
 					<?php endif;?>
 					
 					<?php if((isset($data['docs_zan_link']) && !empty($data['docs_zan_link'])) || (isset($data['docs_zan_url']) && !empty($data['docs_zan_url']))) : ?>	
@@ -74,6 +97,12 @@
 							<a itemprop="modeDocLink" href="<?php echo (isset($data['docs_zan_link']) && !empty($data['docs_zan_link']) ? $data['docs_zan_link'] : $data['docs_zan_url'])?>" title="Копия акта" target="_blank"><?php echo (isset($data['docs_zan_name']) && !empty($data['docs_zan_name'])) ? wp_unslash($data['docs_zan_name']) : 'Копия локального нормативного акта, регламентирующего режим занятий обучающихся'?></a>
 						</div>
 					</div>
+					<?php else:?>
+						<div class="doc-block">
+							<div>Копия локального нормативного акта, регламентирующего режим занятий обучающихся</div>
+							<div class="none-data">нет данных</div>
+						</div>
+						<br>
 					<?php endif;?>
 					
 					<?php if((isset($data['docs_att_link']) && !empty($data['docs_att_link'])) || (isset($data['docs_att_url']) && !empty($data['docs_att_url']))) : ?>	
@@ -83,6 +112,12 @@
 							<a itemprop="tekKontrolDocLink" href="<?php echo (isset($data['docs_att_link']) && !empty($data['docs_att_link']) ? $data['docs_att_link'] : $data['docs_att_url'])?>" title="Копия акта" target="_blank"><?php echo (isset($data['docs_att_name']) && !empty($data['docs_att_name'])) ? wp_unslash($data['docs_att_name']) : 'Копия локального нормативного акта, регламентирующего формы, периодичность и порядок текущего контроля успеваемости и промежуточной аттестации обучающихся'?></a>
 						</div>
 					</div>
+					<?php else:?>
+						<div class="doc-block">
+							<div>Копия локального нормативного акта, регламентирующего формы, периодичность и порядок текущего контроля успеваемости и промежуточной аттестации обучающихся</div>
+							<div class="none-data">нет данных</div>
+						</div>
+						<br>
 					<?php endif;?>
 					
 					<?php if((isset($data['docs_per_link']) && !empty($data['docs_per_link'])) || (isset($data['docs_per_url']) && !empty($data['docs_per_url']))) : ?>	
@@ -92,6 +127,12 @@
 							<a itemprop= "perevodDocLink" href="<?php echo (isset($data['docs_per_link']) && !empty($data['docs_per_link']) ? $data['docs_per_link'] : $data['docs_per_url'])?>" title="Копия акта" target="_blank"><?php echo (isset($data['docs_per_name']) && !empty($data['docs_per_name'])) ? wp_unslash($data['docs_per_name']) : 'Копия локального нормативного акта, регламентирующего порядок и основания перевода, отчисления и восстановления обучающихся'?></a>
 						</div>
 					</div>
+					<?php else:?>
+						<div class="doc-block">
+							<div>Копия локального нормативного акта, регламентирующего порядок и основания перевода, отчисления и восстановления обучающихся</div>
+							<div class="none-data">нет данных</div>
+						</div>
+						<br>
 					<?php endif;?>
 					
 					<?php if((isset($data['docs_voz_link']) && !empty($data['docs_voz_link'])) || (isset($data['docs_voz_url']) && !empty($data['docs_voz_url']))) : ?>	
@@ -101,6 +142,12 @@
 							<a itemprop="vozDocLink" href="<?php echo (isset($data['docs_voz_link']) && !empty($data['docs_voz_link']) ? $data['docs_voz_link'] : $data['docs_voz_url'])?>" title="Копия акта" target="_blank"><?php echo (isset($data['docs_voz_name']) && !empty($data['docs_voz_name'])) ? wp_unslash($data['docs_voz_name']) : 'Копия локального нормативного акта, регламентирующего порядок оформления возникновения, приостановления и прекращения отношений между образовательной организацией и обучающимися и (или) родителями (законными представителями) несовершеннолетних обучающихся'?></a>
 						</div>
 					</div>
+					<?php else:?>
+						<div class="doc-block">
+							<div>Копия локального нормативного акта, регламентирующего порядок оформления возникновения, приостановления и прекращения отношений между образовательной организацией и обучающимися и (или) родителями (законными представителями) несовершеннолетних обучающихся</div>
+							<div class="none-data">нет данных</div>
+						</div>
+						<br>
 					<?php endif;?>
 					
 					<?php if((isset($data['docs_pom_link']) && !empty($data['docs_pom_link'])) || (isset($data['docs_pom_url']) && !empty($data['docs_pom_url']))) : ?>	
@@ -110,6 +157,11 @@
 							<a href="<?php echo (isset($data['docs_pom_link']) && !empty($data['docs_pom_link']) ? $data['docs_pom_link'] : $data['docs_pom_url'])?>" title="Копия акта" target="_blank"><?php echo (isset($data['docs_pom_name']) && !empty($data['docs_pom_name'])) ? wp_unslash($data['docs_pom_name']) : 'Копия локального нормативного акта, регламентирующего размер платы за пользование жилым помещением и коммунальные услуги в общежитии'?></a>
 						</div>
 					</div>
+					<?php else:?>
+						<div class="doc-block">
+							<div>Копия локального нормативного акта, регламентирующего размер платы за пользование жилым помещением и коммунальные услуги в общежитии</div>
+							<div class="none-data">нет данных</div>
+						</div>
 					<?php endif;?>
 				</div>
 			</div>
@@ -234,6 +286,12 @@
 			<a itemprop="localActStud" href="<?php echo (isset($data['docs_stud_link']) && !empty($data['docs_stud_link']) ? $data['docs_stud_link'] : $data['docs_stud_url'])?>" title="Копия правил" target="_blank"><?php echo (isset($data['docs_stud_name']) && !empty($data['docs_stud_name'])) ? wp_unslash($data['docs_stud_name']) : 'Копия правил внутреннего распорядка обучающихся'?></a>
 		</div>
 	</div>
+	<?php else:?>
+		<div class="doc-block">
+			<div>Копия правил внутреннего распорядка обучающихся</div>
+			<div class="none-data">нет данных</div>
+		</div>
+		<br>
 	<?php endif;?>
 	
 	<?php if((isset($data['docs_ord_link']) && !empty($data['docs_ord_link'])) || (isset($data['docs_ord_url']) && !empty($data['docs_ord_url']))) : ?>	
@@ -243,6 +301,12 @@
 			<a itemprop="localActOrder" href="<?php echo (isset($data['docs_ord_link']) && !empty($data['docs_ord_link']) ? $data['docs_ord_link'] : $data['docs_ord_url'])?>" title="Копия правил" target="_blank"><?php echo (isset($data['docs_ord_name']) && !empty($data['docs_ord_name'])) ? wp_unslash($data['docs_ord_name']) : 'Копия правил внутреннего трудового распорядка'?></a>
 		</div>
 	</div>
+	<?php else:?>
+		<div class="doc-block">
+			<div>Копия правил внутреннего трудового распорядка</div>
+			<div class="none-data">нет данных</div>
+		</div>
+		<br>
 	<?php endif;?>
 	
 	<?php if((isset($data['docs_col_link']) && !empty($data['docs_col_link'])) || (isset($data['docs_col_url']) && !empty($data['docs_col_url']))) : ?>	
@@ -252,6 +316,12 @@
 			<a itemprop="localActCollec" href="<?php echo (isset($data['docs_col_link']) && !empty($data['docs_col_link']) ? $data['docs_col_link'] : $data['docs_col_url'])?>" title="Копия коллективного договора" target="_blank"><?php echo (isset($data['docs_col_name']) && !empty($data['docs_col_name'])) ? wp_unslash($data['docs_col_name']) : 'Копия коллективного договора'?></a>
 		</div>
 	</div>
+	<?php else:?>
+		<div class="doc-block">
+			<div>Копия коллективного договора</div>
+			<div class="none-data">нет данных</div>
+		</div>
+		<br>
 	<?php endif;?>
 	
 	<?php if((isset($data['docs_paid_link']) && !empty($data['docs_paid_link'])) || (isset($data['docs_paid_url']) && !empty($data['docs_paid_url']))) : ?>	
@@ -261,6 +331,12 @@
 			<a itemprop= "paidEduDocLink" href="<?php echo (isset($data['docs_paid_link']) && !empty($data['docs_paid_link']) ? $data['docs_paid_link'] : $data['docs_paid_url'])?>" title="Документ о порядке оказания платных образовательных услуг" target="_blank"><?php echo (isset($data['docs_paid_name']) && !empty($data['docs_paid_name'])) ? wp_unslash($data['docs_paid_name']) : 'Документ о порядке оказания платных образовательных услуг, в том числе образец договора об оказании платных образовательных услуг, документ об утверждении стоимости обучения по каждой образовательной программе'?></a>
 		</div>
 	</div>
+	<?php else:?>
+		<div class="doc-block">
+			<div>Документ о порядке оказания платных образовательных услуг, в том числе образец договора об оказании платных образовательных услуг, документ об утверждении стоимости обучения по каждой образовательной программе</div>
+			<div class="none-data">нет данных</div>
+		</div>
+		<br>
 	<?php endif;?>
 	
 	<?php if(isset($data['docother']) && !empty($data['docother'])) : ?>
@@ -270,5 +346,10 @@
 			<?php echo $data['docother']?>
 		</div>
 	</div>
+	<?php else:?>
+		<div class="doc-block">
+			<div>Прочие документы</div>
+			<div class="none-data">нет данных</div>
+		</div>
 	<?php endif;?>
 </div>
