@@ -1,0 +1,1579 @@
+@charset "UTF-8";
+
+a, button, a:hover, a:focus, button:hover, button:focus{
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.table-responsive{
+	display: block;
+	width: 100%;
+	overflow-x: auto;
+}
+
+.reg-alert{
+	font-size: 12px;
+	color: red;
+	font-style: italic;
+	display: block;
+	padding: 2px 0;
+}
+
+/*страница отчёта*/
+.link-csv{
+	box-sizing: border-box;
+	cursor: pointer;
+	display: inline-block;
+	padding: 5px 15px;
+	border-radius: 0;
+	font-size: 14px;
+	color: #555;
+	border: 1px solid #ccc;
+	background: #f7f7f7;
+	box-shadow: 0 1px 0 #ccc;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	text-decoration: none;
+}
+.link-csv i{
+	margin-right:5px;
+}
+
+.info-table{
+	padding-bottom: 25px;
+}
+.info-table table{
+	border: 1px solid #333;
+}
+.info-table table .title-th{
+	text-align: center;
+	font-size: 14px;
+	font-weight: normal;
+	background: #ddd;
+}
+.info-table td, .info-table th{
+	text-align: left;
+	padding: 5px;
+	border: 1px solid #333;
+	position: relative;
+}
+.info-table .none{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 5px;
+	box-sizing: border-box;
+	background: #f59f9f;
+}
+
+
+
+
+.block-hidden{
+	display:none !important;
+}
+.obr_title{
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 26px;
+}
+.input-block{
+	padding-bottom:15px;
+	overflow: hidden;
+}
+.form_btn{
+	box-sizing: border-box;
+	cursor:pointer;
+	display: inline-block;
+	padding: 5px 15px;
+	border-radius: 0;
+	font-size: 14px;
+	color: #555;
+	border: 1px solid #ccc;
+	background: #f7f7f7;
+	box-shadow: 0 1px 0 #ccc;
+	border-radius: 3px;
+}
+.input-block label{
+	display: block;
+	background: #b4b4b4;
+	padding: 5px;
+	font-size: 14px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.input-block input{
+	width:100%;
+	margin: 0;
+	box-sizing: border-box;
+}
+.input-block textarea{
+	width: 100%;
+	resize: none;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/*главная страница*/
+.obr-page{
+	width: calc(100% - 15px);
+	box-sizing: border-box;
+	padding-top: 15px;
+}
+.obr-page .short{
+	box-sizing: border-box;
+	width: 40%;
+	float: left;
+	padding-right: 15px;
+}
+.obr-page .urls{
+	box-sizing: border-box;
+	width: 60%;
+	float: left;
+}
+.obr-page ul{
+	display: block;
+	width: 100%;
+	margin: 0;
+	box-sizing: border-box;
+	list-style: none;
+	border: 1px solid #bfbfbf;
+	border-bottom: none;
+	padding-top: 5px;
+}
+.obr-page ul li{
+	overflow: hidden;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 5px 5px;
+	border-bottom: 1px solid #bfbfbf;
+	margin-bottom: 5px;
+}
+.obr-page ul li .main{
+	display: block;
+	float: left;
+	width: 45%;
+	box-sizing: border-box;
+	padding-right: 15px;
+}
+.obr-page ul li .url{
+	display: block;
+	float: left;
+	width: 55%;
+	box-sizing: border-box;
+	padding: 2px 4px;
+	color: #152ddd;
+	background-color: #f7f7f9;
+	border: 1px solid #e1e1e8;
+}
+.obr-page ul.codes li .main{
+	width: 65%;
+}
+.obr-page ul.codes li .url{
+	width: 35%;
+}
+
+
+/*основные сведения*/
+.page-main{
+	width: calc(100% - 15px);
+	border: 1px solid #b3b3b3;
+	padding: 15px 15px 0;
+	box-sizing: border-box;
+}
+
+
+/*структура*/
+#struct_struct_1 .struct_remove{
+	display: none;
+}
+#add_block{
+	overflow: hidden;
+	width: 100%;
+	padding: 0 15px 0 0;
+	box-sizing: border-box;
+}
+.page-struct{
+	width: 100%;
+	box-sizing: border-box;
+}
+.struct_item{
+	width: calc(100% - 15px);
+	margin: 0 0 30px;
+	position:relative;
+	border: 1px solid #b3b3b3;
+	padding: 15px;
+	box-sizing: border-box;
+}
+.page-struct .link_btn{
+	display: inline-block;
+	box-sizing: border-box;
+	padding-left: 15px;
+	float: right;
+	width: 15%;
+	text-align: right;
+}
+.page-struct .link_remove{
+	position: absolute;
+	color: red;
+	left: 15px;
+	bottom: 15px;
+}
+.page-struct .input_uploader{
+	padding-bottom: 30px;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+.page-struct .input_uploader input{
+	width: 42.5%;
+	float: left;
+	box-sizing: border-box;
+}
+.struct-image-block{
+	overflow: hidden;
+	width: calc(100% - 15px);
+	box-sizing: border-box;
+	padding-bottom: 15px;
+}
+.page-struct .img-preview {
+    height: 100px;
+    overflow: hidden;
+    width: 100px;
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 88px;
+    float: left;
+}
+.page-struct .img-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    border: 1px solid #dee2e6;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+.struct-image-block .input_uploader label{
+	float: left;
+	width: calc(100% - 115px);
+	margin-left: 15px;
+}
+.struct-image-block .input_uploader input {
+    float: left;
+    width: calc(85% - 115px);
+    margin-left: 15px;
+}
+.struct-image-block .input_uploader .link_btn {
+    display: inline-block;
+    box-sizing: border-box;
+    padding-left: 15px;
+    float: right;
+    width: 15%;
+    text-align: right;
+}
+
+
+/*документы*/
+#otch_otch_1 .otch_remove,
+#pred_pred_1 .pred_remove,
+#sam_sam_1 .sam_remove,
+#fhd_fhd_1 .fhd_remove{
+	display: none;
+}
+.page-docs{
+	width: 100%;
+	box-sizing: border-box;
+}
+.page-docs .uploads{
+	width: calc(100% - 15px);
+	border: 1px solid #b3b3b3;
+	padding: 15px 15px 0;
+	box-sizing: border-box;
+}
+.page-docs .input-block input{
+	width: 42.5%;
+	float: left;
+	box-sizing: border-box;
+}
+.page-docs .link_btn{
+	display: inline-block;
+	box-sizing: border-box;
+	padding-left: 15px;
+	float: right;
+	width: 15%;
+	text-align: right;
+}
+.page-docs .sub-title {
+    font-size: 16px;
+    color: #23282d;
+    padding: 15px 0;
+}
+.page-docs .otchet, 
+.page-docs .predp, 
+.page-docs .samoob,
+.page-docs .fhd{
+	border: 1px solid #b3b3b3;
+	padding: 15px;
+	box-sizing: border-box;
+	margin-bottom: 15px;
+}
+.page-docs .otch_item, 
+.page-docs .pred_item, 
+.page-docs .sam_item,
+.page-docs .fhd_item{
+	position:relative;
+}
+.page-docs .otch_item:not(:first-child) .input-block input,
+.page-docs .pred_item:not(:first-child) .input-block input,
+.page-docs .sam_item:not(:first-child) .input-block input,
+.page-docs .fhd_item:not(:first-child) .input-block input{
+	width: 35%;
+}
+.page-docs .otch_item:not(:first-child) .link_btn,
+.page-docs .pred_item:not(:first-child) .link_btn,
+.page-docs .sam_item:not(:first-child) .link_btn,
+.page-docs .fhd_item:not(:first-child) .link_btn{
+	float:left;
+}
+.page-docs .otch_item:not(:first-child) .link_remove,
+.page-docs .pred_item:not(:first-child) .link_remove,
+.page-docs .sam_item:not(:first-child) .link_remove,
+.page-docs .fhd_item:not(:first-child) .link_remove{
+	position: absolute;
+	color: red;
+	right: 0;
+	bottom: 32px;
+}
+.alert{
+	font-size: 14px;
+	color: red;
+	border: 2px solid red;
+	box-sizing: border-box;
+	width: calc(100% - 15px);
+	padding: 15px;
+	margin-bottom: 15px;
+}
+.page-docs .fhd-link{}
+.page-docs .fhd-link label{
+	display: block;
+	background: #b4b4b4;
+	padding: 5px;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+.page-docs .fhd-link input{
+	box-sizing: border-box;
+	width: 100% !important;
+	margin: 0;
+}
+.page-docs .input-block{
+	padding-bottom: 25px;
+}
+
+
+/*образование*/
+#edu_edu_1 .edu_remove{
+	display: none;
+}
+.page-edu .alert{
+	width: 100%
+}
+.page-edu{
+	width: calc(100% - 15px);
+	border: 1px solid #b3b3b3;
+	padding: 15px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.page-edu .sub-title{
+	font-size: 16px;
+	color: #23282d;
+	padding: 15px 0;
+}
+.page-edu .edu_item{
+	float: left;
+    width: 50%;
+    box-sizing: border-box;
+    border: 1px solid #b3b3b3;
+    padding: 15px 15px 30px;
+	position: relative;
+}
+.page-edu .link_remove{
+	position: absolute;
+	color: red;
+	left: 15px;
+	bottom: 15px;
+}
+.page-edu .input_uploader input{
+	width: 35%;
+	float: left;
+	box-sizing: border-box;
+}
+.page-edu .link_btn{
+	display: inline-block;
+	box-sizing: border-box;
+	padding-left: 15px;
+	float: right;
+	width: 30%;
+	text-align: right;
+}
+#edu_copy{
+	width: 100%;
+	overflow: hidden;
+	padding-top: 15px;
+}
+ .edu-docs input{
+	width: 42.5% !important;
+}
+ .edu-docs .link_btn{
+	width: 15% !important;
+}
+#add_prog{
+	width:100%;
+	overflow: hidden;
+	padding-top: 15px;
+}
+.page-edu .pop{
+	width: 50%;
+	float: left;
+}
+.page-edu .pop .pop-title{
+	padding: 3px 0;
+}
+.page-edu .pop input{}
+
+
+/*образовательные стандарты*/
+#stand_links_1 .stand_remove{
+	display: none;
+}
+.page-stand{
+	width: calc(100% - 15px);
+	border: 1px solid #b3b3b3;
+	padding: 15px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.page-stand .input-block input{
+	width: 50%;
+	float: left;
+}
+.page-stand .links-title{
+	background: #b4b4b4;
+	padding: 5px;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+.page-stand .stand_item{
+	overflow: hidden;
+}
+.page-stand .stand_item .input-block{
+	float: left;
+	width: 85%;
+	box-sizing: border-box;
+}
+.page-stand .stand_item .link_remove{
+	display: inline-block;
+	box-sizing: border-box;
+	padding-left: 15px;
+	float: right;
+	width: 15%;
+	text-align: right;
+	color:red;
+}
+
+
+/*руководство и педсостав*/
+#ped_ped_1 .ped_remove, #zam_zam_1 .zam_remove{
+	display: none;
+}
+.page-ped{
+	border: 1px solid #b3b3b3;
+	padding: 15px;
+	box-sizing: border-box;
+	overflow: hidden;
+	width: calc(100% - 15px);
+}
+.page-ped .alert{
+	width:100%;
+}
+.page-ped .sub-title{
+	font-size: 16px;
+	color: #23282d;
+	padding: 15px 0;
+}
+.page-ped .ped_item, .page-ped .zam_item{
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    border: 1px solid #b3b3b3;
+    padding: 15px 15px 30px;
+    position: relative;
+}
+#add_zamblock, #add_pedblock{
+	width: 100%;
+	overflow: hidden;
+	padding-top: 15px;
+}
+.page-ped .link_remove {
+    position: absolute;
+    color: red;
+    left: 15px;
+    bottom: 15px;
+}
+.page-ped .img-preview{
+	height: 100px;
+	overflow: hidden;
+	width: 100px;
+	padding: 4px;
+	background-color: #fff;
+	border: 1px solid #dee2e6;
+	border-radius: 4px;
+	box-sizing: border-box;
+	text-align: center;
+	line-height: 88px;
+	float:left;
+}
+.page-ped .img-preview img{
+	max-width: 100%;
+	max-height: 100%;
+	border: 1px solid #dee2e6;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+.page-ped .input_uploader label{
+	float: left;
+	width: calc(100% - 115px);
+	margin-left: 15px;
+}
+.page-ped .input_uploader input{
+	float: left;
+	width: calc(85% - 115px);
+	margin-left: 15px;
+}
+.page-ped .input_uploader .link_btn{
+	display: inline-block;
+	box-sizing: border-box;
+	padding-left: 15px;
+	float: right;
+	width: 15%;
+	text-align: right;
+}
+.page-ped .zam_item .input_uploader input,
+.page-ped .ped_item .input_uploader input{
+	width: calc(70% - 115px);
+}
+.page-ped .zam_item .input_uploader .link_btn,
+.page-ped .ped_item .input_uploader .link_btn{
+	width: 30%;
+}
+
+
+/*мто*/
+.page-mat{
+	width: calc(100% - 15px);
+	margin: 0 0 30px;
+	position: relative;
+	border: 1px solid #b3b3b3;
+	padding: 15px;
+	box-sizing: border-box;
+}
+.page-mat .input_uploader input{
+	width: 42.5%;
+	float: left;
+	box-sizing: border-box;
+}
+.page-mat .input_uploader .link_btn{
+	display: inline-block;
+	box-sizing: border-box;
+	padding-left: 15px;
+	float: right;
+	width: 15%;
+	text-align: right;
+}
+
+
+/*стипендии*/
+.page-stip{
+	width: calc(100% - 15px);
+	margin: 0 0 30px;
+	position: relative;
+	border: 1px solid #b3b3b3;
+	padding: 15px;
+	box-sizing: border-box;
+}
+.page-stip .input_uploader input{
+	width: 42.5%;
+	float: left;
+	box-sizing: border-box;
+}
+.page-stip .link_btn{
+	display: inline-block;
+	box-sizing: border-box;
+	padding-left: 15px;
+	float: right;
+	width: 15%;
+	text-align: right;
+}
+
+
+/*платные образовательные услуги*/
+#plat_plat_1 .plat_remove{
+	display: none;
+}
+.page-plat {
+    width: calc(100% - 15px);
+    border: 1px solid #b3b3b3;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.page-plat .plat-title {
+    background: #b4b4b4;
+    padding: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.page-plat .plat_item{
+	position: relative;
+}
+.page-plat .plat_item .input-block input{
+	float: left;
+	width: 35%;
+	box-sizing: border-box;
+}
+.page-plat .link_btn{
+    display: inline-block;
+    box-sizing: border-box;
+    padding-left: 15px;
+    float: left;
+    width: 15%;
+    text-align: left;
+}
+.page-plat .plat_item .link_remove {
+    position: absolute;
+	color: red;
+	right: 0;
+	bottom: 21px;
+}
+#plat_plat_1 .input-block input{
+	width: 42.5%;
+}
+#plat_plat_1 .link_btn{
+	float: right;
+	text-align: right;
+}
+.page-plat .plat-link input{
+	box-sizing: border-box;
+	width: 100% !important;
+	margin: 0;
+}
+
+
+/*ФХД*/
+.page-fin{
+	width: calc(100% - 15px);
+    border: 1px solid #b3b3b3;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+/*вакантные места*/
+.page-vac{
+	width: calc(100% - 15px);
+    border: 1px solid #b3b3b3;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/*страница настроек*/
+.settings-block{}
+.settings-block .del{
+	font-size: 14px;
+}
+.settings-block form{
+	border: 1px solid #ddd;
+	box-sizing: border-box;
+	width: calc(100% - 15px);
+	padding: 15px;
+	}
+.switch {
+  	position: relative;
+  	height: 26px;
+	width: 120px;
+	margin: 15px 0;
+	background: #000;
+	border-radius: 3px;
+	background: rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+}
+.switch-label {
+	position: relative;
+	z-index: 2;
+	float: left;
+	width: 58px;
+	line-height: 26px;
+	font-size: 12px;
+	color: #000;
+	text-align: center;
+	cursor: pointer;
+}
+.switch-label:active {
+	font-weight: bold;
+}
+.switch-label-off {
+	padding-left: 2px;
+}
+.switch-label-on {
+	padding-right: 2px;
+}
+.switch-input{
+	display: none !important;
+}
+.switch-input:checked + .switch-label {
+	font-weight: bold;
+	color: #000;
+	text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+	-webkit-transition: 0.15s ease-out;
+	-moz-transition: 0.15s ease-out;
+	-ms-transition: 0.15s ease-out;
+	-o-transition: 0.15s ease-out;
+	transition: 0.15s ease-out;
+	-webkit-transition-property: color, text-shadow;
+	-moz-transition-property: color, text-shadow;
+	-ms-transition-property: color, text-shadow;
+	-o-transition-property: color, text-shadow;
+	transition-property: color, text-shadow;
+}
+.switch-input:checked + .switch-label-on ~ .switch-selection {
+	left: 60px;
+  /* Note: left: 50%; doesn't transition in WebKit */
+}
+.switch-selection {
+	position: absolute;
+	z-index: 1;
+	top: 2px;
+	left: 2px;
+	display: block;
+	width: 58px;
+	height: 22px;
+	border-radius: 3px;
+	background-color: #65bd63;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9dd993), color-stop(100%, #65bd63));
+	background-image: -webkit-linear-gradient(top, #9dd993, #65bd63);
+	background-image: -moz-linear-gradient(top, #9dd993, #65bd63);
+	background-image: -ms-linear-gradient(top, #9dd993, #65bd63);
+	background-image: -o-linear-gradient(top, #9dd993, #65bd63);
+	background-image: linear-gradient(top, #9dd993, #65bd63);
+	-webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+	-webkit-transition: left 0.15s ease-out;
+	-moz-transition: left 0.15s ease-out;
+	-ms-transition: left 0.15s ease-out;
+	-o-transition: left 0.15s ease-out;
+	transition: left 0.15s ease-out;
+}
+
+
+/*---------------медиа запросы-----------------*/
+@media only screen and (min-width:1200px) and (max-width:1399px){
+	
+	/*документы*/
+	.page-docs .link_btn{
+		width: 18%;
+	}
+	.page-docs .input-block input{
+		width: 41%;
+	}
+	.page-docs .otch_item:not(:first-child) .input-block input, 
+	.page-docs .pred_item:not(:first-child) .input-block input, 
+	.page-docs .sam_item:not(:first-child) .input-block input, 
+	.page-docs .fhd_item:not(:first-child) .input-block input{
+		width: 33%;
+	}
+	
+	/*образование*/
+	.page-edu .link_btn{
+		width: 32%;
+	}
+	.page-edu .input_uploader input{
+		width: 34%;
+	}
+	
+}
+
+@media only screen and (min-width:992px) and (max-width:1199px){
+	
+	/*основная страница*/
+	.obr-page .short{
+		width: 50%;
+		padding-right: 15px;
+	}
+	.obr-page .urls{
+		width: 50%;
+	}
+	.obr-page ul.codes li .main {
+		width: 100%;
+		padding-right: 0;
+		padding-bottom: 5px;
+	}
+	.obr-page ul.codes li .url{
+		width: auto;
+	}
+	.obr-page ul li .main{
+		width: 100%;
+		padding-right: 0;
+		padding-bottom: 5px;
+	}
+	.obr-page ul li .url{
+		width: auto;
+	}
+	
+	/*структура*/
+	.struct-image-block .input_uploader input{
+		width: calc(85% - 115px) !important;
+	}
+	.page-struct .input_uploader input{
+		width: 39%;
+	}
+	.page-struct .link_btn{
+		width: 22%;
+	}
+	
+	/*документы*/
+	.page-docs .link_btn{
+		width: 22%;
+	}
+	.page-docs .input-block input{
+		width: 39%;
+	}
+	.page-docs .otch_item:not(:first-child) .input-block input, 
+	.page-docs .pred_item:not(:first-child) .input-block input, 
+	.page-docs .sam_item:not(:first-child) .input-block input, 
+	.page-docs .fhd_item:not(:first-child) .input-block input{
+		width: 39%;
+	}
+	.page-docs .otch_item:not(:first-child) .link_btn, 
+	.page-docs .pred_item:not(:first-child) .link_btn, 
+	.page-docs .sam_item:not(:first-child) .link_btn, 
+	.page-docs .fhd_item:not(:first-child) .link_btn{
+		width: 22%;
+	}
+	.page-docs .otch_item:not(:first-child) .link_remove, 
+	.page-docs .pred_item:not(:first-child) .link_remove, 
+	.page-docs .sam_item:not(:first-child) .link_remove, 
+	.page-docs .fhd_item:not(:first-child) .link_remove{
+		bottom: 15px;
+	}
+	.page-docs .input-block {
+		padding-bottom: 30px;
+	}
+	
+	/*образование*/
+	.edu-docs .link_btn{
+		width: 22% !important;
+	}
+	.edu-docs input {
+		width: 39% !important;
+	}
+	.page-edu .input_uploader input{
+		width: 100%;
+	}
+	.page-edu .link_btn{
+		width: 100%;
+	}
+	
+	/*образовательные стандарты*/
+	.page-stand .stand_item .link_remove{
+		width: 22%;
+	}
+	.page-stand .stand_item .input-block{
+		width: 78%;
+	}
+	
+	/*руководство*/
+	.page-ped .zam_item .input_uploader input, 
+	.page-ped .ped_item .input_uploader input{
+		width: calc(100% - 115px);
+	}
+	.page-ped .zam_item .input_uploader .link_btn, 
+	.page-ped .ped_item .input_uploader .link_btn{
+		width: calc(100% - 115px);
+	}
+	
+	/*мто*/
+	.page-mat .input_uploader .link_btn{
+		width: 22%;
+	}
+	.page-mat .input_uploader input{
+		width: 39%;
+	}
+	
+	/*стипендии*/
+	.page-stip .link_btn{
+		width: 22%;
+	}
+	.page-stip .input_uploader input{
+		width: 39%;
+	}
+	
+	/*платные услуги*/
+	#plat_plat_1 .input-block input{
+		width: 39%;
+	}
+	.page-plat .link_btn{
+		width: 22%;
+		float: right;
+		text-align: right;
+	}
+	.page-plat .plat_item .input-block input{
+		width: 39%;
+	}
+	.page-plat .plat_item .link_remove{
+		bottom: 15px;
+	}
+	.plat_item .input-block{
+		padding-bottom: 30px;
+	}
+	
+}
+
+@media only screen and (min-width:768px) and (max-width:991px){
+	
+	/*основная страница*/
+	.obr-page .short{
+		width: 50%;
+		padding-right: 15px;
+	}
+	.obr-page .urls{
+		width: 50%;
+	}
+	.obr-page ul.codes li .main {
+		width: 100%;
+		padding-right: 0;
+		padding-bottom: 5px;
+	}
+	.obr-page ul.codes li .url{
+		width: auto;
+	}
+	.obr-page ul li .main{
+		width: 100%;
+		padding-right: 0;
+		padding-bottom: 5px;
+	}
+	.obr-page ul li .url{
+		width: auto;
+	}
+	
+	/*структура*/
+	.struct-image-block .input_uploader input{
+		width: calc(75% - 115px)  !important;
+	}
+	.struct-image-block .input_uploader .link_btn{
+		width: 25%;
+	}
+	.page-struct .input_uploader input{
+		width: 50%;
+	}
+	.page-struct .link_btn{
+		width: 100%;
+	}
+	
+	/*документы*/
+	.page-docs .input-block input{
+		width: 50%;
+	}
+	.page-docs .link_btn{
+		width: 100%;
+	}
+	.page-docs .otch_item:not(:first-child) .input-block input, 
+	.page-docs .pred_item:not(:first-child) .input-block input, 
+	.page-docs .sam_item:not(:first-child) .input-block input, 
+	.page-docs .fhd_item:not(:first-child) .input-block input{
+		width: 50%;
+	}
+	.page-docs .otch_item:not(:first-child) .link_remove, 
+	.page-docs .pred_item:not(:first-child) .link_remove, 
+	.page-docs .sam_item:not(:first-child) .link_remove, 
+	.page-docs .fhd_item:not(:first-child) .link_remove{
+		right: auto;
+		bottom: 25px;
+		left: 0;
+	}
+	
+	/*образование*/
+	.edu-docs input{
+		width: 50% !important;
+	}
+	.edu-docs .link_btn{
+		width: 100% !important;
+	}
+	.page-edu .edu_item{
+		width: 100%;
+	}
+	
+	/*образовательные стандарты*/
+	.page-stand .stand_item .input-block{
+		width: 100%;
+	}
+	.page-stand .stand_item .link_remove{
+		width: 100%;
+	}
+	.page-stand .stand_item{
+		padding-bottom: 15px;
+	}
+	.page-stand .stand_item .input-block{
+		padding-bottom: 0;
+	}
+	
+	/*руководство*/
+	.page-ped .input_uploader input{
+		width: calc(75% - 115px);
+	}
+	.page-ped .input_uploader .link_btn{
+		width: 25%;
+	}
+	.page-ped .ped_item, 
+	.page-ped .zam_item{
+		width: 100%;
+	}
+	
+	/*мто*/
+	.page-mat .input_uploader input{
+		width: 50%;
+	}
+	.page-mat .input_uploader .link_btn{
+		width: 100%;
+	}
+	
+	/*стипендии*/
+	.page-stip .input_uploader input{
+		width: 50%;
+	}
+	.page-stip .link_btn{
+		width: 100%;
+	}
+	
+	/*платные услуги*/
+	#plat_plat_1 .input-block input{
+		width: 50%;
+	}
+	#plat_plat_1 .link_btn{
+		width: 100%;
+	}
+	.page-plat .plat_item .input-block input{
+		width: 50%;
+	}
+	.page-plat .link_btn{
+		float: right;
+		width: 100%;
+		text-align: right;
+	}
+	.page-plat .plat_item .link_remove{
+		right: auto;
+		bottom: 15px;
+		left: 0;
+	}
+	
+	
+}
+
+@media only screen and (min-width:641px) and (max-width:767px){
+	
+	/*основная страница*/
+	.obr-page .short{
+		width: 50%;
+		padding-right: 15px;
+	}
+	.obr-page .urls{
+		width: 50%;
+	}
+	.obr-page ul.codes li .main {
+		width: 100%;
+		padding-right: 0;
+		padding-bottom: 5px;
+	}
+	.obr-page ul.codes li .url{
+		width: auto;
+	}
+	.obr-page ul li .main{
+		width: 100%;
+		padding-right: 0;
+		padding-bottom: 5px;
+	}
+	.obr-page ul li .url{
+		width: auto;
+	}
+	
+	/*структура*/
+	.struct-image-block .input_uploader input{
+		width: calc(75% - 115px) !important;
+	}
+	.struct-image-block .input_uploader .link_btn{
+		width: 25%;
+	}
+	.page-struct .input_uploader input{
+		width: 50%;
+	}
+	.page-struct .link_btn{
+		width: 100%;
+	}
+	
+	/*документы*/
+	.page-docs .input-block input{
+		width: 50%;
+	}
+	.page-docs .link_btn{
+		width: 100%;
+	}
+	.page-docs .otch_item:not(:first-child) .input-block input, 
+	.page-docs .pred_item:not(:first-child) .input-block input, 
+	.page-docs .sam_item:not(:first-child) .input-block input, 
+	.page-docs .fhd_item:not(:first-child) .input-block input{
+		width: 50%;
+	}
+	.page-docs .otch_item:not(:first-child) .link_remove, 
+	.page-docs .pred_item:not(:first-child) .link_remove, 
+	.page-docs .sam_item:not(:first-child) .link_remove, 
+	.page-docs .fhd_item:not(:first-child) .link_remove{
+		right: auto;
+		bottom: 25px;
+		left: 0;
+	}
+	
+	/*образование*/
+	.edu-docs input{
+		width: 50% !important;
+	}
+	.edu-docs .link_btn{
+		width: 100% !important;
+	}
+	.page-edu .edu_item{
+		width: 100%;
+	}
+	
+	/*образовательные стандарты*/
+	.page-stand .stand_item .input-block{
+		width: 100%;
+	}
+	.page-stand .stand_item .link_remove{
+		width: 100%;
+	}
+	.page-stand .stand_item{
+		padding-bottom: 15px;
+	}
+	.page-stand .stand_item .input-block{
+		padding-bottom: 0;
+	}
+	
+	/*руководство*/
+	.page-ped .input_uploader input{
+		width: calc(75% - 115px);
+	}
+	.page-ped .input_uploader .link_btn{
+		width: 25%;
+	}
+	.page-ped .ped_item, 
+	.page-ped .zam_item{
+		width: 100%;
+	}
+	
+	/*мто*/
+	.page-mat .input_uploader input{
+		width: 50%;
+	}
+	.page-mat .input_uploader .link_btn{
+		width: 100%;
+	}
+	
+	/*стипендии*/
+	.page-stip .input_uploader input{
+		width: 50%;
+	}
+	.page-stip .link_btn{
+		width: 100%;
+	}
+	
+	/*платные услуги*/
+	#plat_plat_1 .input-block input{
+		width: 50%;
+	}
+	#plat_plat_1 .link_btn{
+		width: 100%;
+	}
+	.page-plat .plat_item .input-block input{
+		width: 50%;
+	}
+	.page-plat .link_btn{
+		float: right;
+		width: 100%;
+		text-align: right;
+	}
+	.page-plat .plat_item .link_remove{
+		right: auto;
+		bottom: 15px;
+		left: 0;
+	}
+
+}
+
+@media only screen and (min-width:481px) and (max-width:640px){
+	
+	.input-block label{
+		font-size: 12px;
+	}
+	.input-block input,
+	.input-block textarea{
+		font-size: 12px;
+	}
+	
+	/*основная страница*/
+	.obr-page .short{
+		width: 100%;
+		padding-right: 0;
+	}
+	.obr-page .urls {
+		width: 100%;
+	}
+	
+	/*структура*/
+	.struct-image-block .input_uploader input{
+		width: calc(100% - 115px) !important;
+	}
+	.struct-image-block .input_uploader .link_btn{
+		width: calc(100% - 115px)  !important;
+	}
+	.page-struct .input_uploader input{
+		width: 50%;
+	}
+	.page-struct .link_btn{
+		width: 100%;
+	}
+	.page-struct .link_remove{
+		right: 15px;
+		left: auto;
+	}
+	
+	/*документы*/
+	.page-docs .fhd-link label{
+		font-size: 12px;
+	}
+	.page-docs .input-block input{
+		width: 50%;
+	}
+	.page-docs .link_btn{
+		width: 100%;
+	}
+	.page-docs .otch_item:not(:first-child) .input-block input, 
+	.page-docs .pred_item:not(:first-child) .input-block input, 
+	.page-docs .sam_item:not(:first-child) .input-block input, 
+	.page-docs .fhd_item:not(:first-child) .input-block input{
+		width: 50%;
+	}
+	.page-docs .otch_item:not(:first-child) .link_remove, 
+	.page-docs .pred_item:not(:first-child) .link_remove, 
+	.page-docs .sam_item:not(:first-child) .link_remove, 
+	.page-docs .fhd_item:not(:first-child) .link_remove{
+		bottom: 5px;
+	}
+	.otch_item .input-block, 
+	.pred_item .input-block, 
+	.sam_item .input-block, 
+	.fhd_item .input-block{
+		margin-bottom: 15px;
+	}
+	
+	/*образование*/
+	.edu-docs input, 
+	.page-edu .input_uploader input{
+		width: 50% !important;
+	}
+	.edu-docs .link_btn,
+	.page-edu .link_btn{
+		width: 100% !important;
+	}
+	.page-edu .edu_item{
+		width: 100%;
+	}
+	
+	/*образовательные стандарты*/
+	.page-stand .links-title{
+		font-size: 12px;
+	}
+	.page-stand .stand_item .input-block{
+		width: 100%;
+	}
+	.page-stand .stand_item .link_remove{
+		width: 100%;
+	}
+	.page-stand .stand_item{
+		padding-bottom: 15px;
+	}
+	.page-stand .stand_item .input-block{
+		padding-bottom: 0;
+	}
+	
+	/*руководство*/
+	.page-ped .input_uploader input{
+		width: calc(100% - 115px);
+	}
+	.page-ped .input_uploader .link_btn{
+		width: calc(100% - 115px);
+	}
+	.page-ped .ped_item, .page-ped .zam_item{
+		width: 100%;
+	}
+	.page-ped .zam_item .input_uploader input, 
+	.page-ped .ped_item .input_uploader input{
+		width: calc(100% - 115px);
+	}
+	.page-ped .zam_item .input_uploader .link_btn, 
+	.page-ped .ped_item .input_uploader .link_btn{
+		width: calc(100% - 115px);
+	}
+	
+	/*мто*/
+	.page-mat .input_uploader input{
+		width: 50%;
+	}
+	.page-mat .input_uploader .link_btn{
+		width: 100%;
+	}
+	
+	/*стипендии*/
+	.page-stip .input_uploader input{
+		width: 50%;
+	}
+	.page-stip .link_btn{
+		width: 100%;
+	}
+	
+	/*платные образовательные услуги*/
+	.page-plat .plat-title{
+		font-size: 12px;
+	}
+	#plat_plat_1 .input-block input,
+	.page-plat .plat_item .input-block input{
+		width: 50%;
+	}
+	.page-plat .link_btn{
+		float: right !important;
+		width: 100%;
+		text-align: right !important;
+	}
+	.page-plat .plat_item .link_remove{
+		right: auto;
+		bottom: 15px;
+		left: 0;
+	}
+	
+	
+}
+@media only screen and (max-width:480px){
+	
+	.input-block label{
+		font-size: 12px;
+	}
+	.input-block input,
+	.input-block textarea{
+		font-size: 12px;
+	}
+
+	/*основная страница*/
+	.obr-page .short{
+		width: 100%;
+		padding-right: 0;
+	}
+	.obr-page .urls{
+		width: 100%;
+	}
+	.obr-page ul li .main{
+		width: 100% !important;
+		padding-right: 0;
+	}
+	.obr-page ul li .url{
+		width: auto !important;
+		display: inline-block;
+		margin-top: 5px;
+	}
+
+	/*структура*/
+	.struct-image-block .input_uploader input{
+		width: calc(100% - 115px) !important;
+	}
+	.struct-image-block .input_uploader .link_btn{
+		width: calc(100% - 115px);
+	}
+	.page-struct .input_uploader input{
+		width: 100%;
+	}
+	.page-struct .link_btn{
+		width: 100%;
+	}
+	.page-struct .link_remove{
+		left: auto;
+		right: 15px;
+	}
+
+	/*документы*/
+	.page-docs .otch_item:not(:first-child) .input-block input, 
+	.page-docs .pred_item:not(:first-child) .input-block input, 
+	.page-docs .sam_item:not(:first-child) .input-block input, 
+	.page-docs .fhd_item:not(:first-child) .input-block input{
+		width: 100%;
+	}
+
+	.page-docs .otch_item:not(:first-child) .link_remove, 
+	.page-docs .pred_item:not(:first-child) .link_remove, 
+	.page-docs .sam_item:not(:first-child) .link_remove, 
+	.page-docs .fhd_item:not(:first-child) .link_remove{
+		bottom: 5px;
+	}
+	.page-docs .fhd-link label{
+		font-size: 12px;
+	}
+	.page-docs .input-block input{
+		width: 100%;
+	}
+	.page-docs .link_btn{
+		width: 100%;
+	}
+	.fhd .form_btn,
+	.samoob .form_btn,
+	.predp .form_btn,
+	.otchet .form_btn{
+		font-size: 12px;
+		margin: 5px auto 0;
+		display: block;
+	}
+	.page-docs .otch_item, 
+	.page-docs .pred_item, 
+	.page-docs .sam_item, 
+	.page-docs .fhd_item{
+		margin-bottom: 5px;
+	}
+
+	/*образование*/
+	.edu-docs input{
+		width: 100% !important;
+	}
+	.edu-docs .link_btn {
+		width: 100% !important;
+	}
+	.page-edu .edu_item{
+		width: 100%;
+	}
+	.page-edu .input_uploader input{
+		width: 100%;
+	}
+	.page-edu .link_btn{
+		width: 100%;
+	}
+	.page-edu .pop{
+		width: 100%;
+	}
+
+	/*образовательные стандарты*/
+	.page-stand .links-title{
+		font-size: 12px;
+	}
+	.page-stand .stand_item{
+		margin-bottom: 15px;
+	}
+	.page-stand .stand_item .input-block{
+		width: 100%;
+		padding-bottom: 0;
+	}
+	.page-stand .input-block input{
+		width: 100%;
+	}
+	.page-stand .stand_item .link_remove{
+		width: 100%;
+	}
+
+	/*руководство*/
+	.page-ped .input_uploader input{
+		width: calc(100% - 115px);
+	}
+	.page-ped .input_uploader .link_btn{
+		width: calc(100% - 115px);
+	}
+	.page-ped .ped_item, 
+	.page-ped .zam_item{
+		width: 100%;
+	}
+	.page-ped .zam_item .input_uploader input, 
+	.page-ped .ped_item .input_uploader input{
+		width: calc(100% - 115px);
+	}
+	.page-ped .zam_item .input_uploader .link_btn, 
+	.page-ped .ped_item .input_uploader .link_btn{
+		width: calc(100% - 115px);
+	}
+
+	/*мто*/
+	.page-mat .input_uploader input{
+		width: 100%;
+	}
+	.page-mat .input_uploader .link_btn{
+		width: 100%;
+	}
+
+	/*стипендии*/
+	.page-stip .input_uploader input{
+		width: 100%;
+	}
+	.page-stip .link_btn{
+		width: 100%;
+	}
+
+	/*платные образовательные услуги*/
+	#plat_plat_1 .input-block input{
+		width: 100%;
+	}
+	.page-plat .plat_item{
+		padding-bottom: 5px;
+		margin-bottom: 15px;
+	}
+	.page-plat .link_btn{
+		width: 100%;
+		float: right;
+		text-align: right;
+	}
+	.page-plat .plat_item .input-block input{
+		width: 100%;
+	}
+	.page-plat .plat_item .link_remove{
+		bottom: 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
