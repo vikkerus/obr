@@ -18,9 +18,9 @@
 
 // delete_site_option если мкльтисайт и delete_option если одиночный 
 
-register_uninstall_hook(__FILE__, 'obr_uninstall');
+register_uninstall_hook(__FILE__, 'org_uninstall');
 
-function obr_uninstall()
+function org_uninstall()
 {
 	// проверка режима мультисайт
 	if ( is_multisite())
@@ -38,7 +38,7 @@ function obr_uninstall()
 				switch_to_blog($blog_id);
 
 				// функция удаления таблицы
-				obr_drop_table();
+				org_drop_table();
 			}
 
 			restore_current_blog();
@@ -50,18 +50,18 @@ function obr_uninstall()
 		if(get_option('del_flag') == 1)
 		{
 			// функция удаления таблицы
-			obr_drop_table();
+			org_drop_table();
 		}
 	}			
 }
 
 // функция удаления таблицы и опции
-function obr_drop_table()
+function org_drop_table()
 {
 	global $wpdb;
 	
 	// задаем название таблицы
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	// проверяем есть ли в базе таблица с таким же именем, если есть - удаляем
 	if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name)
@@ -88,10 +88,10 @@ require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
 /*-----------------Активация плагина-------------------*/
 
-register_activation_hook( __FILE__, 'obr_activate' );
+register_activation_hook( __FILE__, 'org_activate' );
 
 // функция активации плагина
-function obr_activate($network_wide)
+function org_activate($network_wide)
 {	
 	// проверка режима мультисайт и активации для сети
 	if ( is_multisite() && $network_wide )
@@ -106,7 +106,7 @@ function obr_activate($network_wide)
 			switch_to_blog($blog_id);
 
 			// функция создания таблицы
-			obr_create_table();
+			org_create_table();
 		}
 		
 		restore_current_blog();
@@ -114,18 +114,18 @@ function obr_activate($network_wide)
 	else
 	{
 		// функция создания таблицы
-		obr_create_table();
+		org_create_table();
 	}
 }
 
 
 // функция создания таблицы
-function obr_create_table()
+function org_create_table()
 {
 	global $wpdb;
 	
 	// задаем название таблицы
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	// проверяем есть ли в базе таблица с таким же именем, если нет - создаем
 	if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) 
@@ -175,13 +175,13 @@ function obr_create_table()
 
 
 // вызов хука с функцией проверки существования/создания таблицы плагина
-add_action( 'wp_insert_site', 'obr_activate');        
+add_action( 'wp_insert_site', 'org_activate');        
  
 
 /*-----------------Преобразование данных отчёта в CSV-------------------*/
 
-// функция, преобразующая данные полученные в функции obr_net_page() в файл CSV (возвращает имя файла)
-function obr_net_csv()
+// функция, преобразующая данные полученные в функции org_net_page() в файл CSV (возвращает имя файла)
+function org_net_csv()
 {
 	// строка, которая будет записана в csv файл
 	$CSV_str = '';
@@ -192,9 +192,9 @@ function obr_net_csv()
 	
 	$link =  false;	
 	
-	if(function_exists('obr_net_page'))
+	if(function_exists('org_net_page'))
 	{
-		$data = obr_net_page();
+		$data = org_net_page();
 		
 		$heads = [
 			
@@ -297,7 +297,7 @@ function obr_net_csv()
 			
 			$CSV_str = rtrim( $CSV_str, $row_delimiter );
 			
-			$dir = $_SERVER['DOCUMENT_ROOT'].'/obr_upload';
+			$dir = $_SERVER['DOCUMENT_ROOT'].'/org_upload';
 			
 			// проверяем существование папки для загрузки документа, если нет, создаем
 			if (!is_dir($dir))
@@ -308,7 +308,7 @@ function obr_net_csv()
 			$file =  $dir.'/otchet.csv';
 			
 			// ссылка на файл без home/public_html в пути
-			$link = site_url('/obr_upload/otchet.csv');
+			$link = site_url('/org_upload/otchet.csv');
 			
 			// удаляем старый/предыдущий файл если существует
 			if(file_exists($file))
@@ -332,7 +332,7 @@ function obr_net_csv()
 /*-----------------Функции вывода пунктов меню/страниц-------------------*/
 
 // функция вывода страницы c отчётами для сети 
-function obr_net_page()
+function org_net_page()
 {	
 	$data = [];
 	
@@ -358,13 +358,13 @@ function obr_net_page()
 				{
 					if($val == 1)
 					{
-						$table_name = $wpdb->base_prefix.'obr_infotable';
+						$table_name = $wpdb->base_prefix.'org_infotable';
 						
 						$option_table = $wpdb->base_prefix.'options';
 					}
 					else
 					{
-						$table_name = $wpdb->base_prefix.$val.'_obr_infotable';
+						$table_name = $wpdb->base_prefix.$val.'_org_infotable';
 						
 						$option_table = $wpdb->base_prefix.$val.'_options';
 					}
@@ -388,132 +388,132 @@ function obr_net_page()
 		}
 	}
 	
-	load_template(dirname( __FILE__ ) . '/includes/network/obr_net_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/network/org_net_page.php');
 	
 	return $data;
 }
 
 
 // функция вывода главной страницы плагина
-function obr_menu_page()
+function org_menu_page()
 {	
-	obr_page();
+	org_page();
 }
 
 
 // функция вывода страницы основных сведений
-function obr_main_info()
+function org_main_info()
 {
-	echo '<h2 class="obr_title">Основные сведения</h2>';
+	echo '<h2 class="org_title">Основные сведения</h2>';
 	
-	obr_main_info_page();
+	org_main_info_page();
 }
 
 
 // функция вывода страницы структуры
-function obr_scructure()
+function org_scructure()
 {
-	echo '<h2 class="obr_title">Структура и органы управления образовательной организацией</h2>';
+	echo '<h2 class="org_title">Структура и органы управления образовательной организацией</h2>';
 	
-	obr_structure_page();
+	org_structure_page();
 }
 
 
 // функция вывода страницы документов
-function obr_documents()
+function org_documents()
 {
-	echo '<h2 class="obr_title">Документы</h2>';
+	echo '<h2 class="org_title">Документы</h2>';
 	
-	obr_documents_page();
+	org_documents_page();
 }
 
 
 // функция вывода страницы образование
-function obr_education()
+function org_education()
 {
-	echo '<h2 class="obr_title">Образование</h2>';
+	echo '<h2 class="org_title">Образование</h2>';
 	
-	obr_education_page();
+	org_education_page();
 }
 
 	
 // функция вывода страницы образовательные стандарты
-function obr_standart()
+function org_standart()
 {
-	echo '<h2 class="obr_title">Образовательные стандарты</h2>';
+	echo '<h2 class="org_title">Образовательные стандарты</h2>';
 	
-	obr_standart_page();
+	org_standart_page();
 }	
 
 
 // функция вывода страницы руководство
-function obr_pedagog()
+function org_pedagog()
 {
-	echo '<h2 class="obr_title">Руководство. Педагогический (научно-педагогический) состав</h2>';
+	echo '<h2 class="org_title">Руководство. Педагогический (научно-педагогический) состав</h2>';
 	
-	obr_pedagog_page();
+	org_pedagog_page();
 }
 
 
 // функция вывода страницы мто
-function obr_material()
+function org_material()
 {
-	echo '<h2 class="obr_title">Материально-техническое обеспечение и оснащенность образовательного процесса</h2>';
+	echo '<h2 class="org_title">Материально-техническое обеспечение и оснащенность образовательного процесса</h2>';
 	
-	obr_material_page();
+	org_material_page();
 }
 
 
 // функция вывода страницы стипендии
-function obr_stipend()
+function org_stipend()
 {
-	echo '<h2 class="obr_title">Стипендии и иные виды материальной поддержки</h2>';
+	echo '<h2 class="org_title">Стипендии и иные виды материальной поддержки</h2>';
 	
-	obr_stipend_page();
+	org_stipend_page();
 }
 
 
 // функция вывода страницы платных услуг
-function obr_platn()
+function org_platn()
 {
-	echo '<h2 class="obr_title">Платные образовательные услуги</h2>';
+	echo '<h2 class="org_title">Платные образовательные услуги</h2>';
 	
-	obr_platn_page();
+	org_platn_page();
 }
 
 
 // функция вывода страницы фхд
-function obr_finance()
+function org_finance()
 {
-	echo '<h2 class="obr_title">Финансово-хозяйственная деятельность</h2>';
+	echo '<h2 class="org_title">Финансово-хозяйственная деятельность</h2>';
 	
-	obr_finance_page();
+	org_finance_page();
 }
 
 
 // функция вывода страницы вакантные места
-function obr_vacancy()
+function org_vacancy()
 {
-	echo '<h2 class="obr_title">Вакантные места для приема (перевода)</h2>';
+	echo '<h2 class="org_title">Вакантные места для приема (перевода)</h2>';
 	
-	obr_vacancy_page();
+	org_vacancy_page();
 }
 
 /*-------------------Обработка данных------------------*/
 
 // главная страница плагина
-function obr_page()
+function org_page()
 {
-	load_template(dirname( __FILE__ ) . '/includes/obr_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/org_page.php');
 }
 
 
 // страница настроек плагина
-function obr_settings()
+function org_settings()
 {	
 	$data = [];
 	
-	$data['action'] = $_SERVER['PHP_SELF'].'?page=obrset&amp;updated=true';
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgset&amp;updated=true';
 	
 	if((($opt = get_option('del_flag')) !== false) && $opt !== '')
 	{
@@ -525,7 +525,7 @@ function obr_settings()
 	{
 		if (function_exists('current_user_can') && !current_user_can('manage_options'))
 		{
-			die(e_('Hacker?', 'obrset'));
+			die(e_('Hacker?', 'orgset'));
 		}
 		
 		if (function_exists('check_admin_referer'))
@@ -548,7 +548,7 @@ function obr_settings()
 			
 	}
 	
-	load_template(dirname( __FILE__ ) . '/includes/obr_settings.php');
+	load_template(dirname( __FILE__ ) . '/includes/org_settings.php');
 	
 	return $data;
 }
@@ -556,13 +556,13 @@ function obr_settings()
 
 
 // обработка данных на странице основных сведений
-function obr_main_info_page()
+function org_main_info_page()
 {
 	global $wpdb;
 	
 	$data = [];
 	
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	// проверяем, есть ли уже в базе данные
 	$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'main'" );
@@ -573,14 +573,14 @@ function obr_main_info_page()
 		$data['restored'] = unserialize(base64_decode($query));
 	}
 	
-	$data['action'] = $_SERVER['PHP_SELF'].'?page=obrmain&amp;updated=true';
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgmain&amp;updated=true';
 	
 	// проверки прав пользователя и скрытых полей и запись данных в массив
 	if (isset($_POST['info_btn']))
 	{
 		if (function_exists('current_user_can') && !current_user_can('manage_options'))
 		{
-			die(e_('Hacker?', 'obrmain'));
+			die(e_('Hacker?', 'orgmain'));
 		}
 		
 		if (function_exists('check_admin_referer'))
@@ -614,7 +614,7 @@ function obr_main_info_page()
 			
 	}
 	
-	load_template(dirname( __FILE__ ) . '/includes/obr_main_info_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/org_main_info_page.php');
 	
 	return $data;
 	
@@ -622,13 +622,13 @@ function obr_main_info_page()
 
 
 // обработка данных на странице структуры
-function obr_structure_page()
+function org_structure_page()
 {
 	global $wpdb;
 	
 	$data = [];
 	
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	// проверяем, есть ли уже в базе данные
 	$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'structure'" );
@@ -639,14 +639,14 @@ function obr_structure_page()
 		$data['restored'] = unserialize(base64_decode($query));
 	}
 	
-	$data['action'] = $_SERVER['PHP_SELF'].'?page=obrstruct&amp;updated=true';
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgstruct&amp;updated=true';
 	
 	// проверки прав пользователя и скрытых полей и запись данных в массив
 	if (isset($_POST['struct_btn']))
 	{
 		if (function_exists('current_user_can') && !current_user_can('manage_options'))
 		{
-			die(e_('Hacker?', 'obrstruct'));
+			die(e_('Hacker?', 'orgstruct'));
 		}
 		
 		if (function_exists('check_admin_referer'))
@@ -675,20 +675,20 @@ function obr_structure_page()
 			
 	}
 		
-	load_template(dirname( __FILE__ ) . '/includes/obr_structure_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/org_structure_page.php');
 	
 	return $data;
 }
 
 
 // обработка данных на странице документы
-function obr_documents_page()
+function org_documents_page()
 {
 	global $wpdb;
 	
 	$data = [];
 	
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	// проверяем, есть ли уже в базе данные
 	$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'docs'" );
@@ -699,14 +699,14 @@ function obr_documents_page()
 		$data['restored'] = unserialize(base64_decode($query));
 	}
 	
-	$data['action'] = $_SERVER['PHP_SELF'].'?page=obrdocs&amp;updated=true';
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgdocs&amp;updated=true';
 	
 	// проверки прав пользователя и скрытых полей и запись данных в массив
 	if (isset($_POST['docs_btn']))
 	{
 		if (function_exists('current_user_can') && !current_user_can('manage_options'))
 		{
-			die(e_('Hacker?', 'obrdocs'));
+			die(e_('Hacker?', 'orgdocs'));
 		}
 		
 		if (function_exists('check_admin_referer'))
@@ -812,20 +812,20 @@ function obr_documents_page()
 			
 	}
 	
-	load_template(dirname( __FILE__ ) . '/includes/obr_documents_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/org_documents_page.php');
 	
 	return $data;
 }
 
 
 // обработка данных на странице образование
-function obr_education_page()
+function org_education_page()
 {
 	global $wpdb;
 	
 	$data = [];
 	
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	// проверяем, есть ли уже в базе данные
 	$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'education'" );
@@ -836,14 +836,14 @@ function obr_education_page()
 		$data['restored'] = unserialize(base64_decode($query));
 	}
 	
-	$data['action'] = $_SERVER['PHP_SELF'].'?page=obredu&amp;updated=true';
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgedu&amp;updated=true';
 	
 	// проверки прав пользователя и скрытых полей и запись данных в массив
 	if (isset($_POST['edu_btn']))
 	{
 		if (function_exists('current_user_can') && !current_user_can('manage_options'))
 		{
-			die(e_('Hacker?', 'obredu'));
+			die(e_('Hacker?', 'orgedu'));
 		}
 		
 		if (function_exists('check_admin_referer'))
@@ -897,20 +897,20 @@ function obr_education_page()
 			
 	}
 		
-	load_template(dirname( __FILE__ ) . '/includes/obr_education_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/org_education_page.php');
 	
 	return $data;
 }
 
 
 // обработка данных на странице образовfтельные стандарты
-function obr_standart_page()
+function org_standart_page()
 {
 	global $wpdb;
 	
 	$data = [];
 	
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	// проверяем, есть ли уже в базе данные
 	$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'standart'" );
@@ -921,14 +921,14 @@ function obr_standart_page()
 		$data['restored'] = unserialize(base64_decode($query));
 	}
 	
-	$data['action'] = $_SERVER['PHP_SELF'].'?page=obrstand&amp;updated=true';
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgstand&amp;updated=true';
 	
 	// проверки прав пользователя и скрытых полей и запись данных в массив
 	if (isset($_POST['stand_btn']))
 	{
 		if (function_exists('current_user_can') && !current_user_can('manage_options'))
 		{
-			die(e_('Hacker?', 'obrstand'));
+			die(e_('Hacker?', 'orgstand'));
 		}
 		
 		if (function_exists('check_admin_referer'))
@@ -951,20 +951,20 @@ function obr_standart_page()
 			
 	}
 	
-	load_template(dirname( __FILE__ ) . '/includes/obr_standart_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/org_standart_page.php');
 	
 	return $data;
 }
 
 
 // обработка данных на странице руковоство и педсостав
-function obr_pedagog_page()
+function org_pedagog_page()
 {
 	global $wpdb;
 	
 	$data = [];
 	
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	// проверяем, есть ли уже в базе данные
 	$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'manage'" );
@@ -975,14 +975,14 @@ function obr_pedagog_page()
 		$data['restored'] = unserialize(base64_decode($query));
 	}
 	
-	$data['action'] = $_SERVER['PHP_SELF'].'?page=obrped&amp;updated=true';
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgped&amp;updated=true';
 	
 	// проверки прав пользователя и скрытых полей и запись данных в массив
 	if (isset($_POST['ped_btn']))
 	{
 		if (function_exists('current_user_can') && !current_user_can('manage_options'))
 		{
-			die(e_('Hacker?', 'obrped'));
+			die(e_('Hacker?', 'orgped'));
 		}
 		
 		if (function_exists('check_admin_referer'))
@@ -1021,20 +1021,20 @@ function obr_pedagog_page()
 			
 	}
 	
-	load_template(dirname( __FILE__ ) . '/includes/obr_pedagog_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/org_pedagog_page.php');
 	
 	return $data;
 }
 
 
 // обработка данных на странице мто
-function obr_material_page()
+function org_material_page()
 {
 	global $wpdb;
 	
 	$data = [];
 	
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	// проверяем, есть ли уже в базе данные
 	$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'material'" );
@@ -1045,14 +1045,14 @@ function obr_material_page()
 		$data['restored'] = unserialize(base64_decode($query));
 	}
 	
-	$data['action'] = $_SERVER['PHP_SELF'].'?page=obrmat&amp;updated=true';
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgmat&amp;updated=true';
 	
 	// проверки прав пользователя и скрытых полей и запись данных в массив
 	if (isset($_POST['mat_btn']))
 	{
 		if (function_exists('current_user_can') && !current_user_can('manage_options'))
 		{
-			die(e_('Hacker?', 'obrmat'));
+			die(e_('Hacker?', 'orgmat'));
 		}
 		
 		if (function_exists('check_admin_referer'))
@@ -1088,20 +1088,20 @@ function obr_material_page()
 			
 	}
 	
-	load_template(dirname( __FILE__ ) . '/includes/obr_material_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/org_material_page.php');
 	
 	return $data;
 }
 
 
 // обработка данных на странице стипендий
-function obr_stipend_page()
+function org_stipend_page()
 {
 	global $wpdb;
 	
 	$data = [];
 	
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	// проверяем, есть ли уже в базе данные
 	$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'stipend'" );
@@ -1112,14 +1112,14 @@ function obr_stipend_page()
 		$data['restored'] = unserialize(base64_decode($query));
 	}
 	
-	$data['action'] = $_SERVER['PHP_SELF'].'?page=obrstip&amp;updated=true';
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgstip&amp;updated=true';
 	
 	// проверки прав пользователя и скрытых полей и запись данных в массив
 	if (isset($_POST['stip_btn']))
 	{
 		if (function_exists('current_user_can') && !current_user_can('manage_options'))
 		{
-			die(e_('Hacker?', 'obrstip'));
+			die(e_('Hacker?', 'orgstip'));
 		}
 		
 		if (function_exists('check_admin_referer'))
@@ -1152,20 +1152,20 @@ function obr_stipend_page()
 			
 	}
 	
-	load_template(dirname( __FILE__ ) . '/includes/obr_stipend_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/org_stipend_page.php');
 	
 	return $data;
 }
 
 
 // обработка данных на странице платных услуг
-function obr_platn_page()
+function org_platn_page()
 {
 	global $wpdb;
 	
 	$data = [];
 	
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	// проверяем, есть ли уже в базе данные
 	$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'paid'" );
@@ -1176,14 +1176,14 @@ function obr_platn_page()
 		$data['restored'] = unserialize(base64_decode($query));
 	}
 	
-	$data['action'] = $_SERVER['PHP_SELF'].'?page=obrplat&amp;updated=true';
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgplat&amp;updated=true';
 	
 	// проверки прав пользователя и скрытых полей и запись данных в массив
 	if (isset($_POST['plat_btn']))
 	{
 		if (function_exists('current_user_can') && !current_user_can('manage_options'))
 		{
-			die(e_('Hacker?', 'obrplat'));
+			die(e_('Hacker?', 'orgplat'));
 		}
 		
 		if (function_exists('check_admin_referer'))
@@ -1206,20 +1206,20 @@ function obr_platn_page()
 			
 	}
 	
-	load_template(dirname( __FILE__ ) . '/includes/obr_platn_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/org_platn_page.php');
 	
 	return $data;
 }
 
 
 // обработка данных на странице ФХД
-function obr_finance_page()
+function org_finance_page()
 {
 	global $wpdb;
 	
 	$data = [];
 	
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	// проверяем, есть ли уже в базе данные
 	$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'finance'" );
@@ -1230,14 +1230,14 @@ function obr_finance_page()
 		$data['restored'] = unserialize(base64_decode($query));
 	}
 	
-	$data['action'] = $_SERVER['PHP_SELF'].'?page=obrfhd&amp;updated=true';
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgfhd&amp;updated=true';
 	
 	// проверки прав пользователя и скрытых полей и запись данных в массив
 	if (isset($_POST['fin_btn']))
 	{
 		if (function_exists('current_user_can') && !current_user_can('manage_options'))
 		{
-			die(e_('Hacker?', 'obrfhd'));
+			die(e_('Hacker?', 'orgfhd'));
 		}
 		
 		if (function_exists('check_admin_referer'))
@@ -1263,20 +1263,20 @@ function obr_finance_page()
 			
 	}
 	
-	load_template(dirname( __FILE__ ) . '/includes/obr_finance_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/org_finance_page.php');
 	
 	return $data;
 }
 
 
 // обработка данных на странице вакантные места
-function obr_vacancy_page()
+function org_vacancy_page()
 {
 	global $wpdb;
 	
 	$data = [];
 	
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	// проверяем, есть ли уже в базе данные
 	$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'vacancy'" );
@@ -1287,14 +1287,14 @@ function obr_vacancy_page()
 		$data['restored'] = unserialize(base64_decode($query));
 	}
 	
-	$data['action'] = $_SERVER['PHP_SELF'].'?page=obrvac&amp;updated=true';
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgvac&amp;updated=true';
 	
 	// проверки прав пользователя и скрытых полей и запись данных в массив
 	if (isset($_POST['vac_btn']))
 	{
 		if (function_exists('current_user_can') && !current_user_can('manage_options'))
 		{
-			die(e_('Hacker?', 'obrvac'));
+			die(e_('Hacker?', 'orgvac'));
 		}
 		
 		if (function_exists('check_admin_referer'))
@@ -1319,7 +1319,7 @@ function obr_vacancy_page()
 			
 	}
 	
-	load_template(dirname( __FILE__ ) . '/includes/obr_vacancy_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/org_vacancy_page.php');
 	
 	return $data;
 }
@@ -1328,12 +1328,12 @@ function obr_vacancy_page()
 /*-------------------------Шорткоды-------------------------*/
 
 // функция, собирающая параметры для страницы основных сведений на фронтэнде
-function obr_main_front()
+function org_main_front()
 {
 	global $wpdb;
 	
 	// название таблицы
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	$data = '';
 	
@@ -1353,31 +1353,31 @@ function obr_main_front()
 	return $data;
 }
 
-// [obr_main] - основные сведения
-function obr_main_short( $atts )
+// [org_main] - основные сведения
+function org_main_short( $atts )
 {
 	$data = 'Страницы не существует.';
 	
-	if (file_exists(dirname( __FILE__ ) . '/includes/short/obr_main_info_short.php'))
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_main_info_short.php'))
 	{
 		// вызываем шаблон страницы		
-		$data = load_template(dirname( __FILE__ ) . '/includes/short/obr_main_info_short.php');
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_main_info_short.php');
 	}
 	
 	return $data;
 	
 }
-add_shortcode( 'obr_main', 'obr_main_short' );
+add_shortcode( 'org_main', 'org_main_short' );
 
 
 
 // функция, собирающая параметры для страницы структуры на фронтэнде
-function obr_struct_front()
+function org_struct_front()
 {
 	global $wpdb;
 	
 	// название таблицы
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	$data = '';
 	
@@ -1397,31 +1397,31 @@ function obr_struct_front()
 	return $data;
 }
 
-// [obr_struct] - структура и органы управления
-function obr_struct_short( $atts )
+// [org_struct] - структура и органы управления
+function org_struct_short( $atts )
 {
 	$data = 'Страницы не существует.';
 	
-	if (file_exists(dirname( __FILE__ ) . '/includes/short/obr_struct_short.php'))
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_struct_short.php'))
 	{
 		// вызываем шаблон страницы		
-		$data = load_template(dirname( __FILE__ ) . '/includes/short/obr_struct_short.php');
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_struct_short.php');
 	}
 	
 	return $data;
 	
 }
-add_shortcode( 'obr_struct', 'obr_struct_short' );
+add_shortcode( 'org_struct', 'org_struct_short' );
 
 
 
 // функция, собирающая параметры для страницы документов на фронтэнде
-function obr_docs_front()
+function org_docs_front()
 {
 	global $wpdb;
 	
 	// название таблицы
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	$data = '';
 	
@@ -1441,31 +1441,31 @@ function obr_docs_front()
 	return $data;
 }
 
-// [obr_docs] - документы
-function obr_docs_short( $atts )
+// [org_docs] - документы
+function org_docs_short( $atts )
 {
 	$data = 'Страницы не существует.';
 	
-	if (file_exists(dirname( __FILE__ ) . '/includes/short/obr_docs_short.php'))
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_docs_short.php'))
 	{
 		// вызываем шаблон страницы		
-		$data = load_template(dirname( __FILE__ ) . '/includes/short/obr_docs_short.php');
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_docs_short.php');
 	}
 	
 	return $data;
 	
 }
-add_shortcode( 'obr_docs', 'obr_docs_short' );
+add_shortcode( 'org_docs', 'org_docs_short' );
 
 
 
 // функция, собирающая параметры для страницы образования на фронтэнде
-function obr_edu_front()
+function org_edu_front()
 {
 	global $wpdb;
 	
 	// название таблицы
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	$data = '';
 	
@@ -1485,31 +1485,31 @@ function obr_edu_front()
 	return $data;
 }
 
-// [obr_edu] - образование
-function obr_edu_short( $atts )
+// [org_edu] - образование
+function org_edu_short( $atts )
 {
 	$data = 'Страницы не существует.';
 	
-	if (file_exists(dirname( __FILE__ ) . '/includes/short/obr_edu_short.php'))
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_edu_short.php'))
 	{
 		// вызываем шаблон страницы		
-		$data = load_template(dirname( __FILE__ ) . '/includes/short/obr_edu_short.php');
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_edu_short.php');
 	}
 	
 	return $data;
 	
 }
-add_shortcode( 'obr_edu', 'obr_edu_short' );
+add_shortcode( 'org_edu', 'org_edu_short' );
 
 
 
 // функция, собирающая параметры для страницы образовательных стандартов на фронтэнде
-function obr_stand_front()
+function org_stand_front()
 {
 	global $wpdb;
 	
 	// название таблицы
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	$data = '';
 	
@@ -1529,31 +1529,31 @@ function obr_stand_front()
 	return $data;
 }
 
-// [obr_stand] - образовательные стандарты
-function obr_stand_short( $atts )
+// [org_stand] - образовательные стандарты
+function org_stand_short( $atts )
 {
 	$data = 'Страницы не существует.';
 	
-	if (file_exists(dirname( __FILE__ ) . '/includes/short/obr_stand_short.php'))
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_stand_short.php'))
 	{
 		// вызываем шаблон страницы		
-		$data = load_template(dirname( __FILE__ ) . '/includes/short/obr_stand_short.php');
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_stand_short.php');
 	}
 	
 	return $data;
 	
 }
-add_shortcode( 'obr_stand', 'obr_stand_short' );
+add_shortcode( 'org_stand', 'org_stand_short' );
 
 
 
 // функция, собирающая параметры для страницы руководства и педсостава на фронтэнде
-function obr_ped_front()
+function org_ped_front()
 {
 	global $wpdb;
 	
 	// название таблицы
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	$data = '';
 	
@@ -1573,31 +1573,31 @@ function obr_ped_front()
 	return $data;
 }
 
-// [obr_ped] - руководство и педсостав
-function obr_ped_short( $atts )
+// [org_ped] - руководство и педсостав
+function org_ped_short( $atts )
 {
 	$data = 'Страницы не существует.';
 	
-	if (file_exists(dirname( __FILE__ ) . '/includes/short/obr_ped_short.php'))
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_ped_short.php'))
 	{
 		// вызываем шаблон страницы		
-		$data = load_template(dirname( __FILE__ ) . '/includes/short/obr_ped_short.php');
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_ped_short.php');
 	}
 	
 	return $data;
 	
 }
-add_shortcode( 'obr_ped', 'obr_ped_short' );
+add_shortcode( 'org_ped', 'org_ped_short' );
 
 
 
 // функция, собирающая параметры для страницы материально-технического обеспечения на фронтэнде
-function obr_mto_front()
+function org_mto_front()
 {
 	global $wpdb;
 	
 	// название таблицы
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	$data = '';
 	
@@ -1617,31 +1617,31 @@ function obr_mto_front()
 	return $data;
 }
 
-// [obr_mto] - материально-техническое обеспечение
-function obr_mto_short( $atts )
+// [org_mto] - материально-техническое обеспечение
+function org_mto_short( $atts )
 {
 	$data = 'Страницы не существует.';
 	
-	if (file_exists(dirname( __FILE__ ) . '/includes/short/obr_mto_short.php'))
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_mto_short.php'))
 	{
 		// вызываем шаблон страницы		
-		$data = load_template(dirname( __FILE__ ) . '/includes/short/obr_mto_short.php');
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_mto_short.php');
 	}
 	
 	return $data;
 	
 }
-add_shortcode( 'obr_mto', 'obr_mto_short' );
+add_shortcode( 'org_mto', 'org_mto_short' );
 
 
 
 // функция, собирающая параметры для страницы стипендий на фронтэнде
-function obr_stip_front()
+function org_stip_front()
 {
 	global $wpdb;
 	
 	// название таблицы
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	$data = '';
 	
@@ -1661,31 +1661,31 @@ function obr_stip_front()
 	return $data;
 }
 
-// [obr_stip] - стипендии
-function obr_stip_short( $atts )
+// [org_stip] - стипендии
+function org_stip_short( $atts )
 {
 	$data = 'Страницы не существует.';
 	
-	if (file_exists(dirname( __FILE__ ) . '/includes/short/obr_stip_short.php'))
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_stip_short.php'))
 	{
 		// вызываем шаблон страницы		
-		$data = load_template(dirname( __FILE__ ) . '/includes/short/obr_stip_short.php');
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_stip_short.php');
 	}
 	
 	return $data;
 	
 }
-add_shortcode( 'obr_stip', 'obr_stip_short' );
+add_shortcode( 'org_stip', 'org_stip_short' );
 
 
 
 // функция, собирающая параметры для страницы платных образовательных услуг на фронтэнде
-function obr_paid_front()
+function org_paid_front()
 {
 	global $wpdb;
 	
 	// название таблицы
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	$data = '';
 	
@@ -1705,31 +1705,31 @@ function obr_paid_front()
 	return $data;
 }
 
-// [obr_paid] - платные образовательные услуги
-function obr_paid_short( $atts )
+// [org_paid] - платные образовательные услуги
+function org_paid_short( $atts )
 {
 	$data = 'Страницы не существует.';
 	
-	if (file_exists(dirname( __FILE__ ) . '/includes/short/obr_paid_short.php'))
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_paid_short.php'))
 	{
 		// вызываем шаблон страницы		
-		$data = load_template(dirname( __FILE__ ) . '/includes/short/obr_paid_short.php');
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_paid_short.php');
 	}
 	
 	return $data;
 	
 }
-add_shortcode( 'obr_paid', 'obr_paid_short' );
+add_shortcode( 'org_paid', 'org_paid_short' );
 
 
 
 // функция, собирающая параметры для страницы ФХД на фронтэнде
-function obr_fhd_front()
+function org_fhd_front()
 {
 	global $wpdb;
 	
 	// название таблицы
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	$data = '';
 	
@@ -1749,31 +1749,31 @@ function obr_fhd_front()
 	return $data;
 }
 
-// [obr_fhd] - ФХД
-function obr_fhd_short( $atts )
+// [org_fhd] - ФХД
+function org_fhd_short( $atts )
 {
 	$data = 'Страницы не существует.';
 	
-	if (file_exists(dirname( __FILE__ ) . '/includes/short/obr_fhd_short.php'))
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_fhd_short.php'))
 	{
 		// вызываем шаблон страницы		
-		$data = load_template(dirname( __FILE__ ) . '/includes/short/obr_fhd_short.php');
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_fhd_short.php');
 	}
 	
 	return $data;
 	
 }
-add_shortcode( 'obr_fhd', 'obr_fhd_short' );
+add_shortcode( 'org_fhd', 'org_fhd_short' );
 
 
 
 // функция, собирающая параметры для страницы вакантных мест на фронтэнде
-function obr_vac_front()
+function org_vac_front()
 {
 	global $wpdb;
 	
 	// название таблицы
-	$table_name = $wpdb->prefix . 'obr_infotable' ;
+	$table_name = $wpdb->prefix . 'org_infotable' ;
 	
 	$data = '';
 	
@@ -1793,46 +1793,46 @@ function obr_vac_front()
 	return $data;
 }
 
-// [obr_fhd] - вакантные места
-function obr_vac_short( $atts )
+// [org_fhd] - вакантные места
+function org_vac_short( $atts )
 {
 	$data = 'Страницы не существует.';
 	
-	if (file_exists(dirname( __FILE__ ) . '/includes/short/obr_vac_short.php'))
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_vac_short.php'))
 	{
 		// вызываем шаблон страницы		
-		$data = load_template(dirname( __FILE__ ) . '/includes/short/obr_vac_short.php');
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_vac_short.php');
 	}
 	
 	return $data;
 	
 }
-add_shortcode( 'obr_vac', 'obr_vac_short' );
+add_shortcode( 'org_vac', 'org_vac_short' );
 
 
 
-// [obr_sveden] - главная страница сведений
-function obr_sveden_short( $atts )
+// [org_sveden] - главная страница сведений
+function org_sveden_short( $atts )
 {
 	$data = 'Страницы не существует.';
 	
-	if (file_exists(dirname( __FILE__ ) . '/includes/short/obr_sveden_short.php'))
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_sveden_short.php'))
 	{
 		// вызываем шаблон страницы		
-		$data = load_template(dirname( __FILE__ ) . '/includes/short/obr_sveden_short.php');
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_sveden_short.php');
 	}
 	
 	return $data;
 	
 }
-add_shortcode( 'obr_sveden', 'obr_sveden_short' );
+add_shortcode( 'org_sveden', 'org_sveden_short' );
 
 
 /*--------------------Проверка ссылок-----------------------*/
 
 
 // функция проверки ссылки на валидность
-function obr_check_url($url = '')
+function org_check_url($url = '')
 {	
 	$return = false;
 	
@@ -1846,7 +1846,7 @@ function obr_check_url($url = '')
 
 
 // функция проверки кодов состояния HTTP страницы по ссылке (временно не действительна!)
-/*function obr_get_status($url = '')
+/*function org_get_status($url = '')
 {
 	$return = true;
 	
@@ -1878,34 +1878,34 @@ function obr_check_url($url = '')
 
 	
 // функция добавляет пункты в административное меню
-function obr_add_menu_pages()
+function org_add_menu_pages()
 {
-	add_menu_page( 'Сведения об Образовательной организации', 'Сведения об ОО', 'manage_options', 'orginfo', 'obr_menu_page', 'dashicons-format-aside','81.1' );
-	add_submenu_page( 'orginfo','Основные сведения', 'Основные сведения', 'manage_options', 'obrmain', 'obr_main_info' );
-	add_submenu_page( 'orginfo','Структура и органы управления образовательной организацией', 'Структура', 'manage_options', 'obrstruct', 'obr_scructure' );
-	add_submenu_page( 'orginfo','Документы', 'Документы', 'manage_options', 'obrdocs', 'obr_documents' );
-	add_submenu_page( 'orginfo','Образование', 'Образование', 'manage_options', 'obredu', 'obr_education' );
-	add_submenu_page( 'orginfo','Образовательные стандарты', 'Образовательные стандарты', 'manage_options', 'obrstand', 'obr_standart' );
-	add_submenu_page( 'orginfo','Руководство. Педагогический (научно-педагогический) состав', 'Руководство. Педагогический состав', 'manage_options', 'obrped', 'obr_pedagog' );
-	add_submenu_page( 'orginfo','Материально-техническое обеспечение и оснащенность образовательного процесса', 'Материально-техническое обеспечение', 'manage_options', 'obrmat', 'obr_material' );
-	add_submenu_page( 'orginfo','Стипендии и иные виды материальной поддержки', 'Стипендии', 'manage_options', 'obrstip', 'obr_stipend' );
-	add_submenu_page( 'orginfo','Платные образовательные услуги', 'Платные образовательные услуги', 'manage_options', 'obrplat', 'obr_platn' );
-	add_submenu_page( 'orginfo','Финансово-хозяйственная деятельность', 'Финансово-хозяйственная деятельность', 'manage_options', 'obrfhd', 'obr_finance' );
-	add_submenu_page( 'orginfo','Вакантные места для приема (перевода)', 'Вакантные места', 'manage_options', 'obrvac', 'obr_vacancy' );
-	add_submenu_page( 'orginfo','Настройки', 'Настройки', 'manage_options', 'obrset', 'obr_settings' );
+	add_menu_page( 'Сведения об Образовательной организации', 'Сведения об ОО', 'manage_options', 'orginfo', 'org_menu_page', 'dashicons-format-aside','81.1' );
+	add_submenu_page( 'orginfo','Основные сведения', 'Основные сведения', 'manage_options', 'orgmain', 'org_main_info' );
+	add_submenu_page( 'orginfo','Структура и органы управления образовательной организацией', 'Структура', 'manage_options', 'orgstruct', 'org_scructure' );
+	add_submenu_page( 'orginfo','Документы', 'Документы', 'manage_options', 'orgdocs', 'org_documents' );
+	add_submenu_page( 'orginfo','Образование', 'Образование', 'manage_options', 'orgedu', 'org_education' );
+	add_submenu_page( 'orginfo','Образовательные стандарты', 'Образовательные стандарты', 'manage_options', 'orgstand', 'org_standart' );
+	add_submenu_page( 'orginfo','Руководство. Педагогический (научно-педагогический) состав', 'Руководство. Педагогический состав', 'manage_options', 'orgped', 'org_pedagog' );
+	add_submenu_page( 'orginfo','Материально-техническое обеспечение и оснащенность образовательного процесса', 'Материально-техническое обеспечение', 'manage_options', 'orgmat', 'org_material' );
+	add_submenu_page( 'orginfo','Стипендии и иные виды материальной поддержки', 'Стипендии', 'manage_options', 'orgstip', 'org_stipend' );
+	add_submenu_page( 'orginfo','Платные образовательные услуги', 'Платные образовательные услуги', 'manage_options', 'orgplat', 'org_platn' );
+	add_submenu_page( 'orginfo','Финансово-хозяйственная деятельность', 'Финансово-хозяйственная деятельность', 'manage_options', 'orgfhd', 'org_finance' );
+	add_submenu_page( 'orginfo','Вакантные места для приема (перевода)', 'Вакантные места', 'manage_options', 'orgvac', 'org_vacancy' );
+	add_submenu_page( 'orginfo','Настройки', 'Настройки', 'manage_options', 'orgset', 'org_settings' );
 }
 
 
 // функция добавляет пункты в административное меню СЕТИ
-function obr_network_menu_pages()
+function org_network_menu_pages()
 {
-	add_menu_page( 'Сведения об Образовательной организации', 'Сведения об ОО', 'setup_network', 'obrnet', 'obr_net_page', 'dashicons-format-aside','81.5' );
+	add_menu_page( 'Сведения об Образовательной организации', 'Сведения об ОО', 'setup_network', 'orgnet', 'org_net_page', 'dashicons-format-aside','81.5' );
 	
 }
 
 
 // подключение скриптов и стилей бэкэнда
-function obr_load_script()
+function org_load_script()
 {
 	// cкрипты и стили медиа загрузчика
 	if (function_exists('wp_enqueue_media')) {
@@ -1920,15 +1920,15 @@ function obr_load_script()
 	wp_register_script( 'fawesome', 'https://use.fontawesome.com/8aa69c98d5.js', array(), null, true );
 	wp_enqueue_script( 'fawesome' );
 	
-	wp_register_style( 'obrstyle', plugins_url( 'assets/css/style.css', __FILE__ ), array(), null, 'all' );
-	wp_enqueue_style( 'obrstyle' );
+	wp_register_style( 'orgstyle', plugins_url( 'assets/css/style.css', __FILE__ ), array(), null, 'all' );
+	wp_enqueue_style( 'orgstyle' );
 	
-	wp_register_script( 'obrscript', plugins_url( 'assets/js/script.js', __FILE__ ), array('jquery'), null, true );
-	wp_enqueue_script( 'obrscript' );
+	wp_register_script( 'orgscript', plugins_url( 'assets/js/script.js', __FILE__ ), array('jquery'), null, true );
+	wp_enqueue_script( 'orgscript' );
 }
 
 // скрипты и стили для фронтэнда
-function obr_front_style()
+function org_front_style()
 {
 	wp_register_style( 'bootstyle', plugins_url( 'assets/css/bootstrap.min.css', __FILE__ ), array(), null, 'all' );
 	wp_enqueue_style( 'bootstyle' );
@@ -1936,8 +1936,8 @@ function obr_front_style()
 	wp_register_script( 'bootscript', plugins_url( 'assets/js/bootstrap.min.js', __FILE__ ), array('jquery'), null, true );
 	wp_enqueue_script( 'bootscript' );
 	
-	wp_register_style( 'obrfront', plugins_url( 'assets/css/front-style.css', __FILE__ ), array(), null, 'all' );
-	wp_enqueue_style( 'obrfront' );
+	wp_register_style( 'orgfront', plugins_url( 'assets/css/front-style.css', __FILE__ ), array(), null, 'all' );
+	wp_enqueue_style( 'orgfront' );
 	
 	wp_register_script( 'frontscript', plugins_url( 'assets/js/front-script.js', __FILE__ ), array('jquery'), null, true );
 	wp_enqueue_script( 'frontscript' );
@@ -1950,7 +1950,7 @@ function tiny_style()
 }
 
 add_action( 'admin_enqueue_scripts', 'tiny_style' );
-add_action( 'admin_enqueue_scripts', 'obr_load_script' );
-add_action( 'wp_enqueue_scripts', 'obr_front_style' );
-add_action( 'admin_menu', 'obr_add_menu_pages' );
-add_action( 'network_admin_menu', 'obr_network_menu_pages' );
+add_action( 'admin_enqueue_scripts', 'org_load_script' );
+add_action( 'wp_enqueue_scripts', 'org_front_style' );
+add_action( 'admin_menu', 'org_add_menu_pages' );
+add_action( 'network_admin_menu', 'org_network_menu_pages' );
