@@ -1949,6 +1949,21 @@ function tiny_style()
 	add_editor_style( plugins_url( 'assets/css/editor-styles.css', __FILE__ ) );
 }
 
+// фикс, чтобы визувльный редактор сохранял теги в режиме редактирования "текст"
+function pp_override_mce_options($initArray)
+{ 
+	$opts = '*[*]'; 
+	
+	$initArray['valid_elements'] = $opts; 
+	
+	$initArray['extended_valid_elements'] = $opts; 
+	
+	return $initArray; 
+} 
+
+add_filter('tiny_mce_before_init', 'pp_override_mce_options');
+
+
 add_action( 'admin_enqueue_scripts', 'tiny_style' );
 add_action( 'admin_enqueue_scripts', 'org_load_script' );
 add_action( 'wp_enqueue_scripts', 'org_front_style' );
