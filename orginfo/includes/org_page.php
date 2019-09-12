@@ -1,7 +1,5 @@
 <div class="org-page">
 	<h1 class="org_title">Информация о плагине "Сведения об образовательной организации"</h2>
-	<p>Для корректного отображения некоторых полей, должен быть установлен <a href="https://ru.wordpress.org/plugins/tinymce-advanced/" target="_blank" title="TinyMCE Advanced">плагин TinyMCE Advanced</a> от Andrew Ozz.</p>
-	<p>Для создания корректных ссылок на страницы, должен быть установлен <a href="https://wordpress.org/plugins/custom-permalinks/" target="_blank" title="TinyMCE Advanced">плагин Custom Permalinks</a> от Sami Ahmed Siddiqui.</p>
 	<p><a href="<?php echo site_url('/wp-content/plugins/orginfo/rucovodstvo.pdf')?>" title"Руководство пользователя" target="_blank">Руководство пользователя по работе с плагином "Сведения об образовательной организации"</a></p>
 	<div class="short">
 		<h2>Доступные шорткоды</h2>
@@ -64,52 +62,57 @@
 		<ul>
 			<li>
 				<span class="main">«Сведения об образовательной организации» (основная страница раздела)</span>
-				<span class="url">http://<адрес_официального_Сайта>/sveden</span>
+				<span class="url"><?php echo home_url();?>/sveden</span>
 			</li>
 			<li>
 				<span class="main">«Основные сведения»</span>
-				<span class="url">http://<адрес_официального_Сайта>/sveden/common</span>
+				<span class="url"><?php echo home_url();?>/sveden/common</span>
 			</li>
 			<li>
 				<span class="main">«Структура и органы управления образовательной организацией»</span>
-				<span class="url">http://<адрес_официального_Сайта>/sveden/struct</span>
+				<span class="url"><?php echo home_url();?>/sveden/struct</span>
 			</li>
 			<li>
 				<span class="main">«Документы»</span>
-				<span class="url">http://<адрес_официального_Сайта>/sveden/document</span>
+				<span class="url"><?php echo home_url();?>/sveden/document</span>
 			</li>
 			<li>
 				<span class="main">«Образование»</span>
-				<span class="url">http://<адрес_официального_Сайта>/sveden/education</span>
+				<span class="url"><?php echo home_url();?>/sveden/education</span>
 			</li>
 			<li>
 				<span class="main">«Образовательные стандарты»</span>
-				<span class="url">http://<адрес_официального_Сайта>/sveden/edustandarts</span>
+				<span class="url"><?php echo home_url();?>/sveden/edustandarts</span>
 			</li>
 			<li>
 				<span class="main">«Руководство. Педагогический (научно-педагогический) состав»</span>
-				<span class="url">http://<адрес_официального_Сайта>/sveden/employees</span>
+				<span class="url"><?php echo home_url();?>/sveden/employees</span>
 			</li>
 			<li>
 				<span class="main">«Материально-техническое обеспечение и оснащенность образовательного процесса»</span>
-				<span class="url">http://<адрес_официального_Сайта>/sveden/objects</span>
+				<span class="url"><?php echo home_url();?>/sveden/objects</span>
 			</li>
 			<li>
 				<span class="main">«Стипендии и иные виды материальной поддержки»</span>
-				<span class="url">http://<адрес_официального_Сайта>/sveden/grants</span>
+				<span class="url"><?php echo home_url();?>/sveden/grants</span>
 			</li>
 			<li>
 				<span class="main">«Платные образовательные услуги»</span>
-				<span class="url">http://<адрес_официального_Сайта>/sveden/paid_edu</span>
+				<span class="url"><?php echo home_url();?>/sveden/paid_edu</span>
 			</li>
 			<li>
 				<span class="main">«Финансово-хозяйственная деятельность»</span>
-				<span class="url">http://<адрес_официального_Сайта>/sveden/budget</span>
+				<span class="url"><?php echo home_url();?>/sveden/budget</span>
 			</li>
 			<li>
 				<span class="main">«Вакантные места для приема (перевода)»</span>
-				<span class="url">http://<адрес_официального_Сайта>/sveden/vacant</span>
+				<span class="url"><?php echo home_url();?>/sveden/vacant</span>
 			</li>
 		</ul>
+	</div>
+	<div class="another-info">
+		<br>
+		<div><u>Информация для администратора сети:</u></div>
+		<p>Для корректного отображения некоторых полей, должен быть установлен <a href="https://ru.wordpress.org/plugins/tinymce-advanced/" target="_blank" title="TinyMCE Advanced">плагин TinyMCE Advanced</a> от Andrew Ozz.</p>
 	</div>
 </div>
