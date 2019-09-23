@@ -8,6 +8,14 @@
  */
 
 
+/*** ВАЖНО ***/
+
+// jquery-1.9.1.min.js в связке с jquery-migrate-1.4.1.min.js нужен для обеспечения совместимости скриптов плагина с темами, которые работают на jquery ниже версии 1.9.1.
+// если версии jquery равна или выше 1.9.1, то подключение этих скриптов следует закомментировать
+
+/*** ВАЖНО ***/
+
+
 /*-----------------Удаление плагина-------------------*/
 
 // проверка режима мультисайт
@@ -1930,6 +1938,17 @@ function org_load_script()
 // скрипты и стили для фронтэнда
 function org_front_style()
 {
+	// jquery-1.9.1.min.js в связке с jquery-migrate-1.4.1.min.js нужен для обеспечения совместимости скриптов плагина с темами, которые работают на jquery ниже версии 1.9.1
+	// если версии jquery равна или выше 1.9.1, то подключение этих скриптов следует закомментировать
+	wp_register_script( 'jquery9', plugins_url( 'assets/js/jquery-1.9.1.min.js', __FILE__ ), array('jquery'), null, true );
+	wp_enqueue_script( 'jquery9' );
+	
+	// jquery-1.9.1.min.js в связке с jquery-migrate-1.4.1.min.js нужен для обеспечения совместимости скриптов плагина с темами, которые работают на jquery ниже версии 1.9.1
+	// если версии jquery равна или выше 1.9.1, то подключение этих скриптов следует закомментировать
+	wp_register_script( 'jmigrate', plugins_url( 'assets/js/jquery-migrate-1.4.1.min.js', __FILE__ ), array('jquery'), null, true );
+	wp_enqueue_script( 'jmigrate' );
+	
+	
 	wp_register_style( 'bootstyle', plugins_url( 'assets/css/bootstrap.min.css', __FILE__ ), array(), null, 'all' );
 	wp_enqueue_style( 'bootstyle' );
 	
