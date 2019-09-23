@@ -50,12 +50,15 @@ table td, table th{
 	white-space: normal !important;
 }
 #org_edu table td, #org_edu table th{
-	border-top: none;
 	padding: 5px;
+	word-wrap: break-word;
+	font-size: 11px;
+	border: 1px solid #333;
 }
 #org_edu table th{
-	border-top:1px solid #ddd;
+	border-top:1px solid #333;
 	color:#000;
+	vertical-align: middle;
 }
 
 /*основные сведения*/
@@ -140,13 +143,13 @@ table td, table th{
 }
 
 #org_edu table{
-	border-collapse: separate;
+	border-collapse: collapse;
 	border-spacing: 0;
-	border-width: 1px 0 0 1px;
 	margin: 0 0 1.75em;
 	table-layout: fixed;
 	width: 100%;
 	font-size: 12px;
+	border: 1px solid #333;
 }
 #org_edu table > tbody > tr:nth-of-type(2n+1) {
     background-color: #f9f9f9;
