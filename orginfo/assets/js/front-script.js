@@ -5,25 +5,40 @@ var front_class = function () {
 
 
     self.events = function () {
+		self.InitSpoilers();
 		self.InitHideBlock();
 		self.InitAddTag();
     }
 
     /****************************** METHOD'S ******************************/
 	
+	self.InitSpoilers = function()
+	{
+		jQuery('.spoiler-box .block').show();
+		
+		jQuery('.closed .spoiler-block').hide();
+		
+		jQuery(document).on('click','.clicker', function(event)
+		{
+			 jQuery(this).toggleClass('show').next().slideToggle('medium');
+		});
+	}
+	
+	
+	
 	// функция скрытия шапки блока замов и педагогов на странице педсостава, если замов или педагогов нет
 	// показ фразы "нет данных" на странице документов, если документы отсутствуют (для предписаний, фхд, отчетов, самообследований)
 	self.InitHideBlock = function()
 	{
-		var zamBlock = jQuery('#org_zam .panel').length;
-		var pedBlock = jQuery('#org_ped .panel').length;
+		var zamBlock = jQuery('#org_zam .spoiler-panel').length;
+		var pedBlock = jQuery('#org_ped .spoiler-panel').length;
 		var orgBlock = jQuery('.signal-line').length;
-		var orgUch = jQuery('#org_uch .panel-body').length;
-		var orgNorm = jQuery('#org_norm .panel-body').length;
-		var orgFHD = jQuery('#org_fhd .panel-body').length;
-		var orgSam = jQuery('#org_sam .panel-body').length;
-		var orgPred = jQuery('#org_pred .panel-body').length;
-		var orgOtch = jQuery('#org_otch .panel-body').length;
+		var orgUch = jQuery('#org_uch .spoiler-block_in').length;
+		var orgNorm = jQuery('#org_norm .spoiler-block_in').length;
+		var orgFHD = jQuery('#org_fhd .spoiler-block_in').length;
+		var orgSam = jQuery('#org_sam .spoiler-block_in').length;
+		var orgPred = jQuery('#org_pred .spoiler-block_in').length;
+		var orgOtch = jQuery('#org_otch .spoiler-block_in').length;
 		var orgStand = jQuery('#stand_links').length;
 		var orgPlat = jQuery('#paid_links').length;
 		
@@ -66,7 +81,7 @@ var front_class = function () {
 		// скрытие коллапса а странице документов, если содержимого нет
 		if(orgUch != 0)
 		{
-			if (jQuery('#org_uch .panel-body').html().trim() === '')
+			if (jQuery('#org_uch .spoiler-block_in').html().trim() === '')
 			{
 				jQuery('#org_uch').hide();
 			}
@@ -74,7 +89,7 @@ var front_class = function () {
 		
 		if(orgNorm != 0)
 		{
-			if (jQuery('#org_norm .panel-body').html().trim() === '')
+			if (jQuery('#org_norm .spoiler-block_in').html().trim() === '')
 			{
 				jQuery('#org_norm').hide();
 			}
@@ -82,33 +97,33 @@ var front_class = function () {
 		
 		if(orgFHD != 0)
 		{
-			if (jQuery('#org_fhd .panel-body').html().trim() === '')
+			if (jQuery('#org_fhd .spoiler-block_in').html().trim() === '')
 			{
-				jQuery('#org_fhd .panel-body').html('<div class="none-data">нет данных</div>');
+				jQuery('#org_fhd .spoiler-block_in').html('<div class="none-data">нет данных</div>');
 			}
 		}
 		
 		if(orgSam != 0)
 		{
-			if (jQuery('#org_sam .panel-body').html().trim() === '')
+			if (jQuery('#org_sam .spoiler-block_in').html().trim() === '')
 			{
-				jQuery('#org_sam .panel-body').html('<div class="none-data">нет данных</div>');
+				jQuery('#org_sam .spoiler-block_in').html('<div class="none-data">нет данных</div>');
 			}
 		}
 		
 		if(orgPred != 0)
 		{
-			if (jQuery('#org_pred .panel-body').html().trim() === '')
+			if (jQuery('#org_pred .spoiler-block_in').html().trim() === '')
 			{
-				jQuery('#org_pred .panel-body').html('<div class="none-data">нет данных</div>');
+				jQuery('#org_pred .spoiler-block_in').html('<div class="none-data">нет данных</div>');
 			}
 		}
 		
 		if(orgOtch != 0)
 		{
-			if (jQuery('#org_otch .panel-body').html().trim() === '')
+			if (jQuery('#org_otch .spoiler-block_in').html().trim() === '')
 			{
-				jQuery('#org_otch .panel-body').html('<div class="none-data">нет данных</div>');
+				jQuery('#org_otch .spoiler-block_in').html('<div class="none-data">нет данных</div>');
 			}
 		}
 	}
