@@ -1,5 +1,6 @@
 <?php $data = org_ped_front(); ?>
 
+
 <div class="org-front ped">
 	<?php if(isset($data['ped_name']) && !empty($data['ped_name'])) : ?>
 	<div class="ruc-block" itemprop="rucovodstvo rucovodstvoFil">
@@ -60,20 +61,17 @@
 	<div class="zam-block" itemprop="rucovodstvo rucovodstvoFil">
 		<div class="ruc-title">Заместители руководителя:</div>
 		<?php if(isset($data['zam']) && is_array($data['zam'])) : $zam = $data['zam']; ?>
-		<div class="panel-group" id="org_zam" role="tablist" aria-multiselectable="true">
+		<div class="spoiler-box closed" id="org_zam">
 			<?php foreach($zam as $key => $val):?>
 			<?php if(isset($val['name']) && !empty($val['name'])) :?>
-			<div class="panel panel-default">
-				<div class="panel-heading" role="tab" id="heading<?php echo $key?>">
+			<div class="spoiler-panel">
+				<div class="clicker h2">
 					<?php if(isset($val['name']) && !empty($val['name'])) : ?>			
-					<a href="javascript:;" data-parent="#org_zam" class="panel-title" role="button" data-toggle="collapse" data-target="#collapse<?php echo $key?>" aria-expanded="false" aria-controls="collapse<?php echo $key?>">
 						<?php echo wp_unslash($val['name']);?>
-					</a>
 					<?php endif;?>
 				</div>
-
-				<div id="collapse<?php echo $key?>" class="panel-collapse collapse" aria-labelledby="heading<?php echo $key?>" data-parent="#org_zam" role="tabpanel">
-					<div class="panel-body">
+				<div class="spoiler-block">
+					<div class="spoiler-block_in">
 						<?php if(isset($val['url']) && !empty($val['url'])) : ?>
 						<div class="img-block">
 							<img alt="Заместитель" src="<?php echo $val['url'];?>"/>
@@ -136,20 +134,17 @@
 	<div class="ped-block" itemprop="teachingStaff">
 		<div class="ruc-title">Педагогические работники:</div>
 		<?php if(isset($data['ped']) && is_array($data['ped'])) : $ped = $data['ped']; ?>
-		<div class="panel-group" id="org_ped" role="tablist" aria-multiselectable="true">
+		<div class="spoiler-box closed" id="org_ped">
 			<?php foreach($ped as $key => $val):?>
 			<?php if(isset($val['name']) && !empty($val['name'])) :?>
-			<div class="panel panel-default">
-				<div class="panel-heading" role="tab" id="heading<?php echo $key?>">
-					<?php if(isset($val['name']) && !empty($val['name'])) : ?>			
-					<a href="javascript:;" data-parent="#org_ped" class="panel-title" role="button" data-toggle="collapse" data-target="#collapse<?php echo $key?>" aria-expanded="false" aria-controls="collapse<?php echo $key?>">
+			<div class="spoiler-panel">
+				<div class="clicker h2">
+					<?php if(isset($val['name']) && !empty($val['name'])) : ?>								
 						<?php echo wp_unslash($val['name']);?>
-					</a>
 					<?php endif;?>
 				</div>
-
-				<div id="collapse<?php echo $key?>" class="panel-collapse collapse" aria-labelledby="heading<?php echo $key?>" data-parent="#org_ped" role="tabpanel">
-					<div class="panel-body">
+				<div class="spoiler-block">
+					<div class="spoiler-block_in">
 						<?php if(isset($val['url']) && !empty($val['url'])) : ?>
 						<div class="img-block">
 							<img alt="Заместитель" src="<?php echo $val['url'];?>"/>
