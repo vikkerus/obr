@@ -7,16 +7,13 @@
 ?>
 
 <div class="org-front docs">
-	<div class="panel-group doc-group" id="org_uch" role="tablist" aria-multiselectable="true">
-		<div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="heading_uch">					
-				<a href="javascript:;"data-parent="#org_uch" class="panel-title" role="button" data-toggle="collapse" data-target="#collapse_uch" aria-expanded="false" aria-controls="collapse_uch">
-					Учредительные документы
-				</a>
+	<div class="spoiler-box doc-group closed" id="org_uch">
+		<div class="spoiler-panel">
+			<div class="clicker h2">
+				Учредительные документы
 			</div>
-
-			<div id="collapse_uch" class="panel-collapse collapse" aria-labelledby="heading_uch" data-parent="#org_uch" role="tabpanel">
-				<div class="panel-body">
+			<div class="spoiler-block">
+				<div class="spoiler-block_in">
 					<?php if((isset($data['docs_ust_link']) && !empty($data['docs_ust_link'])) || (isset($data['docs_ust_url']) && !empty($data['docs_ust_url']))) : ?>
 					<div class="doc-block">
 						<div class="content">
@@ -65,16 +62,13 @@
 		</div>
 	</div>
 	
-	<div class="panel-group doc-group" id="org_norm" role="tablist" aria-multiselectable="true">
-		<div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="heading_norm">					
-				<a href="javascript:;" data-parent="#org_norm" class="panel-title" role="button" data-toggle="collapse" data-target="#collapse_norm" aria-expanded="false" aria-controls="collapse_norm">
-					Локальные нормативные акты
-				</a>
+	<div class="spoiler-box doc-group closed" id="org_norm">
+		<div class="spoiler-panel">
+			<div class="clicker h2">
+				Локальные нормативные акты
 			</div>
-
-			<div id="collapse_norm" class="panel-collapse collapse" aria-labelledby="heading_norm" data-parent="#org_norm" role="tabpanel">
-				<div class="panel-body">
+			<div class="spoiler-block">
+				<div class="spoiler-block_in">
 					<?php if((isset($data['docs_priem_link']) && !empty($data['docs_priem_link'])) || (isset($data['docs_priem_url']) && !empty($data['docs_priem_url']))) : ?>	
 					<div class="doc-block">
 						<div class="content">
@@ -169,15 +163,13 @@
 	</div>
 	
 	<?php if(isset($data['fhd']) && is_array($data['fhd'])) : $fhd = $data['fhd']; ?>
-	<div class="panel-group" id="org_fhd" role="tablist" aria-multiselectable="true">
-		<div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="heading_fhd">				
-				<a href="javascript:;" data-parent="#org_fhd" class="panel-title" role="button" data-toggle="collapse" data-target="#collapse_fhd" aria-expanded="false" aria-controls="collapse_fhd">
-					Планы финансово-хозяйственной деятельности
-				</a>
+	<div class="spoiler-box closed" id="org_fhd">
+		<div class="spoiler-panel">
+			<div class="clicker h2">
+				Планы финансово-хозяйственной деятельности
 			</div>
-			<div id="collapse_fhd" class="panel-collapse collapse" aria-labelledby="heading_fhd" data-parent="#org_fhd" role="tabpanel">
-				<div class="panel-body">
+			<div class="spoiler-block">
+				<div class="spoiler-block_in">
 					<?php foreach($fhd as $key => $val):?>
 						<?php if((isset($val['docs_fhd_link']) && !empty($val['docs_fhd_link'])) || (isset($val['docs_fhd_url']) && !empty($val['docs_fhd_url']))) : ?>	
 							<div class="doc-block">
@@ -204,15 +196,13 @@
 	
 	
 	<?php if(isset($data['sam']) && is_array($data['sam'])) : $sam = $data['sam']; ?>
-	<div class="panel-group" id="org_sam" role="tablist" aria-multiselectable="true">
-		<div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="heading_sam">				
-				<a href="javascript:;" data-parent="#org_sam" class="panel-title" role="button" data-toggle="collapse" data-target="#collapse_sam" aria-expanded="false" aria-controls="collapse_sam">
-					Результаты самообследования
-				</a>
+	<div class="spoiler-box closed" id="org_sam">
+		<div class="spoiler-panel">
+			<div class="clicker h2">
+				Результаты самообследования
 			</div>
-			<div id="collapse_sam" class="panel-collapse collapse" aria-labelledby="heading_sam" data-parent="#org_sam" role="tabpanel">
-				<div class="panel-body">
+			<div class="spoiler-block">
+				<div class="spoiler-block_in">
 					<?php foreach($sam as $skey => $sval):?>
 						<?php if((isset($sval['docs_sam_link']) && !empty($sval['docs_sam_link'])) || (isset($sval['docs_sam_url']) && !empty($sval['docs_sam_url']))) : ?>	
 							<div class="doc-block">
@@ -224,7 +214,7 @@
 						<?php endif;?>
 					<?php endforeach;?>
 				</div>
-			</div>	
+			</div>
 		</div>
 	</div>
 	<?php else:?>
@@ -238,15 +228,13 @@
 	
 	
 	<?php if(isset($data['pred']) && is_array($data['pred'])) : $pred = $data['pred']; ?>
-	<div class="panel-group" id="org_pred" role="tablist" aria-multiselectable="true">
-		<div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="heading_pred">				
-				<a href="javascript:;" data-parent="#org_pred" class="panel-title" role="button" data-toggle="collapse" data-target="#collapse_pred" aria-expanded="false" aria-controls="collapse_pred">
-					Предписания
-				</a>
+	<div class="spoiler-box closed" id="org_pred">
+		<div class="spoiler-panel">
+			<div class="clicker h2">
+				Предписания
 			</div>
-			<div id="collapse_pred" class="panel-collapse collapse" aria-labelledby="heading_pred" data-parent="#org_pred" role="tabpanel">
-				<div class="panel-body">
+			<div class="spoiler-block">
+				<div class="spoiler-block_in">
 					<?php foreach($pred as $pkey => $pval):?>
 						<?php if((isset($pval['docs_pres_link']) && !empty($pval['docs_pres_link'])) || (isset($pval['docs_pres_url']) && !empty($pval['docs_pres_url']))) : ?>	
 							<div class="doc-block">
@@ -272,15 +260,13 @@
 	
 	
 	<?php if(isset($data['otch']) && is_array($data['otch'])) : $otch = $data['otch']; ?>
-	<div class="panel-group" id="org_otch" role="tablist" aria-multiselectable="true">
-		<div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="heading_otch">				
-				<a href="javascript:;" data-parent="#org_otch" class="panel-title" role="button" data-toggle="collapse" data-target="#collapse_otch" aria-expanded="false" aria-controls="collapse_otch">
-					Отчёты об исполнении предписаний
-				</a>
+	<div class="spoiler-box closed" id="org_otch">
+		<div class="spoiler-panel">
+			<div class="clicker h2">
+				Отчёты об исполнении предписаний
 			</div>
-			<div id="collapse_otch" class="panel-collapse collapse" aria-labelledby="heading_otch" data-parent="#org_otch" role="tabpanel">
-				<div class="panel-body">
+			<div class="spoiler-block">
+				<div class="spoiler-block_in">
 					<?php foreach($otch as $okey => $oval):?>
 						<?php if((isset($oval['docs_otch_link']) && !empty($oval['docs_otch_link'])) || (isset($oval['docs_otch_url']) && !empty($oval['docs_otch_url']))) : ?>	
 							<div class="doc-block">
