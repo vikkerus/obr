@@ -38,7 +38,7 @@
 	<div class="info-block">
 		<div class="title">Учредители</div>
 		<?php if(isset($data['infouch']) && !empty($data['infouch'])) : ?>
-			<div class="content" itemprop="uchredLaw">
+			<div class="content" itemprop="uchredLaw" itemscope itemtype="http://obrnadzor.gov.ru/microformats/UchredLaw">
 			<?php echo $data['infouch']?>
 			</div>
 		<?php else:?>
