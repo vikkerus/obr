@@ -1,6 +1,6 @@
 <?php $data = org_stip_front(); ?>
 
-<div class="org-front stip" itemprop="grant">
+<div class="org-front stip" itemprop="grant" itemscope itemtype="http://obrnadzor.gov.ru/microformats/Grant">
 	<div class="info-block">
 		<div class="title">Условия предоставления стипендий</div>	
 		<?php if(isset($data['stipusl']) && !empty($data['stipusl'])) : ?>
