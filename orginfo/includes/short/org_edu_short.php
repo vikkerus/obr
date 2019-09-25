@@ -124,7 +124,7 @@
 	<div class="info-block">
 		<div class="title">Результаты приема</div>	
 		<?php if(isset($data['edurespr']) && !empty($data['edurespr'])) : ?>
-			<div class="content" itemprop="eduPriem">
+			<div class="content" itemprop="eduPriem" itemscope itemtype="http://obrnadzor.gov.ru/microformats/priem">
 			<?php echo $data['edurespr']?>
 			</div>
 		<?php else:?>
@@ -135,7 +135,7 @@
 	<div class="info-block">
 		<div class="title">Результаты перевода, восстановления и отчисления</div>		
 		<?php if(isset($data['edu_resot']) && !empty($data['edu_resot'])) : ?>
-			<div class="content" itemprop="eduPerevod">
+			<div class="content" itemprop="eduPerevod" itemscope itemtype="http://obrnadzor.gov.ru/microformats/Perevod">
 			<?php echo wp_unslash($data['edu_resot'])?>
 			</div>
 		<?php else:?>
@@ -167,7 +167,7 @@
 					<th>Численности обучающихся по реализуемым образовательным программам</th>
 				</tr>
 			</thead>
-			<tbody itemprop="eduNir">
+			<tbody itemprop="eduNir" itemscope itemtype="http://obrnadzor.gov.ru/microformats/NIR">
 				<?php $i = 0; foreach($edu as $key => $val): $i++;?>
 				<?php if(isset($val['edu_name']) && !empty($val['edu_name'])) :?>
 				<tr class="signal-line" itemprop="eduOp adeduOp">
