@@ -1,6 +1,6 @@
 <?php $data = org_fhd_front(); ?>
 
-<div class="org-front fhd" itemprop="volume">
+<div class="org-front fhd" itemprop="volume" itemscope itemtype="http://obrnadzor.gov.ru/microformats/Volume">
 
 	<div class="info-block">
 		<div class="title">Объем образовательной деятельности, финансовое обеспечение которой осуществляется за счет бюджетных ассигнований федерального бюджета, бюджетов субъектов Российской Федерации, местных бюджетов, по договорам об образовании за счет средств физических и (или) юридических лиц</div>		
@@ -17,7 +17,7 @@
 	<div class="info-block">
 		<div class="title">Поступление и расходовании финансовых и материальных средств</div>		
 		<?php if(isset($data['finpo']) && !empty($data['finpo'])) : ?>
-			<div class="content" itemprop="finRec">
+			<div class="content" itemprop="finRec" itemscope itemtype="http://obrnadzor.gov.ru/microformats/FinRec">
 			<?php echo $data['finpo'];?>
 			</div>
 		<?php else:?>
