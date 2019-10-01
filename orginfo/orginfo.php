@@ -595,6 +595,7 @@ function org_main_info_page()
 			'info_date'  => trim($_POST['info_date']),		
 			'info_place' => trim($_POST['info_place']),
 			'info_tel'   => trim($_POST['info_tel']),
+			'info_fax'   => trim($_POST['info_fax']),
 			'info_mail'  => trim($_POST['info_mail']),
 			
 			// данные из текстового редактора
@@ -730,6 +731,8 @@ function org_documents_page()
 			'docs_col_link'    => trim($_POST['docs_col_link']),
 			'docs_pom_link'    => trim($_POST['docs_pom_link']),
 			'docs_paid_link'   => trim($_POST['docs_paid_link']),
+			'docs_paid_dog_link'   => trim($_POST['docs_paid_dog_link']),
+			'docs_paid_uch_link'   => trim($_POST['docs_paid_uch_link']),
 			
 			// заголовки документов в базе ВП
 			'docs_ust_name'    => trim($_POST['docs_ust_name']),		
@@ -745,6 +748,8 @@ function org_documents_page()
 			'docs_col_name'    => trim($_POST['docs_col_name']),
 			'docs_pom_name'    => trim($_POST['docs_pom_name']),
 			'docs_paid_name'   => trim($_POST['docs_paid_name']),
+			'docs_paid_dog_name'   => trim($_POST['docs_paid_dog_name']),
+			'docs_paid_uch_name'   => trim($_POST['docs_paid_uch_name']),
 			
 			// id документов в базе ВП
 			'docs_ust_id'    => trim($_POST['docs_ust_id']),		
@@ -760,6 +765,8 @@ function org_documents_page()
 			'docs_col_id'    => trim($_POST['docs_col_id']),
 			'docs_pom_id'    => trim($_POST['docs_pom_id']),
 			'docs_paid_id'   => trim($_POST['docs_paid_id']),
+			'docs_paid_dog_id'   => trim($_POST['docs_paid_dog_id']),
+			'docs_paid_uch_id'   => trim($_POST['docs_paid_uch_id']),
 			
 			// url'ы документов в базе ВП
 			'docs_ust_url'   => trim($_POST['docs_ust_url']),		
@@ -775,6 +782,8 @@ function org_documents_page()
 			'docs_col_url'   => trim($_POST['docs_col_url']),
 			'docs_pom_url'   => trim($_POST['docs_pom_url']),
 			'docs_paid_url'  => trim($_POST['docs_paid_url']),
+			'docs_paid_dog_url'  => trim($_POST['docs_paid_dog_url']),
+			'docs_paid_uch_url'  => trim($_POST['docs_paid_uch_url']),
 			
 			// данные из текстового редактора
 			'docother'   => wp_unslash($_POST['docother']),
@@ -852,41 +861,18 @@ function org_education_page()
 		}
 			
 		$main_info = [
-			
-			'edu_main_lev'  => trim($_POST['edu_main_lev']),
-			'edu_main_form' => trim($_POST['edu_main_form']),
-			'edu_main_norm' => trim($_POST['edu_main_norm']),
-			'edu_main_accr' => trim($_POST['edu_main_accr']),
-			
-			'edu_copy_id'   => trim($_POST['edu_copy_id']),
-			'edu_copy_url'  => trim($_POST['edu_copy_url']),
-			'edu_copy_name' => trim($_POST['edu_copy_name']),
-			
-			'edu_uch_id'   => trim($_POST['edu_uch_id']),
-			'edu_uch_url'  => trim($_POST['edu_uch_url']),
-			'edu_uch_name' => trim($_POST['edu_uch_name']),
-			
-			'edu_cal_id'   => trim($_POST['edu_cal_id']),
-			'edu_cal_url'  => trim($_POST['edu_cal_url']),
-			'edu_cal_name' => trim($_POST['edu_cal_name']),
-			
-			'edu_lang'     => trim($_POST['edu_lang']),
-			'edu_nid'      => trim($_POST['edu_nid']),
-			'edu_resot'    => trim($_POST['edu_resot']),
-			
+						
 			// данные из текстового редактора
-			'edumet'   => wp_unslash($_POST['edumet']),
-			'edurespr' => wp_unslash($_POST['edurespr']),
-			'eduino'   => wp_unslash($_POST['eduino']),
-			
+			'eduaccred' => wp_unslash($_POST['eduaccred']),
+			'educhislen' => wp_unslash($_POST['educhislen']),	
+			'edupriem' => wp_unslash($_POST['edupriem']),	
+			'eduperevod' => wp_unslash($_POST['eduperevod']),
+			'eduop' => wp_unslash($_POST['eduop']),
+			'eduadop' => wp_unslash($_POST['eduadop']),
+			'edunir' => wp_unslash($_POST['edunir']),
+		
 		];
-		
-		if(isset($_POST['edu']) && is_array($_POST['edu']))
-		{
-			$main_info['edu'] = $_POST['edu'];
-		}
-		
-		
+			
 		// подготовка данных перед записью в базу
 		$safe_string_main = base64_encode(serialize($main_info));
 		
