@@ -103,6 +103,10 @@ if(isset($data['action'])) : ?>
 				<textarea name="info_tel" class="field"><?php echo (isset($field['info_tel']) ? wp_unslash($field['info_tel']) : '')?></textarea>
 			</div>
 			<div class="input-block">
+				<label>Информация о факсе образовательной организации</label>
+				<textarea name="info_fax" class="field"><?php echo (isset($field['info_fax']) ? wp_unslash($field['info_fax']) : '')?></textarea>
+			</div>
+			<div class="input-block">
 				<label>Информация об адресах электронной почты образовательной организации</label>
 				<textarea name="info_mail" class="field"><?php echo (isset($field['info_mail']) ? wp_unslash($field['info_mail']) : '')?></textarea>
 			</div>
