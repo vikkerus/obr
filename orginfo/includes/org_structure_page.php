@@ -47,7 +47,11 @@ if(isset($data['action'])) : ?>
 					<input type="text" name="structs[<?php echo $key?>][name]" class="field" value="<?php echo (isset($val['name']) ? wp_unslash(htmlspecialchars($val['name'])) : '')?>">
 				</div>
 				<div class="input-block">
-					<label>Информация о руководителе структурного подразделения</label>
+					<label>Должность руководителя структурного подразделения</label>
+					<input type="text" name="structs[<?php echo $key?>][post]" class="field" value="<?php echo (isset($val['post']) ? wp_unslash(htmlspecialchars($val['post'])) : '')?>">
+				</div>
+				<div class="input-block">
+					<label>ФИО руководителя структурного подразделения</label>
 					<input type="text" name="structs[<?php echo $key?>][fio]" class="field" value="<?php echo (isset($val['fio']) ? wp_unslash(htmlspecialchars($val['fio'])) : '')?>">
 				</div>
 				<div class="input-block">
@@ -84,7 +88,11 @@ if(isset($data['action'])) : ?>
 				<input type="text" name="structs[struct_1][name]" class="field">
 			</div>
 			<div class="input-block">
-				<label>Информация о руководителе структурного подразделения</label>
+				<label>Должность руководителя структурного подразделения</label>
+				<input type="text" name="structs[struct_1][post]" class="field">
+			</div>
+			<div class="input-block">
+				<label>ФИО руководителя структурного подразделения</label>
 				<input type="text" name="structs[struct_1][fio]" class="field">
 			</div>
 			<div class="input-block">
