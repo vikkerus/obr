@@ -1,6 +1,6 @@
 <?php $data = org_struct_front(); ?>
 
-<div class="org-front structure">
+<div class="org-front structure" itemprop="structOrgUprav">
 	<?php if(isset($data['struct_img_url']) && !empty($data['struct_img_url'])) : ?>
 	<div class="info-block image">	
 		<img src="<?php echo $data['struct_img_url']?>" alt="Схема структуры"/>
@@ -31,12 +31,22 @@
 								<div class="none-data">нет данных</div>
 							<?php endif;?>		
 						</div>
-
+					
+						<div class="str-block">
+							<div class="title">Должность руководителя</div>				
+							<?php if(isset($val['post']) && !empty($val['post'])) : ?>
+								<div class="content" itemprop="post">
+								<?php echo wp_unslash($val['post'])?>
+								</div>
+							<?php else:?>
+								<div class="none-data">нет данных</div>
+							<?php endif;?>	
+						</div>
 
 						<div class="str-block">
 							<div class="title">Ф.И.О. руководителя</div>				
 							<?php if(isset($val['fio']) && !empty($val['fio'])) : ?>
-								<div class="content" itemprop="fio post">
+								<div class="content" itemprop="fio">
 								<?php echo wp_unslash($val['fio'])?>
 								</div>
 							<?php else:?>
