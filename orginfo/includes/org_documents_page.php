@@ -295,12 +295,58 @@ if(isset($data['action'])) : ?>
 					?>
 					<input class="field" type="text" name="docs_paid_link" value="<?php echo (isset($field['docs_paid_link']) ? $field['docs_paid_link'] : '')?>">
 				</div>
-				<label>Документ о порядке оказания платных образовательных услуг, в том числе образец договора об оказании платных образовательных услуг, документ об утверждении стоимости обучения по каждой образовательной программе</label>
+				<label>Документ о порядке оказания платных образовательных услуг</label>
 				<input placeholder="Заголовок документа или ссылки" class="doc_name" type="text" name="docs_paid_name" value="<?php echo (isset($field['docs_paid_name']) ? wp_unslash(htmlspecialchars($field['docs_paid_name'])) : '')?>">
 				<input class="doc_id block-hidden" type="text" name="docs_paid_id" value="<?php echo (isset($field['docs_paid_id']) ? $field['docs_paid_id'] : '')?>">
 				<input class="doc_url" readonly="readonly" type="text" name="docs_paid_url" value="<?php echo (isset($field['docs_paid_url']) ? $field['docs_paid_url'] : '')?>">
 				<a href="javascript:;" class="doc_upload link_btn <?php echo (!empty($field['docs_paid_url']) && !empty($field['docs_paid_id']) ? 'block-hidden' : '')?>">Загрузить документ</a>
 				<a href="javascript:;" class="doc_remove link_btn <?php echo (!empty($field['docs_paid_url']) && !empty($field['docs_paid_id']) ? '' : 'block-hidden')?>">Очистить документ</a>
+			</div>
+			
+			
+			<div class="input-block" id="doc_input_14">
+				<div class="fhd-link">
+					<label>Ссылка на образец договора об оказании платных образовательных услуг</label>
+					<?php 
+						if(isset($field['docs_paid_dog_link']) && !empty($field['docs_paid_dog_link']))
+						{
+							if(!org_check_url($field['docs_paid_dog_link']))
+							{
+								echo $error_msg;
+							}
+						}
+					?>
+					<input class="field" type="text" name="docs_paid_dog_link" value="<?php echo (isset($field['docs_paid_dog_link']) ? $field['docs_paid_dog_link'] : '')?>">
+				</div>
+				<label>Образец договора об оказании платных образовательных услуг</label>
+				<input placeholder="Заголовок документа или ссылки" class="doc_name" type="text" name="docs_paid_dog_name" value="<?php echo (isset($field['docs_paid_dog_name']) ? wp_unslash(htmlspecialchars($field['docs_paid_dog_name'])) : '')?>">
+				<input class="doc_id block-hidden" type="text" name="docs_paid_dog_id" value="<?php echo (isset($field['docs_paid_dog_id']) ? $field['docs_paid_dog_id'] : '')?>">
+				<input class="doc_url" readonly="readonly" type="text" name="docs_paid_dog_url" value="<?php echo (isset($field['docs_paid_dog_url']) ? $field['docs_paid_dog_url'] : '')?>">
+				<a href="javascript:;" class="doc_upload link_btn <?php echo (!empty($field['docs_paid_dog_url']) && !empty($field['docs_paid_dog_id']) ? 'block-hidden' : '')?>">Загрузить документ</a>
+				<a href="javascript:;" class="doc_remove link_btn <?php echo (!empty($field['docs_paid_dog_url']) && !empty($field['docs_paid_dog_id']) ? '' : 'block-hidden')?>">Очистить документ</a>
+			</div>
+			
+			
+			<div class="input-block" id="doc_input_15">
+				<div class="fhd-link">
+					<label>Ссылка на документ об утверждении стоимости обучения каждой образовательной программе</label>
+					<?php 
+						if(isset($field['docs_paid_uch_link']) && !empty($field['docs_paid_uch_link']))
+						{
+							if(!org_check_url($field['docs_paid_uch_link']))
+							{
+								echo $error_msg;
+							}
+						}
+					?>
+					<input class="field" type="text" name="docs_paid_uch_link" value="<?php echo (isset($field['docs_paid_uch_link']) ? $field['docs_paid_uch_link'] : '')?>">
+				</div>
+				<label>Документ об утверждении стоимости обучения каждой образовательной программе</label>
+				<input placeholder="Заголовок документа или ссылки" class="doc_name" type="text" name="docs_paid_uch_name" value="<?php echo (isset($field['docs_paid_uch_name']) ? wp_unslash(htmlspecialchars($field['docs_paid_uch_name'])) : '')?>">
+				<input class="doc_id block-hidden" type="text" name="docs_paid_uch_id" value="<?php echo (isset($field['docs_paid_uch_id']) ? $field['docs_paid_uch_id'] : '')?>">
+				<input class="doc_url" readonly="readonly" type="text" name="docs_paid_uch_url" value="<?php echo (isset($field['docs_paid_uch_url']) ? $field['docs_paid_uch_url'] : '')?>">
+				<a href="javascript:;" class="doc_upload link_btn <?php echo (!empty($field['docs_paid_uch_url']) && !empty($field['docs_paid_uch_id']) ? 'block-hidden' : '')?>">Загрузить документ</a>
+				<a href="javascript:;" class="doc_remove link_btn <?php echo (!empty($field['docs_paid_uch_url']) && !empty($field['docs_paid_uch_id']) ? '' : 'block-hidden')?>">Очистить документ</a>
 			</div>
 			
 			<!-----------------ФХД-------------------->
