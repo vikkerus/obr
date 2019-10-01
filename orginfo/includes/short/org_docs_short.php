@@ -338,16 +338,49 @@
 	<div class="doc-block">
 		<div class="content">
 			<?php //echo (org_get_status($data['docs_paid_link']) ? '' : $link_error)?>
-			<a itemprop= "paidEduDocLink" href="<?php echo (isset($data['docs_paid_link']) && !empty($data['docs_paid_link']) ? $data['docs_paid_link'] : $data['docs_paid_url'])?>" title="Документ о порядке оказания платных образовательных услуг" target="_blank"><?php echo (isset($data['docs_paid_name']) && !empty($data['docs_paid_name'])) ? wp_unslash($data['docs_paid_name']) : 'Документ о порядке оказания платных образовательных услуг, в том числе образец договора об оказании платных образовательных услуг, документ об утверждении стоимости обучения по каждой образовательной программе'?></a>
+			<a itemprop= "paidEduDocLink" href="<?php echo (isset($data['docs_paid_link']) && !empty($data['docs_paid_link']) ? $data['docs_paid_link'] : $data['docs_paid_url'])?>" title="Документ о порядке оказания платных образовательных услуг" target="_blank"><?php echo (isset($data['docs_paid_name']) && !empty($data['docs_paid_name'])) ? wp_unslash($data['docs_paid_name']) : 'Документ о порядке оказания платных образовательных услуг'?></a>
 		</div>
 	</div>
 	<?php else:?>
 		<div class="doc-block">
-			<div>Документ о порядке оказания платных образовательных услуг, в том числе образец договора об оказании платных образовательных услуг, документ об утверждении стоимости обучения по каждой образовательной программе</div>
+			<div>Документ о порядке оказания платных образовательных услуг</div>
 			<div class="none-data">нет данных</div>
 		</div>
 		<br>
 	<?php endif;?>
+	
+	
+	<?php if((isset($data['docs_paid_dog_link']) && !empty($data['docs_paid_dog_link'])) || (isset($data['docs_paid_dog_url']) && !empty($data['docs_paid_dog_url']))) : ?>	
+	<div class="doc-block">
+		<div class="content">
+			<?php //echo (org_get_status($data['docs_paid_dog_link']) ? '' : $link_error)?>
+			<a itemprop= "paidEduDogDocLink" href="<?php echo (isset($data['docs_paid_dog_link']) && !empty($data['docs_paid_dog_link']) ? $data['docs_paid_dog_link'] : $data['docs_paid_dog_url'])?>" title="Образец договора об оказании платных образовательных услуг" target="_blank"><?php echo (isset($data['docs_paid_dog_name']) && !empty($data['docs_paid_dog_name'])) ? wp_unslash($data['docs_paid_dog_name']) : 'Образец договора об оказании платных образовательных услуг'?></a>
+		</div>
+	</div>
+	<?php else:?>
+		<div class="doc-block">
+			<div>Образец договора об оказании платных образовательных услуг</div>
+			<div class="none-data">нет данных</div>
+		</div>
+		<br>
+	<?php endif;?>
+	
+	
+	<?php if((isset($data['docs_paid_uch_link']) && !empty($data['docs_paid_uch_link'])) || (isset($data['docs_paid_uch_url']) && !empty($data['docs_paid_uch_url']))) : ?>	
+	<div class="doc-block">
+		<div class="content">
+			<?php //echo (org_get_status($data['docs_paid_uch_link']) ? '' : $link_error)?>
+			<a itemprop= "paidEduStoimDocLink" href="<?php echo (isset($data['docs_paid_uch_link']) && !empty($data['docs_paid_uch_link']) ? $data['docs_paid_uch_link'] : $data['docs_paid_uch_url'])?>" title="Документ об утверждении стоимости обучения каждой образовательной программе" target="_blank"><?php echo (isset($data['docs_paid_uch_name']) && !empty($data['docs_paid_uch_name'])) ? wp_unslash($data['docs_paid_uch_name']) : 'Документ об утверждении стоимости обучения каждой образовательной программе'?></a>
+		</div>
+	</div>
+	<?php else:?>
+		<div class="doc-block">
+			<div>Документ об утверждении стоимости обучения каждой образовательной программе</div>
+			<div class="none-data">нет данных</div>
+		</div>
+		<br>
+	<?php endif;?>
+	
 	
 	<?php if(isset($data['docother']) && !empty($data['docother'])) : ?>
 	<div class="org-fin">
