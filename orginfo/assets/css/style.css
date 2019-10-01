@@ -451,6 +451,13 @@ a, button, a:hover, a:focus, button:hover, button:focus{
 .page-edu .pop input{}
 
 
+.education_obr{
+	background: #fff;
+	padding: 15px;
+	margin-bottom: 25px;
+}
+
+
 /*образовательные стандарты*/
 #stand_links_1 .stand_remove{
 	display: none;
