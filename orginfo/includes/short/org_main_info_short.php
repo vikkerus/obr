@@ -74,8 +74,19 @@
 	<div class="info-block">
 		<div class="title">Контактные телефоны</div>	
 		<?php if(isset($data['info_tel']) && !empty($data['info_tel'])) : ?>
-			<div class="content" itemprop="telephone fax">
+			<div class="content" itemprop="telephone">
 			<?php echo wp_unslash($data['info_tel'])?>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>
+	</div>
+	
+	<div class="info-block">
+		<div class="title">Факс</div>	
+		<?php if(isset($data['info_fax']) && !empty($data['info_fax'])) : ?>
+			<div class="content" itemprop="fax">
+			<?php echo wp_unslash($data['info_fax'])?>
 			</div>
 		<?php else:?>
 			<div class="none-data">нет данных</div>
