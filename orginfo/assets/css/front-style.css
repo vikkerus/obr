@@ -155,6 +155,17 @@ table td, table th{
     background-color: #f9f9f9;
 }
 
+.org-front.edu .table-responsive{}
+.org-front.edu .table-responsive table{
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0 0 1.75em;
+	width: 100%;
+	font-size: 12px;
+	border: 1px solid #333;
+	color:initial;
+}
+
 
 /*образовательные стандарты*/
 .org-front.stand{}
