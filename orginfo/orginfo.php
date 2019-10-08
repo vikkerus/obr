@@ -992,6 +992,11 @@ function org_pedagog_page()
 			$main_info['zam'] = $_POST['zam'];
 		}
 		
+		if(isset($_POST['fil']) && is_array($_POST['fil']))
+		{
+			$main_info['fil'] = $_POST['fil'];
+		}
+		
 		if(isset($_POST['ped']) && is_array($_POST['ped']))
 		{
 			$main_info['ped'] = $_POST['ped'];
