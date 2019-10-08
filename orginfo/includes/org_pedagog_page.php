@@ -130,6 +130,92 @@ if(isset($data['action'])) : ?>
 				</div>
 			</div>
 			
+			<div class="sub-title">Руководители филиалов:</div>
+			<div class="alert">Обязательно заполните поле "Ф.И.О. руководителя филиала", иначе руководитель не будет отображен на сайте. </div>
+			<div class="fil-block">
+				<?php if(isset($data['restored']['fil']) && is_array($data['restored']['fil'])) : $fil = $data['restored']['fil']; ?>
+
+				<?php foreach($fil as $fkey => $fval):?>
+
+					<div class="fil_item" id="fil_<?php echo $fkey?>" name="fil_<?php echo $fkey?>">
+						<div class="input-block input_uploader" id="fil_<?php echo $fkey?>_img">
+							<div class="img-preview">
+								<img src="<?php echo (isset($fval['url']) && !empty($fval['url']) ? $fval['url'] : $nophoto)?>"/>
+							</div>
+							<label>Фото руководителя филиала</label>			
+							<input class="doc_id block-hidden" type="text" name="fil[<?php echo $fkey?>][id]" value="<?php echo (isset($fval['id']) ? $fval['id'] : '')?>">
+							<input class="doc_url" readonly="readonly" type="text" name="fil[<?php echo $fkey?>][url]" value="<?php echo (isset($fval['url']) ? $fval['url'] : '')?>">
+							<a href="javascript:;" class="doc_upload img link_btn <?php echo (!empty($fval['url']) && !empty($fval['id']) ? 'block-hidden' : '')?>">Загрузить фото</a>
+							<a href="javascript:;" class="doc_remove img link_btn <?php echo (!empty($fval['url']) && !empty($fval['id']) ? '' : 'block-hidden')?>">Очистить фото</a>		
+						</div>
+						<div class="input-block">
+							<label>Наименование филиала образовательной организации</label>
+							<input type="text" name="fil[<?php echo $fkey?>][name]" class="field" value="<?php echo (isset($fval['name']) ? wp_unslash(htmlspecialchars($fval['name'])) : '')?>">
+						</div>
+						<div class="input-block">
+							<label>Ф.И.О. руководителя филиала образовательной организации (руководителя филиала)</label>
+							<input type="text" name="fil[<?php echo $fkey?>][fio]" class="field" value="<?php echo (isset($fval['fio']) ? wp_unslash(htmlspecialchars($fval['fio'])) : '')?>">
+						</div>
+						<div class="input-block">
+							<label>Должность руководителя филиала образовательной организации (руководителя филиала)</label>
+							<input type="text" name="fil[<?php echo $fkey?>][post]" class="field" value="<?php echo (isset($fval['post']) ? wp_unslash(htmlspecialchars($fval['post'])) : '')?>">
+						</div>
+						<div class="input-block">
+							<label>Контактные телефоны руководителя филиала образовательной организации (руководителя филиала)</label>
+							<input type="text" name="fil[<?php echo $fkey?>][tel]" class="field" value="<?php echo (isset($fval['tel']) ? wp_unslash(htmlspecialchars($fval['tel'])) : '')?>">
+						</div>
+						<div class="input-block">
+							<label>Адреса электронной почты руководителя филиала образовательной организации (руководителя филиала)</label>
+							<input type="text" name="fil[<?php echo $fkey?>][mail]" class="field" value="<?php echo (isset($fval['mail']) ? wp_unslash(htmlspecialchars($fval['mail'])) : '')?>">
+						</div>
+						<a href="javascript:;" class="fil_remove link_remove">Удалить руководителя филиала</a>
+					</div>
+
+				<?php endforeach;?>
+
+				<?php else:?>
+				
+					<div class="fil_item" id="fil_fil_1" name="fil_fil_1">
+						<div class="input-block input_uploader" id="fil_fil_1_img">
+							<div class="img-preview">
+								<img src="<?php echo $nophoto;?>"/>
+							</div>
+							<label>Фото руководителя филиала</label>			
+							<input class="doc_id block-hidden" type="text" name="fil[fil_1][id]" value="">
+							<input class="doc_url" readonly="readonly" type="text" name="fil[fil_1][url]" value="">
+							<a href="javascript:;" class="doc_upload img link_btn">Загрузить фото</a>
+							<a href="javascript:;" class="doc_remove img link_btn block-hidden">Очистить фото</a>		
+						</div>
+						<div class="input-block">
+							<label>Наименование филиала образовательной организации</label>
+							<input type="text" name="fil[fil_1][name]" class="field" value="">
+						</div>
+						<div class="input-block">
+							<label>Ф.И.О. руководителя филиала образовательной организации (руководителя филиала)</label>
+							<input type="text" name="fil[fil_1][fio]" class="field" value="">
+						</div>
+						<div class="input-block">
+							<label>Должность руководителя филиала образовательной организации (руководителя филиала)</label>
+							<input type="text" name="fil[fil_1][post]" class="field" value="">
+						</div>
+						<div class="input-block">
+							<label>Контактные телефоны руководителя филиала образовательной организации (руководителя филиала)</label>
+							<input type="text" name="fil[fil_1][tel]" class="field" value="">
+						</div>
+						<div class="input-block">
+							<label>Адреса электронной почты руководителя филиала образовательной организации (руководителя филиала)</label>
+							<input type="text" name="fil[fil_1][mail]" class="field" value="">
+						</div>
+						<a href="javascript:;" class="fil_remove link_remove">Удалить руководителя филиала</a>
+					</div>
+
+				<?php endif?>
+				
+				<div id="add_filblock">
+					<input class="form_btn" type="button" value="Добавить руководителя филиала" id="add_fil">
+				</div>
+			</div>
+			
 			<div class="sub-title">Педагогические работники:</div>
 			<div class="alert">Обязательно заполните поле "Ф.И.О. педагогического работника", иначе педагог не будет отображен на сайте. </div>
 			<div class="ped-block">
@@ -161,11 +247,19 @@ if(isset($data['action'])) : ?>
 							<input type="text" name="ped[<?php echo $pkey?>][dis]" class="field" value="<?php echo (isset($pval['dis']) ? wp_unslash(htmlspecialchars($pval['dis'])) : '')?>">
 						</div>
 						<div class="input-block">
-							<label>Ученая степень (или уровень образования) педагогического работника (при наличии)</label>
+							<label>Уровень образования</label>
+							<input type="text" name="ped[<?php echo $pkey?>][lev]" class="field" value="<?php echo (isset($pval['lev']) ? wp_unslash(htmlspecialchars($pval['lev'])) : '')?>">
+						</div>
+						<div class="input-block">
+							<label>Квалификация</label>
+							<input type="text" name="ped[<?php echo $pkey?>][qual]" class="field" value="<?php echo (isset($pval['qual']) ? wp_unslash(htmlspecialchars($pval['qual'])) : '')?>">
+						</div>
+						<div class="input-block">
+							<label>Ученая степень</label>
 							<input type="text" name="ped[<?php echo $pkey?>][step]" class="field" value="<?php echo (isset($pval['step']) ? wp_unslash(htmlspecialchars($pval['step'])) : '')?>">
 						</div>
 						<div class="input-block">
-							<label>Ученое звание (или квалификация) педагогического работника (при наличии)</label>
+							<label>Ученое звание</label>
 							<input type="text" name="ped[<?php echo $pkey?>][zvan]" class="field" value="<?php echo (isset($pval['zvan']) ? wp_unslash(htmlspecialchars($pval['zvan'])) : '')?>">
 						</div>
 						<div class="input-block">
@@ -174,7 +268,7 @@ if(isset($data['action'])) : ?>
 						</div>
 						<div class="input-block">
 							<label>Данные о повышении квалификации и (или) профессиональной переподготовке педагогического работника (при наличии)</label>
-							<textarea name="ped[<?php echo $pkey?>][qual]" class="field"><?php echo (isset($pval['qual']) ? wp_unslash(htmlspecialchars($pval['qual'])) : '')?></textarea>
+							<textarea name="ped[<?php echo $pkey?>][pov]" class="field"><?php echo (isset($pval['pov']) ? wp_unslash(htmlspecialchars($pval['pov'])) : '')?></textarea>
 						</div>
 						<div class="input-block">
 							<label>Общий стаж работы педагогического работника</label>
@@ -215,11 +309,19 @@ if(isset($data['action'])) : ?>
 							<input type="text" name="ped[ped_1][dis]" class="field" value="">
 						</div>
 						<div class="input-block">
-							<label>Ученая степень педагогического работника (при наличии)</label>
+							<label>Уровень образования</label>
+							<input type="text" name="ped[ped_1][lev]" class="field" value="">
+						</div>
+						<div class="input-block">
+							<label>Квалификация</label>
+							<input type="text" name="ped[ped_1][qual]" class="field" value="">
+						</div>
+						<div class="input-block">
+							<label>Ученая степень</label>
 							<input type="text" name="ped[ped_1][step]" class="field" value="">
 						</div>
 						<div class="input-block">
-							<label>Ученое звание педагогического работника (при наличии)</label>
+							<label>Ученое звание</label>
 							<input type="text" name="ped[ped_1][zvan]" class="field" value="">
 						</div>
 						<div class="input-block">
@@ -228,7 +330,7 @@ if(isset($data['action'])) : ?>
 						</div>
 						<div class="input-block">
 							<label>Данные о повышении квалификации и (или) профессиональной переподготовке педагогического работника (при наличии)</label>
-							<textarea name="ped[ped_1][qual]" class="field"></textarea>
+							<textarea name="ped[ped_1][pov]" class="field"></textarea>
 						</div>
 						<div class="input-block">
 							<label>Общий стаж работы педагогического работника</label>
