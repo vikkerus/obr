@@ -32,6 +32,7 @@ var front_class = function () {
 	{
 		var zamBlock = jQuery('#org_zam .spoiler-panel').length;
 		var pedBlock = jQuery('#org_ped .spoiler-panel').length;
+		var filBlock = jQuery('#org_fil .spoiler-panel').length;
 		var orgBlock = jQuery('.signal-line').length;
 		var orgUch = jQuery('#org_uch .spoiler-block_in').length;
 		var orgNorm = jQuery('#org_norm .spoiler-block_in').length;
@@ -50,6 +51,11 @@ var front_class = function () {
 		if(pedBlock == 0)
 		{
 			jQuery('.ped-block').html('<div>Педагогические работники:</div><div class="none-data">нет данных</div>');
+		}
+		
+		if(filBlock == 0)
+		{
+			jQuery('.fil-block').html('<div>Руководители филиалов:</div><div class="none-data">нет данных</div>');
 		}
 		
 		// скрытие шапки таблицы на странице образования, если программ нет и показ фразы "нет данных по образовательным программам"
