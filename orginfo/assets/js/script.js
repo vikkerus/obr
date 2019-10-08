@@ -19,8 +19,10 @@ var script_class = function()
 		self.InitCloneStand();
 		self.InitRemoveStand();
 		self.InitCloneZam();
+		self.InitCloneFil();
 		self.InitClonePed();
 		self.InitRemoveZam();
+		self.InitRemoveFil();
 		self.InitRemovePed();
 		self.InitCloneOtch();
 		self.InitRemoveOtch();
@@ -348,6 +350,59 @@ var script_class = function()
 		});
 	}
 	
+	// функция клонирования блока руководителя филиала
+	self.InitCloneFil = function()
+	{		
+		jQuery('#add_fil').click(function (){
+			var clone = $('.fil_item').filter(':last').clone(false);
+			var cloneItems = clone.find('*[id]').andSelf();
+			var cloneIds = clone.find('*[name]').andSelf();
+			var uploader = clone.find('.doc_upload');
+			var remover = clone.find('.doc_remove');
+			
+			cloneItems.each(function()
+			{ 				
+				var tmp_id;
+				tmp_id = $(this).attr('id');
+				var result = tmp_id.match(/(\d+)/g);
+				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				
+			});
+			
+			cloneIds.each(function()
+			{ 								
+				var tmp_name;
+				tmp_name = $(this).attr('name');
+				var resultName = tmp_name.match(/(\d+)/g);
+				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				
+			});
+			
+			clone.insertBefore('#add_filblock').find("input[type='text']").val('');
+			
+			// для нескольких doc_upload и doc_remove
+			uploader.each(function(indx, element){
+				if($(element).hasClass('block-hidden'))
+				{
+					$(element).removeClass('block-hidden');
+				}
+			});
+			
+			remover.each(function(indx, element){
+				if(!$(element).hasClass('block-hidden'))
+				{
+					clone.find('.doc_remove').addClass('block-hidden');
+				}
+			});
+			
+			if(clone.find('.img-preview img'))
+			{
+				clone.find('.img-preview img').attr('src', nophoto);
+			}
+
+		});
+	}
+	
 	// функция клонирования блока педагога
 	self.InitClonePed = function()
 	{		
@@ -414,6 +469,23 @@ var script_class = function()
 			{
 				parent.remove();
 				alert('Заместитель руководителя удалён');
+			}
+		});
+	}
+	
+	// функция удаления руководителя филиала
+	self.InitRemoveFil = function()
+	{
+		jQuery(document).on('click','.fil_remove', function(event)
+		{
+			var button = $(event.target);		
+			var parent = button.parent();
+			var parentId = parent.attr('id');
+			
+			if (parentId != 'fil_fil_1')
+			{
+				parent.remove();
+				alert('Руководитель филиала удалён');
 			}
 		});
 	}
