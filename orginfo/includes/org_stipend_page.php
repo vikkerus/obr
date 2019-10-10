@@ -23,26 +23,25 @@ if(isset($data['action'])) : ?>
 		?>
 		
 		<div class="stipend">
-			<div class="input-block editor-block">
-				<label>Информация о наличии и условиях предоставления стипендий, в том числе локальные нормативные акты</label>
-				<?php 
-					wp_editor(
-						(isset($field['stipusl']) ? $field['stipusl'] : ''), 
-						'stipusl', 
-						array(
-							'wpautop'       => 0,
-							'media_buttons' => 1,
-							'textarea_name' => 'stipusl',
-							'tabindex'      => null,
-							'teeny'         => 0,
-							'textarea_rows' => 10,
-							'dfw'           => 0,
-							'tinymce'       => 1,
-							'quicktags'     => 1,
-							'drag_drop_upload' => true
-						)
-					);
-				?>
+			<div class="input-block">
+				<label>Сведения о видах стипендий</label>
+				<textarea name="stip_type" class="field"><?php echo (isset($field['stip_type']) ? wp_unslash($field['stip_type']) : '')?></textarea>
+			</div>
+			<div class="input-block input_uploader" id="stip_input_2">
+				<label>Копия локального нормативного правового акта, регламентирующего стипендиальное обеспечение</label>
+				<input placeholder="Заголовок документа" class="doc_name" type="text" name="stip_doc_name" value="<?php echo (isset($field['stip_doc_name']) ? wp_unslash(htmlspecialchars($field['stip_doc_name'])) : '')?>">				
+				<input class="doc_id block-hidden" type="text" name="stip_doc_id" value="<?php echo (isset($field['stip_doc_id']) ? $field['stip_doc_id'] : '')?>">
+				<input class="doc_url" readonly="readonly" type="text" name="stip_doc_url" value="<?php echo (isset($field['stip_doc_url']) ? $field['stip_doc_url'] : '')?>">
+				<a href="javascript:;" class="doc_upload link_btn <?php echo (!empty($field['stip_doc_url']) && !empty($field['stip_doc_id']) ? 'block-hidden' : '')?>">Загрузить документ</a>
+				<a href="javascript:;" class="doc_remove link_btn <?php echo (!empty($field['stip_doc_url']) && !empty($field['stip_doc_id']) ? '' : 'block-hidden')?>">Очистить документ</a>
+			</div>
+			<div class="input-block input_uploader" id="stip_input_3">
+				<label>Копия нормативного правового акта федерального уровня, регламентирующего стипендиальное обеспечение</label>
+				<input placeholder="Заголовок документа" class="doc_name" type="text" name="stip_fed_name" value="<?php echo (isset($field['stip_fed_name']) ? wp_unslash(htmlspecialchars($field['stip_fed_name'])) : '')?>">				
+				<input class="doc_id block-hidden" type="text" name="stip_fed_id" value="<?php echo (isset($field['stip_fed_id']) ? $field['stip_fed_id'] : '')?>">
+				<input class="doc_url" readonly="readonly" type="text" name="stip_fed_url" value="<?php echo (isset($field['stip_fed_url']) ? $field['stip_fed_url'] : '')?>">
+				<a href="javascript:;" class="doc_upload link_btn <?php echo (!empty($field['stip_fed_url']) && !empty($field['stip_fed_id']) ? 'block-hidden' : '')?>">Загрузить документ</a>
+				<a href="javascript:;" class="doc_remove link_btn <?php echo (!empty($field['stip_fed_url']) && !empty($field['stip_fed_id']) ? '' : 'block-hidden')?>">Очистить документ</a>
 			</div>
 			<div class="input-block">
 				<label>Информация о наличии общежития, интерната (в том числе для лиц с ОВЗ)</label>
