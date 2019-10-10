@@ -1131,6 +1131,16 @@ function org_stipend_page()
 		
 		$main_info = [
 			
+			'stip_type'      => trim($_POST['stip_type']),
+			
+			'stip_doc_id'   => trim($_POST['stip_doc_id']),
+			'stip_doc_url'  => trim($_POST['stip_doc_url']),
+			'stip_doc_name' => trim($_POST['stip_doc_name']),
+			
+			'stip_fed_id'   => trim($_POST['stip_fed_id']),
+			'stip_fed_url'  => trim($_POST['stip_fed_url']),
+			'stip_fed_name' => trim($_POST['stip_fed_name']),
+			
 			'stip_obsh'      => trim($_POST['stip_obsh']),
 			'stip_kol'       => trim($_POST['stip_kol']),
 			'stip_obsh_id'   => trim($_POST['stip_obsh_id']),
@@ -1139,7 +1149,6 @@ function org_stipend_page()
 			'stip_other'     => trim($_POST['stip_other']),
 			
 			// данные из текстового редактора
-			'stipusl'        => wp_unslash($_POST['stipusl']),
 			'stiptrud'       => wp_unslash($_POST['stiptrud']),
 			
 		];
@@ -1250,8 +1259,13 @@ function org_finance_page()
 		$main_info = [
 			
 			// данные из текстового редактора
-			'finob' => wp_unslash($_POST['finob']),
-			'finpo' => wp_unslash($_POST['finpo']),
+			'finfb'   => wp_unslash($_POST['finfb']),
+			'finbr'   => wp_unslash($_POST['finbr']),
+			'finmb'   => wp_unslash($_POST['finmb']),
+			'finfiz'  => wp_unslash($_POST['finfiz']),
+			'finpo'   => wp_unslash($_POST['finpo']),		
+			'finplan' => wp_unslash($_POST['finplan']),
+			
 			
 		];
 				
