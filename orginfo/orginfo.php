@@ -1056,16 +1056,27 @@ function org_material_page()
 			'mat_copy_name' => trim($_POST['mat_copy_name']),
 			'mat_copy_id'   => trim($_POST['mat_copy_id']),
 			'mat_copy_url'  => trim($_POST['mat_copy_url']),
-			'mat_uch'       => trim($_POST['mat_uch']),
-			'mat_pract'     => trim($_POST['mat_pract']),
-			'mat_bibl'      => trim($_POST['mat_bibl']),
-			'mat_sport'     => trim($_POST['mat_sport']),
+			
+			'mat_meals_name' => trim($_POST['mat_meals_name']),
+			'mat_meals_id'   => trim($_POST['mat_meals_id']),
+			'mat_meals_url'  => trim($_POST['mat_meals_url']),
+			
+			'mat_meals'      => trim($_POST['mat_meals']),
+			'mat_meals_ovz'  => trim($_POST['mat_meals_ovz']),
+			
+			'mat_heal'       => trim($_POST['mat_heal']),
+			'mat_heal_ovz'   => trim($_POST['mat_heal_ovz']),
+			
 			'mat_vos'       => trim($_POST['mat_vos']),
-			'mat_ohr'       => trim($_POST['mat_ohr']),
-			'mat_its'       => trim($_POST['mat_its']),
+			'mat_ovz'       => trim($_POST['mat_ovz']),
+			'ovz'           => trim($_POST['ovz']),
 			
 			// данные из текстового редактора
-			'matres'   => wp_unslash($_POST['matres']),
+			'pcab'   => wp_unslash($_POST['pcab']),
+			'pprac'  => wp_unslash($_POST['pprac']),
+			'plib'   => wp_unslash($_POST['plib']),
+			'psport' => wp_unslash($_POST['psport']),
+			'pel'    => wp_unslash($_POST['pel']),
 			
 		];
 				
