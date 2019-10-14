@@ -20,9 +20,11 @@ var script_class = function()
 		self.InitRemoveStand();
 		self.InitCloneZam();
 		self.InitCloneFil();
+		self.InitCloneVac();
 		self.InitClonePed();
 		self.InitRemoveZam();
 		self.InitRemoveFil();
+		self.InitRemoveVac();
 		self.InitRemovePed();
 		self.InitCloneOtch();
 		self.InitRemoveOtch();
@@ -403,6 +405,65 @@ var script_class = function()
 		});
 	}
 	
+	// функция клонирования записи о вакантных местах
+	self.InitCloneVac = function()
+	{		
+		jQuery('#add_vac').click(function (){
+			var clone = $('.vac_item').filter(':last').clone(false);
+			var cloneItems = clone.find('*[id]').andSelf();
+			var cloneIds = clone.find('*[name]').andSelf();
+			var uploader = clone.find('.doc_upload');
+			var remover = clone.find('.doc_remove');
+			
+			cloneItems.each(function()
+			{ 				
+				var tmp_id;
+				tmp_id = $(this).attr('id');
+				var result = tmp_id.match(/(\d+)/g);
+				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				
+			});
+			
+			cloneIds.each(function()
+			{ 								
+				var tmp_name;
+				tmp_name = $(this).attr('name');
+				var resultName = tmp_name.match(/(\d+)/g);
+				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				
+			});
+			
+			clone.insertBefore('#add_vacblock').find("input[type='text']").val('');
+			
+			// установка значения по умолчанию для select'а с уровнями образованиям при клонировании
+			if(clone.find('.level-list'))
+			{
+				clone.find('.level-list').val('none');
+			}
+			
+			// для нескольких doc_upload и doc_remove
+			uploader.each(function(indx, element){
+				if($(element).hasClass('block-hidden'))
+				{
+					$(element).removeClass('block-hidden');
+				}
+			});
+			
+			remover.each(function(indx, element){
+				if(!$(element).hasClass('block-hidden'))
+				{
+					clone.find('.doc_remove').addClass('block-hidden');
+				}
+			});
+			
+			if(clone.find('.img-preview img'))
+			{
+				clone.find('.img-preview img').attr('src', nophoto);
+			}
+
+		});
+	}
+	
 	// функция клонирования блока педагога
 	self.InitClonePed = function()
 	{		
@@ -503,6 +564,23 @@ var script_class = function()
 			{
 				parent.remove();
 				alert('Педагог удалён');
+			}
+		});
+	}
+	
+	// функция удаления записи о вакантных местах
+	self.InitRemoveVac = function()
+	{
+		jQuery(document).on('click','.vac_remove', function(event)
+		{
+			var button = $(event.target);		
+			var parent = button.parent();
+			var parentId = parent.attr('id');
+			
+			if (parentId != 'vac_vac_1')
+			{
+				parent.remove();
+				alert('Запись удалена');
 			}
 		});
 	}
