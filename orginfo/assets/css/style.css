@@ -499,7 +499,7 @@ a, button, a:hover, a:focus, button:hover, button:focus{
 
 
 /*руководство и педсостав*/
-#ped_ped_1 .ped_remove, #zam_zam_1 .zam_remove, #fil_fil_1 .fil_remove{
+#ped_ped_1 .ped_remove, #zam_zam_1 .zam_remove, #fil_fil_1 .fil_remove, #vac_vac_1 .vac_remove{
 	display: none;
 }
 .page-ped{
@@ -517,7 +517,7 @@ a, button, a:hover, a:focus, button:hover, button:focus{
 	color: #23282d;
 	padding: 15px 0;
 }
-.page-ped .ped_item, .page-ped .zam_item, .page-ped .fil_item{
+.page-ped .ped_item, .page-ped .zam_item, .page-ped .fil_item, .vacant-block .vac_item{
     float: left;
     width: 50%;
     box-sizing: border-box;
@@ -525,12 +525,16 @@ a, button, a:hover, a:focus, button:hover, button:focus{
     padding: 15px 15px 30px;
     position: relative;
 }
-#add_zamblock, #add_pedblock, #add_filblock{
+#add_zamblock, #add_pedblock, #add_filblock, #add_vacblock{
 	width: 100%;
 	overflow: hidden;
 	padding-top: 15px;
 }
-.page-ped .link_remove {
+#add_vacblock{
+	margin-bottom: 35px;
+}
+.page-ped .link_remove, 
+.vacant-block .link_remove{
     position: absolute;
     color: red;
     left: 15px;
@@ -576,12 +580,14 @@ a, button, a:hover, a:focus, button:hover, button:focus{
 }
 .page-ped .zam_item .input_uploader input,
 .page-ped .ped_item .input_uploader input,
-.page-ped .fil_item .input_uploader input{
+.page-ped .fil_item .input_uploader input,
+.page-ped .vac_item .input_uploader input{
 	width: calc(70% - 115px);
 }
 .page-ped .zam_item .input_uploader .link_btn,
 .page-ped .ped_item .input_uploader .link_btn,
-.page-ped .fil_item .input_uploader .link_btn{
+.page-ped .fil_item .input_uploader .link_btn,
+.page-ped .vac_item .input_uploader .link_btn{
 	width: 30%;
 }
 
