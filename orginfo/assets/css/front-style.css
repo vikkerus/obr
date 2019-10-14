@@ -279,6 +279,24 @@ table td, table th{
 /*spoiler panels*/
 
 
+/*вакантные места*/
+.vac-block{}
+.vac-block table{}
+.vac-block table th{
+	padding: 5px;
+	font-size: 12px;
+	line-height: 14px;
+	color: #000;
+}
+.vac-block table td{
+	padding: 5px;
+	font-size: 12px;
+	line-height: 14px;
+	color: #000;
+}
+/*вакантные места*/
+
+
 /*медиа запросы*/
 @media only screen and (max-width:767px){
 	
