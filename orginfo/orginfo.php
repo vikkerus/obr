@@ -2,7 +2,7 @@
 /*
  * Plugin Name: Сведения об образовательной организации
  * Description: Плагин для создания страниц со сведениями об рбразовательной организации, в соответствии с законодательством РФ.
- * Version: 1.0
+ * Version: 2.0
  * Author: RIAC
  * License: GPLv2 or later
  */
@@ -1324,6 +1324,11 @@ function org_vacancy_page()
 			'vacinfo' => wp_unslash($_POST['vacinfo']),
 			
 		];
+		
+		if(isset($_POST['vac']) && is_array($_POST['vac']))
+		{
+			$main_info['vac'] = $_POST['vac'];
+		}
 				
 		// подготовка данных перед записью в базу
 		$safe_string_main = base64_encode(serialize($main_info));
