@@ -1,8 +1,8 @@
 <?php $data = org_vac_front(); ?>
 
 <div class="org-front vac" itemprop="vacant">
-	<div class="info-block">
-		<?php if(isset($data['vac']) && is_array($data['vac'])) : $vac = $data['vac']; ?>
+	<?php if(isset($data['vac']) && is_array($data['vac'])) : $vac = $data['vac']; ?>
+	<div class="info-block">	
 		<div class="vac-block">
 			<div class="table-responsive">
 				<table id="vac_table">
@@ -100,9 +100,14 @@
 				<?php endforeach;?>
 				</table>
 			</div>
-		</div>
-		<?php endif;?>
+		</div>	
 	</div>
+	<?php else:?>
+	<div class="info-block">
+		<div class="none-data">нет данных</div>
+	</div>
+	<?php endif;?>
+	
 	<?php if(isset($data['vacinfo']) && !empty($data['vacinfo'])) : ?>
 	<div class="info-block">
 		<div class="title">Вакантные места для приема (перевода)</div>				
