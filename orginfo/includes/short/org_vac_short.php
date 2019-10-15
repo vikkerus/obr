@@ -105,9 +105,7 @@
 			</div>
 		</div>	
 	<?php else:?>
-	<div class="info-block">
 		<div class="none-data">нет данных</div>
-	</div>
 	<?php endif;?>
 	
 	<?php if(isset($data['vacinfo']) && !empty($data['vacinfo'])) : ?>
