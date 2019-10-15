@@ -220,6 +220,7 @@ table td, table th{
 .org-front.paid .link-title {
     font-weight: bold;
 	padding-bottom: 5px;
+	color: #000;
 }
 
 
