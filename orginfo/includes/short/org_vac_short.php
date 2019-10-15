@@ -2,28 +2,30 @@
 
 <div class="org-front vac" itemprop="vacant">
 	<?php if(isset($data['vac']) && is_array($data['vac'])) : $vac = $data['vac']; ?>
-	<div class="info-block">	
 		<div class="vac-block">
 			<div class="table-responsive">
 				<table id="vac_table">
-					<tr>
-						<th rowspan="2">№</th>
-						<th rowspan="2">Код направления</th>
-						<th rowspan="2">Наименование образовательной программы</th>
-						<th rowspan="2">Наименование специальности/направления подготовки</th>
-						<th colspan="4" class="text-center">Уровень образования</th>
-						<th colspan="4" class="text-center">Количество вакантных мест для приема (перевода)</th>
-					</tr>
-					<tr>
-						<th class="text-center">бакалавриат</th>
-						<th class="text-center" class="text-center">специалитет</th>
-						<th class="text-center">магистратура</th>
-						<th class="text-center">аспирантура</th>
-						<th class="text-center">за счёт бюджетных ассигнований федерального бюджета</th>
-						<th class="text-center">за счёт бюджетов субъектов Российской Федерации</th>
-						<th class="text-center">за счёт местных бюджетов</th>
-						<th class="text-center">за счёт средств физических и (или) юридических лиц</th>
-					</tr>
+					<thead>
+						<tr>
+							<th rowspan="2">№</th>
+							<th rowspan="2">Код направления</th>
+							<th rowspan="2">Наименование образовательной программы</th>
+							<th rowspan="2">Наименование специальности/направления подготовки</th>
+							<th colspan="4" class="text-center">Уровень образования</th>
+							<th colspan="4" class="text-center">Количество вакантных мест для приема (перевода)</th>
+						</tr>
+						<tr>
+							<th class="text-center">бакалавриат</th>
+							<th class="text-center" class="text-center">специалитет</th>
+							<th class="text-center">магистратура</th>
+							<th class="text-center">аспирантура</th>
+							<th class="text-center">за счёт бюджетных ассигнований федерального бюджета</th>
+							<th class="text-center">за счёт бюджетов субъектов Российской Федерации</th>
+							<th class="text-center">за счёт местных бюджетов</th>
+							<th class="text-center">за счёт средств физических и (или) юридических лиц</th>
+						</tr>
+					</thead>
+					<tbody>
 				<?php $i=1; foreach($vac as $key => $val): ?>
 				<?php if(isset($val['op']) && !empty($val['op'])) : ?>
 				<tr>
@@ -98,10 +100,10 @@
 				</tr>	
 				<?php $i++; endif;?>
 				<?php endforeach;?>
+					</tbody>
 				</table>
 			</div>
 		</div>	
-	</div>
 	<?php else:?>
 	<div class="info-block">
 		<div class="none-data">нет данных</div>
