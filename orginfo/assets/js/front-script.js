@@ -42,6 +42,7 @@ var front_class = function () {
 		var orgOtch = jQuery('#org_otch .spoiler-block_in').length;
 		var orgStand = jQuery('#stand_links').length;
 		var orgPlat = jQuery('#paid_links').length;
+		var orgVacTable = jQuery('.vac-block #vac_table').length;
 		
 		if(zamBlock == 0)
 		{
@@ -130,6 +131,16 @@ var front_class = function () {
 			if (jQuery('#org_otch .spoiler-block_in').html().trim() === '')
 			{
 				jQuery('#org_otch .spoiler-block_in').html('<div class="none-data">нет данных</div>');
+			}
+		}
+		
+		if(orgVacTable != 0)
+		{
+			if(jQuery('.vac-block #vac_table tbody').html().trim() === '')
+			{
+				jQuery('.vac-block #vac_table').hide();
+				
+				jQuery('.vac-block').html('<div class="none-data">нет данных</div>');
 			}
 		}
 	}
