@@ -64,7 +64,7 @@
 		<?php if(isset($data['fil']) && is_array($data['fil'])) : $fil = $data['fil']; ?>
 		<div class="spoiler-box closed" id="org_fil">
 			<?php foreach($fil as $fkey => $fval):?>
-			<?php if(isset($fval['name']) && !empty($fval['name'])) :?>
+			<?php if(isset($fval['fio']) && !empty($fval['fio'])) :?>
 			<div class="spoiler-panel"  itemprop="rucovodstvoFil">
 				<div class="clicker h2">
 					<?php if(isset($fval['fio']) && !empty($fval['fio'])) : ?>			
