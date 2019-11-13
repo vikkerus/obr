@@ -1,5 +1,5 @@
 // очистка несохраненных данных после обновления страницы, фикс для Firefox
-$('form').trigger('reset');
+jQuery('form').trigger('reset');
 
 
 var script_class = function()
@@ -45,7 +45,7 @@ var script_class = function()
 	{					
 		jQuery(document).on('click','.doc_upload', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var idInput = parent.find('.doc_id');
 			var urlInput = parent.find('.doc_url');
@@ -54,8 +54,8 @@ var script_class = function()
 			var send_attachment_bkp = wp.media.editor.send.attachment;
 			
 			wp.media.editor.send.attachment = function(props, attachment) {
-				$(idInput).val(attachment.id);
-				$(urlInput).val(attachment.url);
+				jQuery(idInput).val(attachment.id);
+				jQuery(urlInput).val(attachment.url);
 				
 				// проверка кнопки загрузки на наличие класса изображений
 				if(uploader.hasClass('img'))
@@ -85,7 +85,7 @@ var script_class = function()
 	self.InitCloneStruct = function()
 	{		
 		jQuery('#add_struct').click(function (){
-			var clone = $('.struct_item').filter(':last').clone(false);
+			var clone = jQuery('.struct_item').filter(':last').clone(false);
 			var cloneItems = clone.find('*[id]').andSelf();
 			var cloneIds = clone.find('*[name]').andSelf();
 			var uploader = clone.find('.doc_upload');
@@ -94,18 +94,18 @@ var script_class = function()
 			cloneItems.each(function()
 			{ 				
 				var tmp_id;
-				tmp_id = $(this).attr('id');
+				tmp_id = jQuery(this).attr('id');
 				var result = tmp_id.match(/(\d+)/g);
-				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				jQuery(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
 				
 			});
 			
 			cloneIds.each(function()
 			{ 								
 				var tmp_name;
-				tmp_name = $(this).attr('name');
+				tmp_name = jQuery(this).attr('name');
 				var resultName = tmp_name.match(/(\d+)/g);
-				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				jQuery(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
 				
 			});
 			
@@ -113,14 +113,14 @@ var script_class = function()
 			
 			// для нескольких doc_upload и doc_remove
 			uploader.each(function(indx, element){
-				if($(element).hasClass('block-hidden'))
+				if(jQuery(element).hasClass('block-hidden'))
 				{
-					$(element).removeClass('block-hidden');
+					jQuery(element).removeClass('block-hidden');
 				}
 			});
 			
 			remover.each(function(indx, element){
-				if(!$(element).hasClass('block-hidden'))
+				if(!jQuery(element).hasClass('block-hidden'))
 				{
 					clone.find('.doc_remove').addClass('block-hidden');
 				}
@@ -134,7 +134,7 @@ var script_class = function()
 	{
 		jQuery(document).on('click','.struct_remove', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var parentId = parent.attr('id');
 			
@@ -151,7 +151,7 @@ var script_class = function()
 	{
 		jQuery(document).on('click','.doc_remove', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var uploader = parent.find('.doc_upload');
 			var remover = parent.find('.doc_remove');
@@ -182,7 +182,7 @@ var script_class = function()
 	self.InitCloneEdu = function()
 	{		
 		jQuery('#add_edu').click(function (){
-			var clone = $('.edu_item').filter(':last').clone(false);
+			var clone = jQuery('.edu_item').filter(':last').clone(false);
 			var cloneItems = clone.find('*[id]').andSelf();
 			var cloneIds = clone.find('*[name]').andSelf();
 			var uploader = clone.find('.doc_upload');
@@ -191,18 +191,18 @@ var script_class = function()
 			cloneItems.each(function()
 			{ 				
 				var tmp_id;
-				tmp_id = $(this).attr('id');
+				tmp_id = jQuery(this).attr('id');
 				var result = tmp_id.match(/(\d+)/g);
-				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				jQuery(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
 				
 			});
 			
 			cloneIds.each(function()
 			{ 								
 				var tmp_name;
-				tmp_name = $(this).attr('name');
+				tmp_name = jQuery(this).attr('name');
 				var resultName = tmp_name.match(/(\d+)/g);
-				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				jQuery(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
 				
 			});
 			
@@ -211,14 +211,14 @@ var script_class = function()
 			
 			// для нескольких doc_upload и doc_remove
 			uploader.each(function(indx, element){
-				if($(element).hasClass('block-hidden'))
+				if(jQuery(element).hasClass('block-hidden'))
 				{
-					$(element).removeClass('block-hidden');
+					jQuery(element).removeClass('block-hidden');
 				}
 			});
 			
 			remover.each(function(indx, element){
-				if(!$(element).hasClass('block-hidden'))
+				if(!jQuery(element).hasClass('block-hidden'))
 				{
 					clone.find('.doc_remove').addClass('block-hidden');
 				}
@@ -233,7 +233,7 @@ var script_class = function()
 	{
 		jQuery(document).on('click','.edu_remove', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var parentId = parent.attr('id');
 			
@@ -249,25 +249,25 @@ var script_class = function()
 	self.InitCloneStand = function()
 	{		
 		jQuery('#add_link').click(function (){
-			var clone = $('.stand_item').filter(':last').clone(false);
+			var clone = jQuery('.stand_item').filter(':last').clone(false);
 			var cloneItems = clone.find('*[id]').andSelf();
 			var cloneIds = clone.find('*[name]').andSelf();
 			
 			cloneItems.each(function()
 			{ 				
 				var tmp_id;
-				tmp_id = $(this).attr('id');
+				tmp_id = jQuery(this).attr('id');
 				var result = tmp_id.match(/(\d+)/g);
-				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				jQuery(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
 				
 			});
 			
 			cloneIds.each(function()
 			{ 								
 				var tmp_name;
-				tmp_name = $(this).attr('name');
+				tmp_name = jQuery(this).attr('name');
 				var resultName = tmp_name.match(/(\d+)/g);
-				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				jQuery(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
 				
 			});
 			
@@ -287,7 +287,7 @@ var script_class = function()
 	{
 		jQuery(document).on('click','.stand_remove', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var parentId = parent.attr('id');
 			
@@ -303,7 +303,7 @@ var script_class = function()
 	self.InitCloneZam = function()
 	{		
 		jQuery('#add_zam').click(function (){
-			var clone = $('.zam_item').filter(':last').clone(false);
+			var clone = jQuery('.zam_item').filter(':last').clone(false);
 			var cloneItems = clone.find('*[id]').andSelf();
 			var cloneIds = clone.find('*[name]').andSelf();
 			var uploader = clone.find('.doc_upload');
@@ -312,18 +312,18 @@ var script_class = function()
 			cloneItems.each(function()
 			{ 				
 				var tmp_id;
-				tmp_id = $(this).attr('id');
+				tmp_id = jQuery(this).attr('id');
 				var result = tmp_id.match(/(\d+)/g);
-				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				jQuery(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
 				
 			});
 			
 			cloneIds.each(function()
 			{ 								
 				var tmp_name;
-				tmp_name = $(this).attr('name');
+				tmp_name = jQuery(this).attr('name');
 				var resultName = tmp_name.match(/(\d+)/g);
-				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				jQuery(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
 				
 			});
 			
@@ -331,14 +331,14 @@ var script_class = function()
 			
 			// для нескольких doc_upload и doc_remove
 			uploader.each(function(indx, element){
-				if($(element).hasClass('block-hidden'))
+				if(jQuery(element).hasClass('block-hidden'))
 				{
-					$(element).removeClass('block-hidden');
+					jQuery(element).removeClass('block-hidden');
 				}
 			});
 			
 			remover.each(function(indx, element){
-				if(!$(element).hasClass('block-hidden'))
+				if(!jQuery(element).hasClass('block-hidden'))
 				{
 					clone.find('.doc_remove').addClass('block-hidden');
 				}
@@ -356,7 +356,7 @@ var script_class = function()
 	self.InitCloneFil = function()
 	{		
 		jQuery('#add_fil').click(function (){
-			var clone = $('.fil_item').filter(':last').clone(false);
+			var clone = jQuery('.fil_item').filter(':last').clone(false);
 			var cloneItems = clone.find('*[id]').andSelf();
 			var cloneIds = clone.find('*[name]').andSelf();
 			var uploader = clone.find('.doc_upload');
@@ -365,18 +365,18 @@ var script_class = function()
 			cloneItems.each(function()
 			{ 				
 				var tmp_id;
-				tmp_id = $(this).attr('id');
+				tmp_id = jQuery(this).attr('id');
 				var result = tmp_id.match(/(\d+)/g);
-				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				jQuery(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
 				
 			});
 			
 			cloneIds.each(function()
 			{ 								
 				var tmp_name;
-				tmp_name = $(this).attr('name');
+				tmp_name = jQuery(this).attr('name');
 				var resultName = tmp_name.match(/(\d+)/g);
-				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				jQuery(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
 				
 			});
 			
@@ -384,14 +384,14 @@ var script_class = function()
 			
 			// для нескольких doc_upload и doc_remove
 			uploader.each(function(indx, element){
-				if($(element).hasClass('block-hidden'))
+				if(jQuery(element).hasClass('block-hidden'))
 				{
-					$(element).removeClass('block-hidden');
+					jQuery(element).removeClass('block-hidden');
 				}
 			});
 			
 			remover.each(function(indx, element){
-				if(!$(element).hasClass('block-hidden'))
+				if(!jQuery(element).hasClass('block-hidden'))
 				{
 					clone.find('.doc_remove').addClass('block-hidden');
 				}
@@ -409,7 +409,7 @@ var script_class = function()
 	self.InitCloneVac = function()
 	{		
 		jQuery('#add_vac').click(function (){
-			var clone = $('.vac_item').filter(':last').clone(false);
+			var clone = jQuery('.vac_item').filter(':last').clone(false);
 			var cloneItems = clone.find('*[id]').andSelf();
 			var cloneIds = clone.find('*[name]').andSelf();
 			var uploader = clone.find('.doc_upload');
@@ -418,18 +418,18 @@ var script_class = function()
 			cloneItems.each(function()
 			{ 				
 				var tmp_id;
-				tmp_id = $(this).attr('id');
+				tmp_id = jQuery(this).attr('id');
 				var result = tmp_id.match(/(\d+)/g);
-				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				jQuery(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
 				
 			});
 			
 			cloneIds.each(function()
 			{ 								
 				var tmp_name;
-				tmp_name = $(this).attr('name');
+				tmp_name = jQuery(this).attr('name');
 				var resultName = tmp_name.match(/(\d+)/g);
-				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				jQuery(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
 				
 			});
 			
@@ -443,14 +443,14 @@ var script_class = function()
 			
 			// для нескольких doc_upload и doc_remove
 			uploader.each(function(indx, element){
-				if($(element).hasClass('block-hidden'))
+				if(jQuery(element).hasClass('block-hidden'))
 				{
-					$(element).removeClass('block-hidden');
+					jQuery(element).removeClass('block-hidden');
 				}
 			});
 			
 			remover.each(function(indx, element){
-				if(!$(element).hasClass('block-hidden'))
+				if(!jQuery(element).hasClass('block-hidden'))
 				{
 					clone.find('.doc_remove').addClass('block-hidden');
 				}
@@ -468,7 +468,7 @@ var script_class = function()
 	self.InitClonePed = function()
 	{		
 		jQuery('#add_ped').click(function (){
-			var clone = $('.ped_item').filter(':last').clone(false);
+			var clone = jQuery('.ped_item').filter(':last').clone(false);
 			var cloneItems = clone.find('*[id]').andSelf();
 			var cloneIds = clone.find('*[name]').andSelf();
 			var uploader = clone.find('.doc_upload');
@@ -477,18 +477,18 @@ var script_class = function()
 			cloneItems.each(function()
 			{ 				
 				var tmp_id;
-				tmp_id = $(this).attr('id');
+				tmp_id = jQuery(this).attr('id');
 				var result = tmp_id.match(/(\d+)/g);
-				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				jQuery(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
 				
 			});
 			
 			cloneIds.each(function()
 			{ 								
 				var tmp_name;
-				tmp_name = $(this).attr('name');
+				tmp_name = jQuery(this).attr('name');
 				var resultName = tmp_name.match(/(\d+)/g);
-				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				jQuery(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
 				
 			});
 			
@@ -496,14 +496,14 @@ var script_class = function()
 			
 			// для нескольких doc_upload и doc_remove
 			uploader.each(function(indx, element){
-				if($(element).hasClass('block-hidden'))
+				if(jQuery(element).hasClass('block-hidden'))
 				{
-					$(element).removeClass('block-hidden');
+					jQuery(element).removeClass('block-hidden');
 				}
 			});
 			
 			remover.each(function(indx, element){
-				if(!$(element).hasClass('block-hidden'))
+				if(!jQuery(element).hasClass('block-hidden'))
 				{
 					clone.find('.doc_remove').addClass('block-hidden');
 				}
@@ -522,7 +522,7 @@ var script_class = function()
 	{
 		jQuery(document).on('click','.zam_remove', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var parentId = parent.attr('id');
 			
@@ -539,7 +539,7 @@ var script_class = function()
 	{
 		jQuery(document).on('click','.fil_remove', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var parentId = parent.attr('id');
 			
@@ -556,7 +556,7 @@ var script_class = function()
 	{
 		jQuery(document).on('click','.ped_remove', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var parentId = parent.attr('id');
 			
@@ -573,7 +573,7 @@ var script_class = function()
 	{
 		jQuery(document).on('click','.vac_remove', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var parentId = parent.attr('id');
 			
@@ -589,7 +589,7 @@ var script_class = function()
 	self.InitCloneOtch = function()
 	{		
 		jQuery('#clone_otch').click(function (){
-			var clone = $('.otch_item').filter(':last').clone(false);
+			var clone = jQuery('.otch_item').filter(':last').clone(false);
 			var cloneItems = clone.find('*[id]').andSelf();
 			var cloneIds = clone.find('*[name]').andSelf();
 			var uploader = clone.find('.doc_upload');
@@ -598,18 +598,18 @@ var script_class = function()
 			cloneItems.each(function()
 			{ 				
 				var tmp_id;
-				tmp_id = $(this).attr('id');
+				tmp_id = jQuery(this).attr('id');
 				var result = tmp_id.match(/(\d+)/g);
-				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				jQuery(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
 				
 			});
 			
 			cloneIds.each(function()
 			{ 								
 				var tmp_name;
-				tmp_name = $(this).attr('name');
+				tmp_name = jQuery(this).attr('name');
 				var resultName = tmp_name.match(/(\d+)/g);
-				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				jQuery(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
 				
 			});
 			
@@ -623,14 +623,14 @@ var script_class = function()
 			
 			// для нескольких doc_upload и doc_remove
 			uploader.each(function(indx, element){
-				if($(element).hasClass('block-hidden'))
+				if(jQuery(element).hasClass('block-hidden'))
 				{
-					$(element).removeClass('block-hidden');
+					jQuery(element).removeClass('block-hidden');
 				}
 			});
 			
 			remover.each(function(indx, element){
-				if(!$(element).hasClass('block-hidden'))
+				if(!jQuery(element).hasClass('block-hidden'))
 				{
 					clone.find('.doc_remove').addClass('block-hidden');
 				}
@@ -645,7 +645,7 @@ var script_class = function()
 	{
 		jQuery(document).on('click','.otch_remove', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var parentId = parent.attr('id');
 			
@@ -661,7 +661,7 @@ var script_class = function()
 	self.InitClonePred = function()
 	{		
 		jQuery('#clone_pred').click(function (){
-			var clone = $('.pred_item').filter(':last').clone(false);
+			var clone = jQuery('.pred_item').filter(':last').clone(false);
 			var cloneItems = clone.find('*[id]').andSelf();
 			var cloneIds = clone.find('*[name]').andSelf();
 			var uploader = clone.find('.doc_upload');
@@ -670,18 +670,18 @@ var script_class = function()
 			cloneItems.each(function()
 			{ 				
 				var tmp_id;
-				tmp_id = $(this).attr('id');
+				tmp_id = jQuery(this).attr('id');
 				var result = tmp_id.match(/(\d+)/g);
-				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				jQuery(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
 				
 			});
 			
 			cloneIds.each(function()
 			{ 								
 				var tmp_name;
-				tmp_name = $(this).attr('name');
+				tmp_name = jQuery(this).attr('name');
 				var resultName = tmp_name.match(/(\d+)/g);
-				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				jQuery(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
 				
 			});
 			
@@ -695,14 +695,14 @@ var script_class = function()
 			
 			// для нескольких doc_upload и doc_remove
 			uploader.each(function(indx, element){
-				if($(element).hasClass('block-hidden'))
+				if(jQuery(element).hasClass('block-hidden'))
 				{
-					$(element).removeClass('block-hidden');
+					jQuery(element).removeClass('block-hidden');
 				}
 			});
 			
 			remover.each(function(indx, element){
-				if(!$(element).hasClass('block-hidden'))
+				if(!jQuery(element).hasClass('block-hidden'))
 				{
 					clone.find('.doc_remove').addClass('block-hidden');
 				}
@@ -717,7 +717,7 @@ var script_class = function()
 	{
 		jQuery(document).on('click','.pred_remove', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var parentId = parent.attr('id');
 			
@@ -733,7 +733,7 @@ var script_class = function()
 	self.InitCloneSam = function()
 	{		
 		jQuery('#clone_sam').click(function (){
-			var clone = $('.sam_item').filter(':last').clone(false);
+			var clone = jQuery('.sam_item').filter(':last').clone(false);
 			var cloneItems = clone.find('*[id]').andSelf();
 			var cloneIds = clone.find('*[name]').andSelf();
 			var uploader = clone.find('.doc_upload');
@@ -742,18 +742,18 @@ var script_class = function()
 			cloneItems.each(function()
 			{ 				
 				var tmp_id;
-				tmp_id = $(this).attr('id');
+				tmp_id = jQuery(this).attr('id');
 				var result = tmp_id.match(/(\d+)/g);
-				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				jQuery(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
 				
 			});
 			
 			cloneIds.each(function()
 			{ 								
 				var tmp_name;
-				tmp_name = $(this).attr('name');
+				tmp_name = jQuery(this).attr('name');
 				var resultName = tmp_name.match(/(\d+)/g);
-				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				jQuery(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
 				
 			});
 			
@@ -767,14 +767,14 @@ var script_class = function()
 			
 			// для нескольких doc_upload и doc_remove
 			uploader.each(function(indx, element){
-				if($(element).hasClass('block-hidden'))
+				if(jQuery(element).hasClass('block-hidden'))
 				{
-					$(element).removeClass('block-hidden');
+					jQuery(element).removeClass('block-hidden');
 				}
 			});
 			
 			remover.each(function(indx, element){
-				if(!$(element).hasClass('block-hidden'))
+				if(!jQuery(element).hasClass('block-hidden'))
 				{
 					clone.find('.doc_remove').addClass('block-hidden');
 				}
@@ -789,7 +789,7 @@ var script_class = function()
 	{
 		jQuery(document).on('click','.sam_remove', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var parentId = parent.attr('id');
 			
@@ -805,7 +805,7 @@ var script_class = function()
 	self.InitCloneDFhd = function()
 	{		
 		jQuery('#clone_fhd').click(function (){
-			var clone = $('.fhd_item').filter(':last').clone(false);
+			var clone = jQuery('.fhd_item').filter(':last').clone(false);
 			var cloneItems = clone.find('*[id]').andSelf();
 			var cloneIds = clone.find('*[name]').andSelf();
 			var uploader = clone.find('.doc_upload');
@@ -814,18 +814,18 @@ var script_class = function()
 			cloneItems.each(function()
 			{ 				
 				var tmp_id;
-				tmp_id = $(this).attr('id');
+				tmp_id = jQuery(this).attr('id');
 				var result = tmp_id.match(/(\d+)/g);
-				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				jQuery(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
 				
 			});
 			
 			cloneIds.each(function()
 			{ 								
 				var tmp_name;
-				tmp_name = $(this).attr('name');
+				tmp_name = jQuery(this).attr('name');
 				var resultName = tmp_name.match(/(\d+)/g);
-				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				jQuery(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
 				
 			});
 			
@@ -839,14 +839,14 @@ var script_class = function()
 			
 			// для нескольких doc_upload и doc_remove
 			uploader.each(function(indx, element){
-				if($(element).hasClass('block-hidden'))
+				if(jQuery(element).hasClass('block-hidden'))
 				{
-					$(element).removeClass('block-hidden');
+					jQuery(element).removeClass('block-hidden');
 				}
 			});
 			
 			remover.each(function(indx, element){
-				if(!$(element).hasClass('block-hidden'))
+				if(!jQuery(element).hasClass('block-hidden'))
 				{
 					clone.find('.doc_remove').addClass('block-hidden');
 				}
@@ -861,7 +861,7 @@ var script_class = function()
 	{
 		jQuery(document).on('click','.fhd_remove', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var parentId = parent.attr('id');
 			
@@ -877,7 +877,7 @@ var script_class = function()
 	self.InitClonePlat = function()
 	{		
 		jQuery('#clone_plat').click(function (){
-			var clone = $('.plat_item').filter(':last').clone(false);
+			var clone = jQuery('.plat_item').filter(':last').clone(false);
 			var cloneItems = clone.find('*[id]').andSelf();
 			var cloneIds = clone.find('*[name]').andSelf();
 			var uploader = clone.find('.doc_upload');
@@ -886,18 +886,18 @@ var script_class = function()
 			cloneItems.each(function()
 			{ 				
 				var tmp_id;
-				tmp_id = $(this).attr('id');
+				tmp_id = jQuery(this).attr('id');
 				var result = tmp_id.match(/(\d+)/g);
-				$(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
+				jQuery(this).attr('id',tmp_id.replace(result[0], parseInt(result[0], 10)+1));
 				
 			});
 			
 			cloneIds.each(function()
 			{ 								
 				var tmp_name;
-				tmp_name = $(this).attr('name');
+				tmp_name = jQuery(this).attr('name');
 				var resultName = tmp_name.match(/(\d+)/g);
-				$(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
+				jQuery(this).attr('name',tmp_name.replace(resultName[0], parseInt(resultName[0], 10)+1));
 				
 			});
 			
@@ -911,14 +911,14 @@ var script_class = function()
 			
 			// для нескольких doc_upload и doc_remove
 			uploader.each(function(indx, element){
-				if($(element).hasClass('block-hidden'))
+				if(jQuery(element).hasClass('block-hidden'))
 				{
-					$(element).removeClass('block-hidden');
+					jQuery(element).removeClass('block-hidden');
 				}
 			});
 			
 			remover.each(function(indx, element){
-				if(!$(element).hasClass('block-hidden'))
+				if(!jQuery(element).hasClass('block-hidden'))
 				{
 					clone.find('.doc_remove').addClass('block-hidden');
 				}
@@ -933,7 +933,7 @@ var script_class = function()
 	{
 		jQuery(document).on('click','.plat_remove', function(event)
 		{
-			var button = $(event.target);		
+			var button = jQuery(event.target);		
 			var parent = button.parent();
 			var parentId = parent.attr('id');
 			
