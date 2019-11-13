@@ -166,7 +166,7 @@ var front_class = function () {
 
 var template = new front_class();
 
-jQuery(document).ready(function($)
+jQuery(document).ready(function(jQuery)
 {
     template.events();
 });
