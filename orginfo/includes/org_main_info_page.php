@@ -56,7 +56,7 @@ if(isset($data['action'])) : ?>
 					);
 				?>
 			</div>
-			<div class="input-block">
+			<div class="input-block editor-block">
 				<label>Информация о филиалах</label>
 				<?php 
 					wp_editor(
