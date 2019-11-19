@@ -7,7 +7,6 @@ var front_class = function () {
     self.events = function () {
 		self.InitSpoilers();
 		self.InitHideBlock();
-		self.InitAddTag();
     }
 
     /****************************** METHOD'S ******************************/
@@ -145,22 +144,7 @@ var front_class = function () {
 		}
 	}
 	
-	// функция добавления тега с атрибутом к кнопке для слабовидящих
-	self.InitAddTag = function()
-	{
-		var button1 = jQuery('.bt_widget-vi').length;
-		var button2 = jQuery('#cr_widget').length;
-		
-		if(button1 != 0)
-		{
-			jQuery('.bt_widget-vi').wrap('<div itemprop="copy"></div>');
-		}
-		
-		if(button2 != 0)
-		{
-			jQuery('#cr_widget').wrap('<div itemprop="copy"></div>');
-		}
-	}
+	
 	
 }
 
