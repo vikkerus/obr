@@ -155,8 +155,8 @@ table td, table th{
     background-color: #f9f9f9;
 }
 
-.org-front.edu .table-responsive{}
-.org-front.edu .table-responsive table{
+.org-front .table-responsive{}
+.org-front .table-responsive table{
 	border-collapse: collapse;
 	border-spacing: 0;
 	margin: 0 0 1.75em;
