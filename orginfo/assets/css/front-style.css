@@ -281,7 +281,9 @@ table td, table th{
 
 
 /*вакантные места*/
-.vac-block{}
+.vac-block{
+	margin-bottom: 20px;
+}
 .vac-block table{}
 .vac-block table th{
 	padding: 5px;
