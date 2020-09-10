@@ -103,7 +103,9 @@
 					</tbody>
 				</table>
 			</div>
-		</div>		
+		</div>	
+	<?php else:?>
+		<div class="none-data">нет данных</div>
 	<?php endif;?>
 	
 	<?php if(isset($data['vacinfo']) && !empty($data['vacinfo'])) : ?>
