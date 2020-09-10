@@ -225,6 +225,36 @@ if(isset($data['action'])) : ?>
 					);
 				?>
 			</div>
+            
+            
+            <div class="input-block editor-block education_obr">
+				<label>Размещение  на  сайте  информации об электронных  образовательных  ресурсах,  к  которым обеспечивается доступ обучающихся, в том числе:</label>
+				<br>
+				<div>собственныхэлектронных    образовательных    и информационных ресурсов;</div>
+                <div>сторонних    электронных    образовательных    и информационных ресурсов;</div>
+                <div>базы данных электронного каталога;</div>
+				
+				<br>
+				<?php 
+					wp_editor(
+						(isset($field['eios']) ? $field['eios'] : ''), 
+						'eios', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'eios',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
 		</div>
 		<div class="input-block">
 			<button class="form_btn" name="mat_btn" type="submit">Сохранить</button>
