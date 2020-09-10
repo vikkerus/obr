@@ -155,7 +155,7 @@ table td, table th{
     background-color: #f9f9f9;
 }
 
-.org-front .table-responsive{}
+.org-front.edu .table-responsive{}
 .org-front .table-responsive table{
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -251,6 +251,7 @@ table td, table th{
     -webkit-box-shadow:0 0 10px #DCDCDC inset;
     -moz-box-shadow:0 0 10px #DCDCDC inset;
     box-shadow:0 0 10px #DCDCDC inset;
+    margin-top: 15px;
 }
 .spoiler-box .h2 {
     font-size: 14px;
