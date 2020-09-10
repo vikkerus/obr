@@ -733,6 +733,7 @@ function org_documents_page()
 			'docs_paid_link'   => trim($_POST['docs_paid_link']),
 			'docs_paid_dog_link'   => trim($_POST['docs_paid_dog_link']),
 			'docs_paid_uch_link'   => trim($_POST['docs_paid_uch_link']),
+            'docs_paid_parent_link'   => trim($_POST['docs_paid_parent_link']),
 			
 			// заголовки документов в базе ВП
 			'docs_ust_name'    => trim($_POST['docs_ust_name']),		
@@ -750,6 +751,7 @@ function org_documents_page()
 			'docs_paid_name'   => trim($_POST['docs_paid_name']),
 			'docs_paid_dog_name'   => trim($_POST['docs_paid_dog_name']),
 			'docs_paid_uch_name'   => trim($_POST['docs_paid_uch_name']),
+            'docs_paid_parent_name'   => trim($_POST['docs_paid_parent_name']),
 			
 			// id документов в базе ВП
 			'docs_ust_id'    => trim($_POST['docs_ust_id']),		
@@ -767,6 +769,7 @@ function org_documents_page()
 			'docs_paid_id'   => trim($_POST['docs_paid_id']),
 			'docs_paid_dog_id'   => trim($_POST['docs_paid_dog_id']),
 			'docs_paid_uch_id'   => trim($_POST['docs_paid_uch_id']),
+            'docs_paid_parent_id'   => trim($_POST['docs_paid_parent_id']),
 			
 			// url'ы документов в базе ВП
 			'docs_ust_url'   => trim($_POST['docs_ust_url']),		
@@ -784,6 +787,7 @@ function org_documents_page()
 			'docs_paid_url'  => trim($_POST['docs_paid_url']),
 			'docs_paid_dog_url'  => trim($_POST['docs_paid_dog_url']),
 			'docs_paid_uch_url'  => trim($_POST['docs_paid_uch_url']),
+            'docs_paid_parent_url'  => trim($_POST['docs_paid_parent_url']),
 			
 			// данные из текстового редактора
 			'docother'   => wp_unslash($_POST['docother']),
@@ -870,6 +874,7 @@ function org_education_page()
 			'eduop' => wp_unslash($_POST['eduop']),
 			'eduadop' => wp_unslash($_POST['eduadop']),
 			'edunir' => wp_unslash($_POST['edunir']),
+            'eduobrprog' => wp_unslash($_POST['eduobrprog']),
 		
 		];
 			
@@ -1077,6 +1082,7 @@ function org_material_page()
 			'plib'   => wp_unslash($_POST['plib']),
 			'psport' => wp_unslash($_POST['psport']),
 			'pel'    => wp_unslash($_POST['pel']),
+            'eios'    => wp_unslash($_POST['eios']),
 			
 		];
 				
