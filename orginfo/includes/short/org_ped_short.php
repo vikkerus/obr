@@ -149,7 +149,7 @@
 		<div class="spoiler-box closed" id="org_zam">
 			<?php foreach($zam as $key => $val):?>
 			<?php if(isset($val['name']) && !empty($val['name'])) :?>
-			<div class="spoiler-panel"  itemprop="rucovodstvo">
+			<div class="spoiler-panel"  itemprop="rucovodstvoZam">
 				<div class="clicker h2">
 					<?php if(isset($val['name']) && !empty($val['name'])) : ?>			
 						<?php echo wp_unslash($val['name']);?>
@@ -232,7 +232,7 @@
 					<div class="spoiler-block_in">
 						<?php if(isset($val['url']) && !empty($val['url'])) : ?>
 						<div class="img-block">
-							<img alt="Заместитель" src="<?php echo $val['url'];?>"/>
+							<img alt="Педагогический работник" src="<?php echo $val['url'];?>"/>
 						</div>
 						<?php endif;?>
 						
