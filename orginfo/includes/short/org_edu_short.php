@@ -44,7 +44,7 @@
 			<div class="none-data">нет данных</div>
 		<?php endif;?>	
 	</div>
-	
+
 	<div class="info-block">
 		<div class="title">Информация о результатах приема с различными условиями приема</div>	
 		<?php if(isset($data['edupriem']) && !empty($data['edupriem'])) : ?>
@@ -72,6 +72,18 @@
 		<?php if(isset($data['edunir']) && !empty($data['edunir'])) : ?>
 			<div class="content">
 			<?php echo $data['edunir']?>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
+	</div>
+    
+    
+    <div class="info-block">
+		<div class="title">Информации о реализуемых образовательных программах, в том числе о реализуемых адаптированных образовательных программах</div>	
+		<?php if(isset($data['eduobrprog']) && !empty($data['eduobrprog'])) : ?>
+			<div class="content">
+			<?php echo $data['eduobrprog']?>
 			</div>
 		<?php else:?>
 			<div class="none-data">нет данных</div>
