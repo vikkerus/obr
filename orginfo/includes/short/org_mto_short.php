@@ -1,6 +1,6 @@
 <?php $data = org_mto_front(); ?>
 
-<div class="org-front mto">
+<div class="org-front mto" itemprop="mto">
 	<?php if(isset($data['mat_copy_id']) && !empty($data['mat_copy_id'])) : ?>
 	<div class="info-block">
 		<div class="title">Копия документа о материально-техническом обеспечении</div>
@@ -141,10 +141,21 @@
 	</div>
 	
 	<div class="info-block">
-		<div class="title">Сведений о доступе к электронной информационно-образовательной среде</div>	
+		<div class="title">Сведений о доступе к электронной информационно-образовательной среде, информационным системам и информационно-телекоммуникационным сетям и электронным ресурсам, к которым обеспечивается доступ обучающихся</div>	
 		<?php if(isset($data['pel']) && !empty($data['pel'])) : ?>
 			<div class="content">
 			<?php echo $data['pel']?>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>		
+	</div>
+    
+    <div class="info-block">
+		<div class="title">Размещение  на  сайте  информации об электронных  образовательных  ресурсах,  к  которым обеспечивается доступ обучающихся</div>	
+		<?php if(isset($data['eios']) && !empty($data['eios'])) : ?>
+			<div class="content">
+			<?php echo $data['eios']?>
 			</div>
 		<?php else:?>
 			<div class="none-data">нет данных</div>
