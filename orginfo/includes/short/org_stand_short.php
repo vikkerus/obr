@@ -6,7 +6,7 @@
 
 ?>
 
-<div class="org-front stand">
+<div class="org-front stand" itemprop="eduDoc">
 	<?php if(is_array($data) && !empty($data)) : ?>
 	<div class="link-title">
 		Копии федеральных государственных образовательных стандартов:
@@ -25,4 +25,5 @@
 	<?php else:?>
 		<div class="none-data">нет данных</div>
 	<?php endif;?>
+    <div itemprop="eduFedDoc"><span class="hidden">о  федеральных  государственных  образовательных стандартах   с   размещением   их  копий   и   (или) гиперссылки на соответствующие документы</span></div>
 </div>
