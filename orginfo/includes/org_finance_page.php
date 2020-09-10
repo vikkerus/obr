@@ -25,15 +25,15 @@ if(isset($data['action'])) : ?>
 		<div class="finance">
 			
 			<div class="input-block editor-block">
-				<label>Сведения об объёме образовательной деятельности, финансовое обеспечение которой осуществляется за счёт <u>бюджетных ассигнований федерального бюджета</u></label>
+				<label>Сведения о поступлении финансовых и материальных средств</label>
 				<?php 
 					wp_editor(
-						(isset($field['finfb']) ? $field['finfb'] : ''), 
-						'finfb', 
+						(isset($field['finpost']) ? $field['finpost'] : ''), 
+						'finpost', 
 						array(
 							'wpautop'       => 0,
 							'media_buttons' => 1,
-							'textarea_name' => 'finfb',
+							'textarea_name' => 'finpost',
 							'tabindex'      => null,
 							'textarea_rows' => 10,
 							'teeny'         => 0,
@@ -47,103 +47,15 @@ if(isset($data['action'])) : ?>
 			</div>
 			
 			<div class="input-block editor-block">
-				<label>Сведения об объёме образовательной деятельности, финансовое обеспечение которой осуществляется за счёт <u>бюджетов субъектов Российской Федерации</u></label>
+				<label>Сведения о расходовании финансовых и материальных средств</label>
 				<?php 
 					wp_editor(
-						(isset($field['finbr']) ? $field['finbr'] : ''), 
-						'finbr', 
+						(isset($field['finras']) ? $field['finras'] : ''), 
+						'finras', 
 						array(
 							'wpautop'       => 0,
 							'media_buttons' => 1,
-							'textarea_name' => 'finbr',
-							'tabindex'      => null,
-							'textarea_rows' => 10,
-							'teeny'         => 0,
-							'dfw'           => 0,
-							'tinymce'       => 1,
-							'quicktags'     => 1,
-							'drag_drop_upload' => true
-						)
-					);
-				?>
-			</div>
-			
-			<div class="input-block editor-block">
-				<label>Сведения об объёме образовательной деятельности, финансовое обеспечение которой осуществляется за счёт <u>местных бюджетов</u></label>
-				<?php 
-					wp_editor(
-						(isset($field['finmb']) ? $field['finmb'] : ''), 
-						'finmb', 
-						array(
-							'wpautop'       => 0,
-							'media_buttons' => 1,
-							'textarea_name' => 'finmb',
-							'tabindex'      => null,
-							'textarea_rows' => 10,
-							'teeny'         => 0,
-							'dfw'           => 0,
-							'tinymce'       => 1,
-							'quicktags'     => 1,
-							'drag_drop_upload' => true
-						)
-					);
-				?>
-			</div>
-			
-			<div class="input-block editor-block">
-				<label>Сведения об объёме образовательной деятельности, финансовое обеспечение которой осуществляется по договорам об образовании за счёт <u>средств физических и (или) юридических лиц</u></label>
-				<?php 
-					wp_editor(
-						(isset($field['finfiz']) ? $field['finfiz'] : ''), 
-						'finfiz', 
-						array(
-							'wpautop'       => 0,
-							'media_buttons' => 1,
-							'textarea_name' => 'finfiz',
-							'tabindex'      => null,
-							'textarea_rows' => 10,
-							'teeny'         => 0,
-							'dfw'           => 0,
-							'tinymce'       => 1,
-							'quicktags'     => 1,
-							'drag_drop_upload' => true
-						)
-					);
-				?>
-			</div>
-			
-			<div class="input-block editor-block">
-				<label>Сведения о поступлении и расходовании финансовых и материальных средств</label>
-				<?php 
-					wp_editor(
-						(isset($field['finpo']) ? $field['finpo'] : ''), 
-						'finpo', 
-						array(
-							'wpautop'       => 0,
-							'media_buttons' => 1,
-							'textarea_name' => 'finpo',
-							'tabindex'      => null,
-							'textarea_rows' => 10,
-							'teeny'         => 0,
-							'dfw'           => 0,
-							'tinymce'       => 1,
-							'quicktags'     => 1,
-							'drag_drop_upload' => true
-						)
-					);
-				?>
-			</div>
-			
-			<div class="input-block editor-block">
-				<label>Ссылки на копии планов финансово-хозяйственной деятельности</label>
-				<?php 
-					wp_editor(
-						(isset($field['finplan']) ? $field['finplan'] : ''), 
-						'finplan', 
-						array(
-							'wpautop'       => 0,
-							'media_buttons' => 1,
-							'textarea_name' => 'finplan',
+							'textarea_name' => 'finras',
 							'tabindex'      => null,
 							'textarea_rows' => 10,
 							'teeny'         => 0,
