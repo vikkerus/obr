@@ -29,10 +29,10 @@
 				<?php $i=1; foreach($vac as $key => $val): ?>
 				<?php if(isset($val['op']) && !empty($val['op'])) : ?>
 				<tr>
-					<td><?php echo $i;?></td>
-					<td><?php echo (isset($val['code']) && !empty($val['code'])) ? $val['code'] : ''?></td>
-					<td itemprop="nameProgVacant"><?php echo (isset($val['op']) && !empty($val['op'])) ? $val['op'] : ''?></td>
-					<td itemprop="specialVacant"><?php echo (isset($val['name']) && !empty($val['name'])) ? $val['name'] : ''?></td>
+					<td itemprop="profesVacant"><?php echo $i;?></td>
+					<td itemprop="specVacant"><?php echo (isset($val['code']) && !empty($val['code'])) ? $val['code'] : ''?></td>
+					<td itemprop="naprVacant"><?php echo (isset($val['op']) && !empty($val['op'])) ? $val['op'] : ''?></td>
+					<td itemprop="obrVacant"><?php echo (isset($val['name']) && !empty($val['name'])) ? $val['name'] : ''?></td>
 					<td itemprop="bachelorVacant">
 						<?php 
 							if(isset($val['level']) && !empty($val['level']))
