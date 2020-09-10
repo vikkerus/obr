@@ -1,6 +1,6 @@
 <?php $data = org_main_front(); ?>
 
-<div class="org-front">
+<div class="org-front" itemprop="osnovSveden">
 	<div class="info-block">
 		<div class="title">Полное наименование образовательной организации (по уставу)</div>
 		<div class="content">
@@ -50,7 +50,7 @@
 	<div class="info-block">
 		<div class="title">Филиалы</div>	
 		<?php if(isset($data['infofil']) && !empty($data['infofil'])) : ?>
-			<div class="content" itemprop="filInfo">
+			<div class="content">
 			<?php echo $data['infofil']?>
 			</div>
 		<?php else:?>
