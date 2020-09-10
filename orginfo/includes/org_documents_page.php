@@ -325,6 +325,33 @@ if(isset($data['action'])) : ?>
 				<a href="javascript:;" class="doc_upload link_btn <?php echo (!empty($field['docs_paid_dog_url']) && !empty($field['docs_paid_dog_id']) ? 'block-hidden' : '')?>">Загрузить документ</a>
 				<a href="javascript:;" class="doc_remove link_btn <?php echo (!empty($field['docs_paid_dog_url']) && !empty($field['docs_paid_dog_id']) ? '' : 'block-hidden')?>">Очистить документ</a>
 			</div>
+            
+            
+            
+            
+            <div class="input-block" id="doc_input_20">
+				<div class="fhd-link">
+					<label>Ссылка на копию документа об установлении размера платы, взимаемой с родителей (законных представителей) за присмотр и уход  задетьми, осваивающими  образовательные программы дошкольного образования в организациях, осуществляющих  образовательную деятельность,  за содержание  детей  в образовательной  организации, реализующей образовательные программы начального общего,  основного общего или  среднего  общего образования,   если   в   такой   образовательной организации  созданы   условия для  проживанияобучающихся  в  интернате,  либо за  осуществление присмотра и ухода за детьми в группах продленного дня  в  образовательной организации,  реализующей образовательные программы  начального  общего, основного общего или среднего общего образования</label>
+					<?php 
+						if(isset($field['docs_paid_parent_link']) && !empty($field['docs_paid_parent_link']))
+						{
+							if(!org_check_url($field['docs_paid_parent_link']))
+							{
+								echo $error_msg;
+							}
+						}
+					?>
+					<input class="field" type="text" name="docs_paid_parent_link" value="<?php echo (isset($field['docs_paid_parent_link']) ? $field['docs_paid_parent_link'] : '')?>">
+				</div>
+				<label>Документ об установлении размера платы, взимаемой с родителей (законных представителей) за присмотр и уход  задетьми, осваивающими  образовательные программы дошкольного образования в организациях, осуществляющих  образовательную деятельность,  за содержание  детей  в образовательной  организации, реализующей образовательные программы начального общего,  основного общего или  среднего  общего образования,   если   в   такой   образовательной организации  созданы   условия для  проживанияобучающихся  в  интернате,  либо за  осуществление присмотра и ухода за детьми в группах продленного дня  в  образовательной организации,  реализующей образовательные программы  начального  общего, основного общего или среднего общего образования</label>
+				<input placeholder="Заголовок документа или ссылки" class="doc_name" type="text" name="docs_paid_parent_name" value="<?php echo (isset($field['docs_paid_parent_name']) ? wp_unslash(htmlspecialchars($field['docs_paid_parent_name'])) : '')?>">
+				<input class="doc_id block-hidden" type="text" name="docs_paid_parent_id" value="<?php echo (isset($field['docs_paid_parent_id']) ? $field['docs_paid_parent_id'] : '')?>">
+				<input class="doc_url" readonly="readonly" type="text" name="docs_paid_parent_url" value="<?php echo (isset($field['docs_paid_parent_url']) ? $field['docs_paid_parent_url'] : '')?>">
+				<a href="javascript:;" class="doc_upload link_btn <?php echo (!empty($field['docs_paid_parent_url']) && !empty($field['docs_paid_parent_id']) ? 'block-hidden' : '')?>">Загрузить документ</a>
+				<a href="javascript:;" class="doc_remove link_btn <?php echo (!empty($field['docs_paid_parent_url']) && !empty($field['docs_paid_parent_id']) ? '' : 'block-hidden')?>">Очистить документ</a>
+			</div>
+            
+            
 			
 			
 			<div class="input-block" id="doc_input_15">
