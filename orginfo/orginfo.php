@@ -868,13 +868,13 @@ function org_education_page()
 						
 			// данные из текстового редактора
 			'eduaccred' => wp_unslash($_POST['eduaccred']),
-			'educhislen' => wp_unslash($_POST['educhislen']),	
-			'edupriem' => wp_unslash($_POST['edupriem']),	
-			'eduperevod' => wp_unslash($_POST['eduperevod']),
-			'eduop' => wp_unslash($_POST['eduop']),
 			'eduadop' => wp_unslash($_POST['eduadop']),
-			'edunir' => wp_unslash($_POST['edunir']),
-            'eduobrprog' => wp_unslash($_POST['eduobrprog']),
+            'eduop' => wp_unslash($_POST['eduop']),
+            'educhisl' => wp_unslash($_POST['educhisl']),
+            'edupriem' => wp_unslash($_POST['edupriem']),
+            'eduperevod' => wp_unslash($_POST['eduperevod']),
+            'edunir' => wp_unslash($_POST['edunir']),
+            'eduprac' => wp_unslash($_POST['eduprac']),
 		
 		];
 			
