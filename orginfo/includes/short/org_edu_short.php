@@ -1,6 +1,6 @@
 <?php $data = org_edu_front(); ?>
 
-<div class="org-front edu">
+<div class="org-front edu" itemprop="eduObrProg">
 	<div class="info-block">
 		<div class="title">Информация о сроке действия государственной аккредитации образовательной программы, о языках, на которых осуществляется образование (обучение)</div>	
 		<?php if(isset($data['eduaccred']) && !empty($data['eduaccred'])) : ?>
@@ -11,9 +11,9 @@
 			<div class="none-data">нет данных</div>
 		<?php endif;?>	
 	</div>
-	
-	<div class="info-block">
-		<div class="title">Документы, регламентирующие образовательный процесс образовательной организации по <u>адаптированным</u> образовательным программам</div>	
+
+    <div class="info-block">
+		<div class="title">Наличие специальных <u>(адаптированных)</u> образовательных программ и методов обучения</div>	
 		<?php if(isset($data['eduadop']) && !empty($data['eduadop'])) : ?>
 			<div class="content">
 			<?php echo $data['eduadop']?>
@@ -22,9 +22,9 @@
 			<div class="none-data">нет данных</div>
 		<?php endif;?>	
 	</div>
-	
-	<div class="info-block">
-		<div class="title">Документы, регламентирующие образовательный процесс образовательной организации по <u>неадаптированным</u> образовательным программам</div>	
+    
+    <div class="info-block">
+		<div class="title">Наличие специальных <u>(неадаптированных)</u> образовательных программ и методов обучения</div>	
 		<?php if(isset($data['eduop']) && !empty($data['eduop'])) : ?>
 			<div class="content">
 			<?php echo $data['eduop']?>
@@ -33,20 +33,20 @@
 			<div class="none-data">нет данных</div>
 		<?php endif;?>	
 	</div>
-	
-	<div class="info-block">
+    
+    <div class="info-block">
 		<div class="title">Информация о численности обучающихся по реализуемым образовательным программам</div>	
-		<?php if(isset($data['educhislen']) && !empty($data['educhislen'])) : ?>
+		<?php if(isset($data['educhisl']) && !empty($data['educhisl'])) : ?>
 			<div class="content">
-			<?php echo $data['educhislen']?>
+			<?php echo $data['educhisl']?>
 			</div>
 		<?php else:?>
 			<div class="none-data">нет данных</div>
 		<?php endif;?>	
 	</div>
-
-	<div class="info-block">
-		<div class="title">Информация о результатах приема с различными условиями приема</div>	
+    
+    <div class="info-block">
+		<div class="title">Информация о результатах приема с различными условиями приема (на места, финансируемые за счет бюджетных ассигнований федерального бюджета, бюджетов субъектов Российской Федерации, местных бюджетов, по договорам об образовании за счет средств физических и (или) юридических лиц)</div>	
 		<?php if(isset($data['edupriem']) && !empty($data['edupriem'])) : ?>
 			<div class="content">
 			<?php echo $data['edupriem']?>
@@ -55,8 +55,8 @@
 			<div class="none-data">нет данных</div>
 		<?php endif;?>	
 	</div>
-	
-	<div class="info-block">
+    
+    <div class="info-block">
 		<div class="title">Информация о результатах перевода, восстановления и отчисления</div>	
 		<?php if(isset($data['eduperevod']) && !empty($data['eduperevod'])) : ?>
 			<div class="content">
@@ -66,8 +66,8 @@
 			<div class="none-data">нет данных</div>
 		<?php endif;?>	
 	</div>
-	
-	<div class="info-block">
+    
+    <div class="info-block">
 		<div class="title">Информация о научно-исследовательской работе по каждой образовательной программе</div>	
 		<?php if(isset($data['edunir']) && !empty($data['edunir'])) : ?>
 			<div class="content">
@@ -78,12 +78,11 @@
 		<?php endif;?>	
 	</div>
     
-    
     <div class="info-block">
-		<div class="title">Информации о реализуемых образовательных программах, в том числе о реализуемых адаптированных образовательных программах</div>	
-		<?php if(isset($data['eduobrprog']) && !empty($data['eduobrprog'])) : ?>
+		<div class="title">Наличие практики</div>	
+		<?php if(isset($data['eduprac']) && !empty($data['eduprac'])) : ?>
 			<div class="content">
-			<?php echo $data['eduobrprog']?>
+			<?php echo $data['eduprac']?>
 			</div>
 		<?php else:?>
 			<div class="none-data">нет данных</div>
