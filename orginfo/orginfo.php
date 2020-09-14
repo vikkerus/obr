@@ -1899,6 +1899,19 @@ function org_check_url($url = '')
 
 /*------------------------------------------------------------*/
 
+
+
+// Вывод предупреждения об изменения плагина в админку
+add_action('admin_notices', 'orginfo_warning_message');
+
+function orginfo_warning_message()
+{
+	$message = "Плагин 'Сведения об образовательной организации' был обновлён. Пожалуйста, заполните заново раздел 'Образование'!";
+    
+	echo '<div class="notice notice-error is-dismissible"> <p>'. $message .'</p></div>';
+}
+
+
 	
 // функция добавляет пункты в административное меню
 function org_add_menu_pages()
