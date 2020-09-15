@@ -1900,16 +1900,43 @@ function org_check_url($url = '')
 /*------------------------------------------------------------*/
 
 
-
 // Вывод предупреждения об изменения плагина в админку
-add_action('admin_notices', 'orginfo_warning_message');
+add_action('admin_notices', 'org_check_edu_warning');
 
-function orginfo_warning_message()
+
+// проверить активен ли плагин и заполнены ли поля раздела "Образование",
+// если плагин активен и поля не заполнены, то выводить варнинг
+function org_check_edu_warning()
 {
-	$message = "Плагин 'Сведения об образовательной организации' был обновлён. Пожалуйста, заполните заново раздел 'Образование'!";
+    global $wpdb;
     
-	echo '<div class="notice notice-error is-dismissible"> <p>'. $message .'</p></div>';
+    $table_name = $wpdb->base_prefix.'org_infotable';
+    
+    $message = "Плагин 'Сведения об образовательной организации' был обновлён. Пожалуйста, заполните заново раздел 'Образование'!";
+    
+    // активен ли плагин
+    if ( is_plugin_active( 'orginfo/orginfo.php' ) )
+    {
+        // проверить существование таблицы в базе
+        if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name)
+        {
+            // проверить заполненность раздела "образование"
+            $edu = $wpdb->get_var("SELECT section_data FROM $table_name WHERE section_slug = 'education'");
+            
+            if(empty($edu))
+            {
+                echo '<div class="notice notice-error"> <p>'. $message .'</p></div>';
+            }
+            
+        }
+    }
 }
+
+
+
+
+
+
 
 
 	
