@@ -804,6 +804,11 @@ a, button, a:hover, a:focus, button:hover, button:focus{
 	transition: left 0.15s ease-out;
 }
 
+.another-info{
+	overflow: hidden;
+	width: 100%;
+}
+
 
 /*---------------медиа запросы-----------------*/
 @media only screen and (min-width:1200px) and (max-width:1399px){
