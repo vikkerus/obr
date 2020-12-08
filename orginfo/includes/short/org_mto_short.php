@@ -5,7 +5,7 @@
     <div class="info-block">
 		<div class="title">Сведения о каждом месте осуществления образовательной деятельности</div>	
 		<?php if(isset($data['mtoplace']) && !empty($data['mtoplace'])) : ?>
-			<div class="content">
+			<div class="content" itemprop="addressPlace">
 			<?php echo $data['mtoplace']?>
 			</div>
 		<?php else:?>
