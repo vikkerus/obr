@@ -17,7 +17,9 @@
 		<?php if(isset($val['link']) && !empty($val['link'])) : ?>
 		<div class="info-link">
 			<?php //echo (org_get_status($val['link']) ? '' : $link_error)?>
-			<a itemprop="eduStandartDoc" href="<?php echo $val['link']?>" title="Образовательный стандарт" target="_blank"><?php echo (isset($val['name']) && !empty($val['name'])) ? wp_unslash($val['name']) : 'Копия федерального государственного образовательного стандарта'?></a>
+			<a class="hidden" itemprop="eduFedDoc" href="<?php echo $val['link']?>" title="Образовательный стандарт" target="_blank"><?php echo (isset($val['name']) && !empty($val['name'])) ? wp_unslash($val['name']) : 'Копия федерального государственного образовательного стандарта'?></a>
+            
+            <a itemprop="eduStandartDoc" href="<?php echo $val['link']?>" title="Образовательный стандарт" target="_blank"><?php echo (isset($val['name']) && !empty($val['name'])) ? wp_unslash($val['name']) : 'Копия федерального государственного образовательного стандарта'?></a>
 		</div>
 		<?php endif;?>						
 	<?php endforeach;?>
