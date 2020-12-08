@@ -602,6 +602,8 @@ function org_main_info_page()
 			'infotime'   => wp_unslash($_POST['infotime']),
 			'infouch'    => wp_unslash($_POST['infouch']),
 			'infofil'    => wp_unslash($_POST['infofil']),
+            'inforep'    => wp_unslash($_POST['inforep']),
+            'infoplace'  => wp_unslash($_POST['infoplace']),
 			
 		];
 		
@@ -1058,31 +1060,34 @@ function org_material_page()
 			
 		$main_info = [
 			
-			'mat_copy_name' => trim($_POST['mat_copy_name']),
-			'mat_copy_id'   => trim($_POST['mat_copy_id']),
-			'mat_copy_url'  => trim($_POST['mat_copy_url']),
 			
-			'mat_meals_name' => trim($_POST['mat_meals_name']),
-			'mat_meals_id'   => trim($_POST['mat_meals_id']),
-			'mat_meals_url'  => trim($_POST['mat_meals_url']),
 			
-			'mat_meals'      => trim($_POST['mat_meals']),
-			'mat_meals_ovz'  => trim($_POST['mat_meals_ovz']),
 			
-			'mat_heal'       => trim($_POST['mat_heal']),
-			'mat_heal_ovz'   => trim($_POST['mat_heal_ovz']),
 			
-			'mat_vos'       => trim($_POST['mat_vos']),
-			'mat_ovz'       => trim($_POST['mat_ovz']),
-			'ovz'           => trim($_POST['ovz']),
+			
+			
+			
+			
+			
+			
 			
 			// данные из текстового редактора
+            'mtoplace' => wp_unslash($_POST['mtoplace']),
 			'pcab'   => wp_unslash($_POST['pcab']),
 			'pprac'  => wp_unslash($_POST['pprac']),
 			'plib'   => wp_unslash($_POST['plib']),
 			'psport' => wp_unslash($_POST['psport']),
-			'pel'    => wp_unslash($_POST['pel']),
-            'eios'    => wp_unslash($_POST['eios']),
+			'meal'   => wp_unslash($_POST['meal']),
+            'guard'  => wp_unslash($_POST['guard']),
+            
+            'facil'  => wp_unslash($_POST['facil']),
+            'comnet' => wp_unslash($_POST['comnet']),
+            'eios'   => wp_unslash($_POST['eios']),
+            'own'    => wp_unslash($_POST['own']),
+            'side'   => wp_unslash($_POST['side']),
+            'bdec'   => wp_unslash($_POST['bdec']),
+            'list'   => wp_unslash($_POST['list']),
+           
 			
 		];
 				
