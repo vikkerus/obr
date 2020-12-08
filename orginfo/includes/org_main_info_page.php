@@ -77,6 +77,32 @@ if(isset($data['action'])) : ?>
 					);
 				?>
 			</div>
+            
+            
+            <div class="input-block editor-block">
+				<label>Информация о представительствах</label>
+				<?php 
+					wp_editor(
+						(isset($field['inforep']) ? $field['inforep'] : ''), 
+						'inforep', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'inforep',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            
+            
 			<div class="input-block editor-block">
 				<label>Информация о режиме и графике работы образовательной организации</label>
 				<?php 
@@ -110,6 +136,31 @@ if(isset($data['action'])) : ?>
 				<label>Информация об адресах электронной почты образовательной организации</label>
 				<textarea name="info_mail" class="field"><?php echo (isset($field['info_mail']) ? wp_unslash($field['info_mail']) : '')?></textarea>
 			</div>
+            
+            
+            <div class="input-block editor-block">
+				<label>Сведения о каждом месте осуществления образовательной деятельности, в том числе не указываемых в соответствии с частью 4 статьи 91 Федерального закона от 29.12.2012 N 273-ФЗ "Об образовании в Российской Федерации" (Собрание законодательства Российской Федерации, 2012, N 53, ст. 7598; 2019, N 49, ст. 6962) в приложении к лицензии на осуществление образовательной деятельности</label>
+				<?php 
+					wp_editor(
+						(isset($field['infoplace']) ? $field['infoplace'] : ''), 
+						'infoplace', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'infoplace',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            
 		</div>
 		
 		<div class="input-block">
