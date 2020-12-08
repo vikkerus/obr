@@ -50,13 +50,29 @@
 	<div class="info-block">
 		<div class="title">Филиалы</div>	
 		<?php if(isset($data['infofil']) && !empty($data['infofil'])) : ?>
-			<div class="content">
+			<div class="content" itemprop="filInfo">
 			<?php echo $data['infofil']?>
 			</div>
 		<?php else:?>
 			<div class="none-data">нет данных</div>
 		<?php endif;?>	
 	</div>
+    
+    
+    
+    
+    <div class="info-block">
+		<div class="title">Представительства</div>	
+		<?php if(isset($data['inforep']) && !empty($data['inforep'])) : ?>
+			<div class="content" itemprop="repInfo">
+			<?php echo $data['inforep']?>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
+	</div>
+    
+    
 
 	
 	<div class="info-block">
@@ -104,4 +120,18 @@
 			<div class="none-data">нет данных</div>
 		<?php endif;?>		
 	</div>
+    
+    
+    <div class="info-block">
+		<div class="title">Сведения о каждом месте осуществления образовательной деятельности</div>	
+		<?php if(isset($data['infoplace']) && !empty($data['infoplace'])) : ?>
+			<div class="content" itemprop="addressPlace">
+			<?php echo $data['infoplace']?>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
+	</div>
+    
+    
 </div>
