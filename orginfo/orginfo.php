@@ -1146,19 +1146,28 @@ function org_stipend_page()
 			
 			'stip_doc_id'   => trim($_POST['stip_doc_id']),
 			'stip_doc_url'  => trim($_POST['stip_doc_url']),
-			'stip_doc_name' => trim($_POST['stip_doc_name']),
+			'stip_doc_name' => trim($_POST['stip_doc_name']),		
 			
+			'hostelInfo'     => trim($_POST['hostelInfo']),
+            'interInfo'      => trim($_POST['interInfo']),
+            'hostelTS'       => trim($_POST['hostelTS']),
+            'interTS'        => trim($_POST['interTS']),
+            'hostelLS'       => trim($_POST['hostelLS']),
+            'interLS'        => trim($_POST['interLS']),
+            'hostelNum'      => trim($_POST['hostelNum']),
+            'interNum'       => trim($_POST['interNum']),
+            'hostelFd'       => trim($_POST['hostelFd']),
+            'interFd'        => trim($_POST['interFd']),
 			
-			
-			'stip_obsh'      => trim($_POST['stip_obsh']),
-			'stip_kol'       => trim($_POST['stip_kol']),
-			'stip_obsh_id'   => trim($_POST['stip_obsh_id']),
-			'stip_obsh_url'  => trim($_POST['stip_obsh_url']),
-			'stip_obsh_name' => trim($_POST['stip_obsh_name']),
-			'stip_other'     => trim($_POST['stip_other']),
 			
 			// данные из текстового редактора
-			'stiptrud'       => wp_unslash($_POST['stiptrud']),
+            'grant'          => wp_unslash($_POST['grant']),
+			'support'        => wp_unslash($_POST['support']),
+            'hostelInv'      => wp_unslash($_POST['hostelInv']),
+            'interInv'       => wp_unslash($_POST['interInv']),
+            'localAct'       => wp_unslash($_POST['localAct']),
+            'graduateJob'    => wp_unslash($_POST['graduateJob']),
+           
 			
 		];
 				
@@ -1210,11 +1219,14 @@ function org_platn_page()
 		{
 			check_admin_referer('plat_form');
 		}
-		
-		if(isset($_POST['plat']) && is_array($_POST['plat']))
-		{
-			$main_info['plat'] = $_POST['plat'];
-		}
+			
+        $main_info = [
+
+            // данные из текстового редактора
+            'paidEdu'     => wp_unslash($_POST['paidEdu']),
+            'paidParents' => wp_unslash($_POST['paidParents']),
+
+        ];
 				
 		// подготовка данных перед записью в базу
 		$safe_string_main = base64_encode(serialize($main_info));
