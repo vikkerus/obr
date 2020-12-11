@@ -6,12 +6,6 @@ $error_msg = '<div class="reg-alert">Возможно адрес ссылки в
 
 ?>
 
-<div class="alert">
-	Вставьте ссылку на документ в поле "Ссылка на ...." <b>ИЛИ</b> загрузите документ, кликнув на кнопку "Загрузить документ".
-	<br>
-	Адрес ссылки следует вводить полностью, включая начало адреса, такое как <b>"http://"</b>, <b>"https://"</b> и т.д..
-</div>
-
 <?php // проверяем, есть ли в переданном массиве элемент action
 if(isset($data['action'])) : ?>
 <div class="page-plat">
@@ -33,53 +27,53 @@ if(isset($data['action'])) : ?>
 		?>
 		
 		<div class="platn">
-			<div class="plat-title">Документы о порядке оказания платных образовательных услуг, в том числе образец договора об оказании платных образовательных услуг, документ об утверждении стоимости обучения по каждой образовательной программе</div>
-			<?php if(isset($data['restored']['plat']) && is_array($data['restored']['plat'])) : $plat = $data['restored']['plat']; ?>
-				
-			<?php foreach($plat as $key => $val):?>
-			<div class="plat_item" id="plat_<?php echo $key?>" name="plat_<?php echo $key?>">
-				<div class="input-block" id="doc_plat_<?php echo $key?>">
-					<?php 
-						if(isset($val['docs_plat_link']) && !empty($val['docs_plat_link']))
-						{
-							if(!org_check_url($val['docs_plat_link']))
-							{
-								echo $error_msg;
-							}
-						}
-					?>
-					<div class="plat-link">
-						<input placeholder="Ссылка на копию документа" class="field" type="text" name="plat[<?php echo $key?>][docs_plat_link]" value="<?php echo (isset($val['docs_plat_link']) ? $val['docs_plat_link'] : '')?>">
-					</div>
-					<input placeholder="Заголовок документа или ссылки" class="doc_name" type="text" name="plat[<?php echo $key?>][docs_plat_name]" value="<?php echo (isset($val['docs_plat_name']) ? wp_unslash(htmlspecialchars($val['docs_plat_name'])) : '')?>">
-					<input class="doc_id block-hidden" type="text" name="plat[<?php echo $key?>][docs_plat_id]" value="<?php echo (isset($val['docs_plat_id']) ? $val['docs_plat_id'] : '')?>">
-					<input class="doc_url" readonly="readonly" type="text" name="plat[<?php echo $key?>][docs_plat_url]" value="<?php echo (isset($val['docs_plat_url']) ? $val['docs_plat_url'] : '')?>">
-					<a href="javascript:;" class="doc_upload link_btn <?php echo (!empty($val['docs_plat_url']) && !empty($val['docs_plat_id']) ? 'block-hidden' : '')?>">Загрузить документ</a>
-					<a href="javascript:;" class="doc_remove link_btn <?php echo (!empty($val['docs_plat_url']) && !empty($val['docs_plat_id']) ? '' : 'block-hidden')?>">Очистить документ</a>
-				</div>
-				<a href="javascript:;" class="plat_remove link_remove">Удалить документ</a>
+			<div class="input-block editor-block">
+				<label>Информация о порядке оказания платных образовательных услуг</label>
+				<?php 
+					wp_editor(
+						(isset($field['paidEdu']) ? $field['paidEdu'] : ''), 
+						'paidEdu', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'paidEdu',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
 			</div>
-			<?php endforeach;?>
-			<?php else:?>
-			<div class="plat_item" id="plat_plat_1" name="plat_plat_1">
-				<div class="input-block" id="doc_plat_plat_1">
-					<div class="plat-link">
-						<input placeholder="Ссылка на копию документа" class="field" type="text" name="plat[plat_1][docs_plat_link]" value="">
-					</div>
-					<input placeholder="Заголовок документа или ссылки" class="doc_name" type="text" name="plat[plat_1][docs_plat_name]" value="">
-					<input class="doc_id block-hidden" type="text" name="plat[plat_1][docs_plat_id]" value="">
-					<input class="doc_url" readonly="readonly" type="text" name="plat[plat_1][docs_plat_url]" value="">
-					<a href="javascript:;" class="doc_upload link_btn">Загрузить документ</a>
-					<a href="javascript:;" class="doc_remove link_btn block-hidden">Очистить документ</a>
-				</div>
-				<a href="javascript:;" class="plat_remove link_remove">Удалить документ</a>
+
+			<div class="input-block editor-block">
+				<label>Документ об установлении размера платы, взимаемой с родителей (законных представителей) за присмотр и уход за детьми, осваивающими образовательные программы дошкольного образования в организациях, осуществляющих образовательную деятельность, за содержание детей в образовательной организации, реализующей образовательные программы начального общего, основного общего или среднего общего образования, если в такой образовательной организации созданы условия для проживания обучающихся в интернате, либо за осуществление присмотра и ухода за детьми в группах продленного дня в образовательной организации, реализующей образовательные программы начального общего, основного общего или среднего общего образования</label>
+				<?php 
+					wp_editor(
+						(isset($field['paidParents']) ? $field['paidParents'] : ''), 
+						'paidParents', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'paidParents',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
 			</div>
-			<?php endif;?>
-			<div id="add_plat">
-				<input class="form_btn" type="button" value="Добавить документ" id="clone_plat">
+            <div class="input-block">
 				<button class="form_btn" name="plat_btn" type="submit">Сохранить</button>
 			</div>
-		</div>	
+		</div>
 	</form>
 </div>
 <?php endif; ?>
