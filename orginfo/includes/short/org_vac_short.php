@@ -1,102 +1,42 @@
 <?php $data = org_vac_front(); ?>
 
+
 <div class="org-front vac" itemprop="vacant">
 	<?php if(isset($data['vac']) && is_array($data['vac'])) : $vac = $data['vac']; ?>
 		<div class="vac-block">
 			<div class="table-responsive">
 				<table id="vac_table">
 					<thead>
+                        <tr>
+                            <th rowspan="2">Код</th>
+                            <th rowspan="2">Наименование профессии, специальности , направления подготовки</th>
+                            <th rowspan="2">Уровень образования</th>
+                            <th rowspan="2">Курс</th>
+                            <th rowspan="2">Форма обучения</th>
+                            <th colspan="4">Количество вакантных мест для приема (перевода) на места, финансируемые за счет</th>
+                        </tr>
 						<tr>
-							<th rowspan="2">№</th>
-							<th rowspan="2">Код направления</th>
-							<th rowspan="2">Наименование образовательной программы</th>
-							<th rowspan="2">Наименование специальности/направления подготовки</th>
-							<th colspan="4" class="text-center">Уровень образования</th>
-							<th colspan="4" class="text-center">Количество вакантных мест для приема (перевода)</th>
-						</tr>
-						<tr>
-							<th class="text-center">бакалавриат</th>
-							<th class="text-center" class="text-center">специалитет</th>
-							<th class="text-center">магистратура</th>
-							<th class="text-center">аспирантура</th>
-							<th class="text-center">за счёт бюджетных ассигнований федерального бюджета</th>
-							<th class="text-center">за счёт бюджетов субъектов Российской Федерации</th>
-							<th class="text-center">за счёт местных бюджетов</th>
-							<th class="text-center">за счёт средств физических и (или) юридических лиц</th>
+							<th>бюджетных ассигнований федерального бюджета</th>
+                            <th>бюджетов субъектов Российской Федерации</th>
+                            <th>местных бюджетов</th>
+                            <th>по договорам об образовании за счет средств физических и (или) юридических лиц</th>                       
 						</tr>
 					</thead>
 					<tbody>
 				<?php $i=1; foreach($vac as $key => $val): ?>
-				<?php if(isset($val['op']) && !empty($val['op'])) : ?>
+				<?php if(isset($val['name']) && !empty($val['name'])) : ?>
 				<tr>
-					<td itemprop="profesVacant"><?php echo $i;?></td>
-					<td itemprop="specVacant"><?php echo (isset($val['code']) && !empty($val['code'])) ? $val['code'] : ''?></td>
-					<td itemprop="naprVacant"><?php echo (isset($val['op']) && !empty($val['op'])) ? $val['op'] : ''?></td>
-					<td itemprop="obrVacant"><?php echo (isset($val['name']) && !empty($val['name'])) ? $val['name'] : ''?></td>
-					<td itemprop="bachelorVacant">
-						<?php 
-							if(isset($val['level']) && !empty($val['level']))
-							{
-								if($val['level'] == 'bac')
-								{
-									echo 'реализуется';
-								}
-								else
-								{
-									echo 'не реализуется';
-								}
-							}
-						;?>
-					</td>
-					<td itemprop="specialityVacant">
-						<?php 
-							if(isset($val['level']) && !empty($val['level']))
-							{
-								if($val['level'] == 'spec')
-								{
-									echo 'реализуется';
-								}
-								else
-								{
-									echo 'не реализуется';
-								}
-							}
-						;?>
-					</td>
-					<td itemprop="magistracyVacant">
-						<?php 
-							if(isset($val['level']) && !empty($val['level']))
-							{
-								if($val['level'] == 'mag')
-								{
-									echo 'реализуется';
-								}
-								else
-								{
-									echo 'не реализуется';
-								}
-							}
-						;?>
-					</td>
-					<td itemprop="postgraduateVacant">
-						<?php 
-							if(isset($val['level']) && !empty($val['level']))
-							{
-								if($val['level'] == 'asp')
-								{
-									echo 'реализуется';
-								}
-								else
-								{
-									echo 'не реализуется';
-								}
-							}
-						;?>
-					</td>
+					<td itemprop="eduCode"><?php echo (isset($val['code']) && !empty($val['code'])) ? $val['code'] : ''?></td>
+					<td itemprop="eduName"><?php echo (isset($val['name']) && !empty($val['name'])) ? $val['name'] : ''?></td>
+					<td itemprop="eduLevel"><?php echo (isset($val['level']) && !empty($val['level'])) ? $val['level'] : ''?></td>
+                    <td itemprop="eduCourse"><?php echo (isset($val['kurs']) && !empty($val['kurs'])) ? $val['kurs'] : ''?></td>
+                    <td itemprop="eduForm"><?php echo (isset($val['form']) && !empty($val['form'])) ? $val['form'] : ''?></td>
+                    
 					<td itemprop="numberBFVacant"><?php echo (isset($val['fb']) && ($val['fb'] !== '')) ? $val['fb'] : '0'?></td>
 					<td itemprop="numberBRVacant"><?php echo (isset($val['sr']) && ($val['sr'] !== '')) ? $val['sr'] : '0'?></td>
 					<td itemprop="numberBMVacant"><?php echo (isset($val['mb']) && ($val['mb'] !== '')) ? $val['mb'] : '0'?></td>
 					<td itemprop="numberPVacant"><?php echo (isset($val['sl']) && ($val['sl'] !== '')) ? $val['sl'] : '0'?></td>
+                    
 				</tr>	
 				<?php $i++; endif;?>
 				<?php endforeach;?>
