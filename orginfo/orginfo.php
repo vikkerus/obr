@@ -1280,8 +1280,11 @@ function org_finance_page()
 		$main_info = [
 			
 			// данные из текстового редактора
-			'finpost'   => wp_unslash($_POST['finpost']),
-			'finras'   => wp_unslash($_POST['finras']),
+			'finBFVolume'   => wp_unslash($_POST['finBFVolume']),
+            'finBRVolume'   => wp_unslash($_POST['finBRVolume']),
+            'finBMVolume'   => wp_unslash($_POST['finBMVolume']),
+            'finPVolume'    => wp_unslash($_POST['finPVolume']),
+            'volume'        => wp_unslash($_POST['volume']),
 			
 			
 		];
