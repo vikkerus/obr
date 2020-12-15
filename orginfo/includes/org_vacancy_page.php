@@ -33,24 +33,26 @@ if(isset($data['action'])) : ?>
 							<label>Код направления (при наличии)</label>
 							<input type="text" name="vac[<?php echo $key?>][code]" class="field" value="<?php echo (isset($val['code']) ? wp_unslash(htmlspecialchars($val['code'])) : '')?>">
 						</div>
-						<div class="input-block">
-							<label>Наименование образовательной программы</label>
-							<input type="text" name="vac[<?php echo $key?>][op]" class="field" value="<?php echo (isset($val['op']) ? wp_unslash(htmlspecialchars($val['op'])) : '')?>">
-						</div>
+						
 						<div class="input-block">
 							<label>Наименование специальности/направления подготовки</label>
 							<input type="text" name="vac[<?php echo $key?>][name]" class="field" value="<?php echo (isset($val['name']) ? wp_unslash(htmlspecialchars($val['name'])) : '')?>">
 						</div>
 						<div class="input-block">
 							<label>Уровень образования</label>
-							<select name="vac[<?php echo $key?>][level]" class="level-list">
-								<option value="none" <?php if ( $val['level'] === 'none' ) echo 'selected="selected"'; ?>>не выбран</option>
-								<option value="bac" <?php if ( $val['level'] === 'bac' ) echo 'selected="selected"'; ?>>бакалавриат</option>
-								<option value="spec" <?php if ( $val['level'] === 'spec' ) echo 'selected="selected"'; ?>>специалитет</option>
-								<option value="mag" <?php if ( $val['level'] === 'mag' ) echo 'selected="selected"'; ?>>магистратура</option>
-								<option value="asp" <?php if ( $val['level'] === 'asp' ) echo 'selected="selected"'; ?>>аспирантура</option>
-							</select>						
+							<input type="text" name="vac[<?php echo $key?>][level]" class="field" value="<?php echo (isset($val['level']) ? wp_unslash(htmlspecialchars($val['level'])) : '')?>">
 						</div>
+                        <div class="input-block">
+							<label>Курс</label>
+							<input type="text" name="vac[<?php echo $key?>][kurs]" class="field" value="<?php echo (isset($val['kurs']) ? wp_unslash(htmlspecialchars($val['kurs'])) : '')?>">
+						</div>
+                        <div class="input-block">
+							<label>Форма обучения</label>
+							<input type="text" name="vac[<?php echo $key?>][form]" class="field" value="<?php echo (isset($val['form']) ? wp_unslash(htmlspecialchars($val['form'])) : '')?>">
+						</div>
+                        
+                        
+                        
 						<div class="input-block">
 							<label>Количество вакантных мест для приема (перевода) за счёт <u>бюджетных ассигнований федерального бюджета</u></label>
 							<input type="text" name="vac[<?php echo $key?>][fb]" class="field" value="<?php echo (isset($val['fb']) ? wp_unslash(htmlspecialchars($val['fb'])) : '')?>">
