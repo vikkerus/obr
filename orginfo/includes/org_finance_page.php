@@ -25,15 +25,15 @@ if(isset($data['action'])) : ?>
 		<div class="finance">
 			
 			<div class="input-block editor-block">
-				<label>Сведения о поступлении финансовых и материальных средств</label>
+				<label>Информация об объеме образовательной деятельности, финансовое обеспечение которой осуществляется за счет бюджетных ассигнований федерального бюджета</label>
 				<?php 
 					wp_editor(
-						(isset($field['finpost']) ? $field['finpost'] : ''), 
-						'finpost', 
+						(isset($field['finBFVolume']) ? $field['finBFVolume'] : ''), 
+						'finBFVolume', 
 						array(
 							'wpautop'       => 0,
 							'media_buttons' => 1,
-							'textarea_name' => 'finpost',
+							'textarea_name' => 'finBFVolume',
 							'tabindex'      => null,
 							'textarea_rows' => 10,
 							'teeny'         => 0,
@@ -45,17 +45,89 @@ if(isset($data['action'])) : ?>
 					);
 				?>
 			</div>
-			
-			<div class="input-block editor-block">
-				<label>Сведения о расходовании финансовых и материальных средств</label>
+            
+            <div class="input-block editor-block">
+				<label>Информация об объеме образовательной деятельности, финансовое обеспечение которой осуществляется за счет бюджетов субъектов Российской Федерации</label>
 				<?php 
 					wp_editor(
-						(isset($field['finras']) ? $field['finras'] : ''), 
-						'finras', 
+						(isset($field['finBRVolume']) ? $field['finBRVolume'] : ''), 
+						'finBRVolume', 
 						array(
 							'wpautop'       => 0,
 							'media_buttons' => 1,
-							'textarea_name' => 'finras',
+							'textarea_name' => 'finBRVolume',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            <div class="input-block editor-block">
+				<label>Информация об объеме образовательной деятельности, финансовое обеспечение которой осуществляется за счет местных бюджетов</label>
+				<?php 
+					wp_editor(
+						(isset($field['finBMVolume']) ? $field['finBMVolume'] : ''), 
+						'finBMVolume', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'finBMVolume',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            <div class="input-block editor-block">
+				<label>Информация об объеме образовательной деятельности, финансовое обеспечение которой осуществляется по договорам об образовании за счет средств физических и (или) юридических лиц</label>
+				<?php 
+					wp_editor(
+						(isset($field['finPVolume']) ? $field['finPVolume'] : ''), 
+						'finPVolume', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'finPVolume',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            <div class="input-block editor-block">
+				<label>Информация о поступлении и расходовании финансовых и материальных средств</label>
+                <br>
+                <div><b>Должны быть отображены следующие параметры:</b></div>
+                <div>Год отчетности;</div>
+                <div>Информация о поступлении финансовых и материальных средств;</div>
+                <div>Информация о расходовании финансовых и материальных средств;</div>
+				<br>
+				<?php 
+					wp_editor(
+						(isset($field['volume']) ? $field['volume'] : ''), 
+						'volume', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'volume',
 							'tabindex'      => null,
 							'textarea_rows' => 10,
 							'teeny'         => 0,
