@@ -182,6 +182,13 @@ if(isset($data['action'])) : ?>
 			</div>
             <div class="input-block editor-block">
 				<label>Информация о трудоустройстве выпускников</label>
+                <br>
+                <div><b>Должны быть отображены следующие параметры:</b></div>
+                <div>Код направления;</div>
+                <div>Наименование профессии, специальности , направления подготовки;</div>
+                <div>Количество выпускников по годам;</div>
+                <div>Количество трудоустроенных выпускников по годам;</div>
+				<br>
 				<?php 
 					wp_editor(
 						(isset($field['graduateJob']) ? $field['graduateJob'] : ''), 
