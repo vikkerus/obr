@@ -161,7 +161,9 @@ function org_create_table()
 				('stipend','Стипендии и иные виды материальной поддержки'),
 				('paid','Платные образовательные услуги'),
 				('finance','Финансово-хозяйственная деятельность'),
-				('vacancy','Вакантные места для приема (перевода)')
+				('vacancy','Вакантные места для приема (перевода)'),
+                ('dostup','Доступная среда'),
+                ('mezhdu','Международное сотрудничество'),
 		");
 	}
 	
@@ -222,6 +224,10 @@ function org_net_csv()
 			'Название раздела',
 			'Дата изменения',
 			'Название раздела',
+			'Дата изменения',
+            'Название раздела',
+			'Дата изменения',
+            'Название раздела',
 			'Дата изменения',
 			
 		];
@@ -497,6 +503,15 @@ function org_vacancy()
 	echo '<h2 class="org_title">Вакантные места для приема (перевода)</h2>';
 	
 	org_vacancy_page();
+}
+
+
+// функция вывода страницы доступная среда
+function org_dostup()
+{
+	echo '<h2 class="org_title">Доступная среда</h2>';
+	
+	org_dostup_page();
 }
 
 /*-------------------Обработка данных------------------*/
@@ -1060,17 +1075,7 @@ function org_material_page()
 			
 		$main_info = [
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+						
 			// данные из текстового редактора
             'mtoplace' => wp_unslash($_POST['mtoplace']),
 			'pcab'   => wp_unslash($_POST['pcab']),
@@ -1364,6 +1369,12 @@ function org_vacancy_page()
 	
 	return $data;
 }
+
+
+
+// обработка данных на странице доступная среда
+function org_dostup_page()
+{}
 
 
 /*-------------------------Шорткоды-------------------------*/
@@ -1918,43 +1929,6 @@ function org_check_url($url = '')
 /*------------------------------------------------------------*/
 
 
-// Вывод предупреждения об изменения плагина в админку
-add_action('admin_notices', 'org_check_edu_warning');
-
-
-// проверить активен ли плагин и заполнены ли поля раздела "Образование",
-// если плагин активен и поля не заполнены, то выводить варнинг
-function org_check_edu_warning()
-{
-    global $wpdb;
-    
-    $table_name = $wpdb->base_prefix.'org_infotable';
-    
-    $message = "Плагин 'Сведения об образовательной организации' был обновлён. Пожалуйста, заполните заново раздел 'Образование'!";
-    
-    // активен ли плагин
-    if ( is_plugin_active( 'orginfo/orginfo.php' ) )
-    {
-        // проверить существование таблицы в базе
-        if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name)
-        {
-            // проверить заполненность раздела "образование"
-            $edu = $wpdb->get_var("SELECT section_data FROM $table_name WHERE section_slug = 'education'");
-            
-            if(empty($edu))
-            {
-                echo '<div class="notice notice-error"> <p>'. $message .'</p></div>';
-            }
-            
-        }
-    }
-}
-
-
-
-
-
-
 
 
 	
@@ -1971,8 +1945,11 @@ function org_add_menu_pages()
 	add_submenu_page( 'orginfo','Материально-техническое обеспечение и оснащенность образовательного процесса', 'Материально-техническое обеспечение', 'manage_options', 'orgmat', 'org_material' );
 	add_submenu_page( 'orginfo','Стипендии и иные виды материальной поддержки', 'Стипендии', 'manage_options', 'orgstip', 'org_stipend' );
 	add_submenu_page( 'orginfo','Платные образовательные услуги', 'Платные образовательные услуги', 'manage_options', 'orgplat', 'org_platn' );
-	add_submenu_page( 'orginfo','Финансово-хозяйственная деятельность', 'Финансово-хозяйственная деятельность', 'manage_options', 'orgfhd', 'org_finance' );
-	add_submenu_page( 'orginfo','Вакантные места для приема (перевода)', 'Вакантные места', 'manage_options', 'orgvac', 'org_vacancy' );
+	add_submenu_page( 'orginfo','Финансово-хозяйственная деятельность', 'Финансово-хозяйственная деятельность', 'manage_options', 'orgfhd', 'org_finance' );  
+    add_submenu_page( 'orginfo','Вакантные места для приема (перевода)', 'Вакантные места', 'manage_options', 'orgvac', 'org_vacancy' );
+    
+    add_submenu_page( 'orginfo','Доступная среда', 'Доступная среда', 'manage_options', 'orgdost', 'org_dostup' );
+    
 	add_submenu_page( 'orginfo','Настройки', 'Настройки', 'manage_options', 'orgset', 'org_settings' );
 }
 
@@ -2010,10 +1987,7 @@ function org_load_script()
 
 // скрипты и стили для фронтэнда
 function org_front_style()
-{
-	wp_register_style( 'bootstyle', plugins_url( 'assets/css/bootstrap.min.css', __FILE__ ), array(), null, 'all' );
-	wp_enqueue_style( 'bootstyle' );
-	
+{	
 	wp_register_style( 'orgfront', plugins_url( 'assets/css/front-style.css', __FILE__ ), array(), null, 'all' );
 	wp_enqueue_style( 'orgfront' );
 	
