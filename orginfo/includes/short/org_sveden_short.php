@@ -33,5 +33,12 @@
 		<li>
 			<a href="<?php echo site_url('/sveden/vacant');?>" title="Вакантные места для приема (перевода) обучающихся">Вакантные места для приема (перевода) обучающихся</a>
 		</li>
+        
+        <li>
+			<a href="<?php echo site_url('/sveden/ovz');?>" title="Доступная среда">Доступная среда</a>
+		</li>
+        <li>
+			<a href="<?php echo site_url('/sveden/inter');?>" title="Международное сотрудничество">Международное сотрудничество</a>
+		</li>
 	</ul>
 </div>
