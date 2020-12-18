@@ -1407,6 +1407,15 @@ function org_dostup_page()
 			
 		$main_info = [
 			
+            'facil'       => trim($_POST['facil']),
+            'ovz'         => trim($_POST['ovz']),
+            'net'         => trim($_POST['net']),
+            'tech'        => trim($_POST['tech']),
+            'hostel'      => trim($_POST['hostel']),
+            'hostelnum'   => trim($_POST['hostelnum']),
+            'internum'    => trim($_POST['internum']),
+            
+            
 						
 			// данные из текстового редактора
             'dostcab'     => wp_unslash($_POST['dostcab']),
@@ -1416,10 +1425,7 @@ function org_dostup_page()
             'dostfood'    => wp_unslash($_POST['dostfood']),
             'dostohran'   => wp_unslash($_POST['dostohran']),
             
-            'facil'       => wp_unslash($_POST['facil']),
-            'zdan'        => wp_unslash($_POST['zdan']),
-            'net'         => wp_unslash($_POST['net']),
-            'link'         => wp_unslash($_POST['link']),
+            'eorlink'     => wp_unslash($_POST['eorlink']),
 			
 		];
 				
