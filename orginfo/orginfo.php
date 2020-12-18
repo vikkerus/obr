@@ -1426,6 +1426,8 @@ function org_dostup_page()
             'dostohran'   => wp_unslash($_POST['dostohran']),
             
             'eorlink'     => wp_unslash($_POST['eorlink']),
+            
+            'other'       => wp_unslash($_POST['other']),
 			
 		];
 				
