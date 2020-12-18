@@ -38,7 +38,7 @@
 				<span class="url">[org_mto]</span>
 			</li>
 			<li>
-				<span class="main">«Стипендии и иные виды материальной поддержки»</span>
+				<span class="main">«Стипендии и меры поддержки обучающихся»</span>
 				<span class="url">[org_stip]</span>
 			</li>
 			<li>
@@ -50,7 +50,7 @@
 				<span class="url">[org_fhd]</span>
 			</li>
 			<li>
-				<span class="main">«Вакантные места для приема (перевода)»</span>
+				<span class="main">«Вакантные места для приема (перевода) обучающихся»</span>
 				<span class="url">[org_vac]</span>
 			</li>
             <li>
@@ -97,7 +97,7 @@
 				<span class="url"><?php echo home_url();?>/sveden/objects</span>
 			</li>
 			<li>
-				<span class="main">«Стипендии и иные виды материальной поддержки»</span>
+				<span class="main">«Стипендии и меры поддержки обучающихся»</span>
 				<span class="url"><?php echo home_url();?>/sveden/grants</span>
 			</li>
 			<li>
@@ -109,7 +109,7 @@
 				<span class="url"><?php echo home_url();?>/sveden/budget</span>
 			</li>
 			<li>
-				<span class="main">«Вакантные места для приема (перевода)»</span>
+				<span class="main">«Вакантные места для приема (перевода) обучающихся»</span>
 				<span class="url"><?php echo home_url();?>/sveden/vacant</span>
 			</li>
             <li>
