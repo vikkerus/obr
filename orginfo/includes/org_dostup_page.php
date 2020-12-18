@@ -258,6 +258,29 @@ if(isset($data['action'])) : ?>
 				<textarea name="internum" class="field"><?php echo (isset($field['internum']) ? wp_unslash($field['internum']) : '')?></textarea>
 			</div>
             
+             <div class="input-block editor-block education_obr">
+				<label>Дополнительная информация</label>
+				<br>
+				<?php 
+					wp_editor(
+						(isset($field['other']) ? $field['other'] : ''), 
+						'other', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'other',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
 		</div>
 		<div class="input-block">
 			<button class="form_btn" name="dost_btn" type="submit">Сохранить</button>
