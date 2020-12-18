@@ -53,6 +53,10 @@
 				<span class="main">«Вакантные места для приема (перевода)»</span>
 				<span class="url">[org_vac]</span>
 			</li>
+            <li>
+				<span class="main">«Доступная среда»</span>
+				<span class="url">[org_dost]</span>
+			</li>
 		</ul>
 	</div>
 	<div class="urls">
@@ -107,6 +111,14 @@
 			<li>
 				<span class="main">«Вакантные места для приема (перевода)»</span>
 				<span class="url"><?php echo home_url();?>/sveden/vacant</span>
+			</li>
+            <li>
+				<span class="main">«Доступная среда»</span>
+				<span class="url"><?php echo home_url();?>/sveden/ovz</span>
+			</li>
+            <li>
+				<span class="main">«Международное сотрудничество»</span>
+				<span class="url"><?php echo home_url();?>/sveden/inter</span>
 			</li>
 		</ul>
 	</div>
