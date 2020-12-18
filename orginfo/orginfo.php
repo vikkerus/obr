@@ -1374,7 +1374,69 @@ function org_vacancy_page()
 
 // обработка данных на странице доступная среда
 function org_dostup_page()
-{}
+{
+    global $wpdb;
+	
+	$data = [];
+	
+	$table_name = $wpdb->prefix . 'org_infotable' ;
+	
+	// проверяем, есть ли уже в базе данные
+	$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'dostup'" );
+	
+	// ансериализация строки
+	if(!empty($query) && is_string($query))
+	{
+		$data['restored'] = unserialize(base64_decode($query));
+	}
+	
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgdost&amp;updated=true';
+	
+	// проверки прав пользователя и скрытых полей и запись данных в массив
+	if (isset($_POST['dost_btn']))
+	{
+		if (function_exists('current_user_can') && !current_user_can('manage_options'))
+		{
+			die(e_('Hacker?', 'orgdost'));
+		}
+		
+		if (function_exists('check_admin_referer'))
+		{
+			check_admin_referer('dost_form');
+		}
+			
+		$main_info = [
+			
+						
+			// данные из текстового редактора
+            'dostcab'     => wp_unslash($_POST['dostcab']),
+            'dostprac'    => wp_unslash($_POST['dostprac']),
+            'dostlib'     => wp_unslash($_POST['dostlib']),
+            'dostsport'   => wp_unslash($_POST['dostsport']),
+            'dostfood'    => wp_unslash($_POST['dostfood']),
+            'dostohran'   => wp_unslash($_POST['dostohran']),
+            
+            'facil'       => wp_unslash($_POST['facil']),
+            'zdan'        => wp_unslash($_POST['zdan']),
+            'net'         => wp_unslash($_POST['net']),
+            'link'         => wp_unslash($_POST['link']),
+			
+		];
+				
+		// подготовка данных перед записью в базу
+		$safe_string_main = base64_encode(serialize($main_info));
+		
+		$wpdb->show_errors();
+		
+		// запись сериализованной строки в базу
+		$wpdb->update($table_name, ['section_data' => $safe_string_main], ['section_slug' => 'dostup']);
+			
+	}
+	
+	load_template(dirname( __FILE__ ) . '/includes/org_dostup_page.php');
+	
+	return $data;
+}
 
 
 /*-------------------------Шорткоды-------------------------*/
@@ -1863,6 +1925,7 @@ add_shortcode( 'org_vac', 'org_vac_short' );
 
 
 
+
 // [org_sveden] - главная страница сведений
 function org_sveden_short( $atts )
 {
@@ -1878,6 +1941,51 @@ function org_sveden_short( $atts )
 	
 }
 add_shortcode( 'org_sveden', 'org_sveden_short' );
+
+
+
+
+// функция, собирающая параметры для страницы доступной среды на фронтэнде
+function org_dostup_front()
+{
+	global $wpdb;
+	
+	// название таблицы
+	$table_name = $wpdb->prefix . 'org_infotable' ;
+	
+	$data = '';
+	
+	// проверяем есть ли в базе таблица с таким же именем
+	if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) 
+	{
+		// проверяем, есть ли уже в базе данные
+		$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'dostup'" );
+
+		// ансериализация строки
+		if(!empty($query) && is_string($query))
+		{
+			$data = unserialize(base64_decode($query));
+		}
+	}
+	
+	return $data;
+}
+
+// [org_dost] - доступная среда
+function org_dostup_short( $atts )
+{
+	$data = 'Страницы не существует.';
+	
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_dostup_short.php'))
+	{
+		// вызываем шаблон страницы		
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_dostup_short.php');
+	}
+	
+	return $data;
+	
+}
+add_shortcode( 'org_dost', 'org_dostup_short' );
 
 
 /*--------------------Проверка ссылок-----------------------*/
