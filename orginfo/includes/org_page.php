@@ -57,6 +57,10 @@
 				<span class="main">«Доступная среда»</span>
 				<span class="url">[org_dost]</span>
 			</li>
+            <li>
+				<span class="main">«Международное cотрудничество»</span>
+				<span class="url">[org_mezhd]</span>
+			</li>
 		</ul>
 	</div>
 	<div class="urls">
