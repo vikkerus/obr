@@ -42,7 +42,7 @@ function org_uninstall()
 			}
 
 			restore_current_blog();
-			}
+        }
 	}
 	else
 	{
@@ -512,6 +512,15 @@ function org_dostup()
 	echo '<h2 class="org_title">Доступная среда</h2>';
 	
 	org_dostup_page();
+}
+
+
+// функция вывода страницы международное сотрудничество
+function org_sotrud()
+{
+	echo '<h2 class="org_title">Международное сотрудничество</h2>';
+	
+	org_sotrud_page();
 }
 
 /*-------------------Обработка данных------------------*/
@@ -1447,6 +1456,64 @@ function org_dostup_page()
 }
 
 
+
+// обработка данных на странице международное сотрудничество
+function org_sotrud_page()
+{
+	global $wpdb;
+	
+	$data = [];
+	
+	$table_name = $wpdb->prefix . 'org_infotable' ;
+	
+	// проверяем, есть ли уже в базе данные
+	$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'mezhdu'" );
+	
+	// ансериализация строки
+	if(!empty($query) && is_string($query))
+	{
+		$data['restored'] = unserialize(base64_decode($query));
+	}
+	
+	$data['action'] = $_SERVER['PHP_SELF'].'?page=orgsotr&amp;updated=true';
+	
+	// проверки прав пользователя и скрытых полей и запись данных в массив
+	if (isset($_POST['sotr_btn']))
+	{
+		if (function_exists('current_user_can') && !current_user_can('manage_options'))
+		{
+			die(e_('Hacker?', 'orgsotr'));
+		}
+		
+		if (function_exists('check_admin_referer'))
+		{
+			check_admin_referer('sotr_form');
+		}
+		
+		$main_info = [
+			
+			// данные из текстового редактора
+			'dog'  => wp_unslash($_POST['dog']),
+            'accr' => wp_unslash($_POST['accr']),
+			
+		];
+				
+		// подготовка данных перед записью в базу
+		$safe_string_main = base64_encode(serialize($main_info));
+		
+		$wpdb->show_errors();
+		
+		// запись сериализованной строки в базу
+		$wpdb->update($table_name, ['section_data' => $safe_string_main], ['section_slug' => 'mezhdu']);
+			
+	}
+	
+    load_template(dirname( __FILE__ ) . '/includes/org_sotrud_page.php');
+    
+    return $data;
+}
+
+
 /*-------------------------Шорткоды-------------------------*/
 
 // функция, собирающая параметры для страницы основных сведений на фронтэнде
@@ -1996,6 +2063,53 @@ function org_dostup_short( $atts )
 add_shortcode( 'org_dost', 'org_dostup_short' );
 
 
+
+
+
+
+// функция, собирающая параметры для страницы международное cотрудничество на фронтэнде
+function org_sotrud_front()
+{
+	global $wpdb;
+	
+	// название таблицы
+	$table_name = $wpdb->prefix . 'org_infotable' ;
+	
+	$data = '';
+	
+	// проверяем есть ли в базе таблица с таким же именем
+	if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) 
+	{
+		// проверяем, есть ли уже в базе данные
+		$query = $wpdb->get_var( "SELECT section_data FROM $table_name WHERE section_slug = 'mezhdu'" );
+
+		// ансериализация строки
+		if(!empty($query) && is_string($query))
+		{
+			$data = unserialize(base64_decode($query));
+		}
+	}
+	
+	return $data;
+}
+
+// [org_mezhd] - международное cотрудничество
+function org_sotrud_short( $atts )
+{
+	$data = 'Страницы не существует.';
+	
+	if (file_exists(dirname( __FILE__ ) . '/includes/short/org_sotrud_short.php'))
+	{
+		// вызываем шаблон страницы		
+		$data = load_template(dirname( __FILE__ ) . '/includes/short/org_sotrud_short.php');
+	}
+	
+	return $data;
+	
+}
+add_shortcode( 'org_mezhd', 'org_sotrud_short' );
+
+
 /*--------------------Проверка ссылок-----------------------*/
 
 
@@ -2065,6 +2179,8 @@ function org_add_menu_pages()
     add_submenu_page( 'orginfo','Вакантные места для приема (перевода)', 'Вакантные места', 'manage_options', 'orgvac', 'org_vacancy' );
     
     add_submenu_page( 'orginfo','Доступная среда', 'Доступная среда', 'manage_options', 'orgdost', 'org_dostup' );
+    
+    add_submenu_page( 'orginfo','Международное сотрудничество', 'Международное сотрудничество', 'manage_options', 'orgsotr', 'org_sotrud' );
     
 	add_submenu_page( 'orginfo','Настройки', 'Настройки', 'manage_options', 'orgset', 'org_settings' );
 }
