@@ -1612,17 +1612,31 @@ function check_new_columns()
                     // проверяем в каждой таблице наличие раздела доступная среда
                     $dostup = $wpdb->get_var("SELECT section_name FROM $tabname WHERE section_slug = 'dostup'");
                     
-                    var_dump($dostup);
+                    // если раздела нет, то записываем в переменную 0, иначе 1
+                    if(is_null($dostup))
+                    {
+                        $data['dostup'][] = '0';
+                    }
+                    else
+                    {
+                        $data['dostup'][] = '1';
+                    }
+                    
+                    
+                    
+                    // проверяем в каждой таблице наличие раздела международное сотрудничество
+                    $mezhdu = $wpdb->get_var("SELECT section_name FROM $tabname WHERE section_slug = 'mezhdu'");
                     
                     // если раздела нет, то записываем в переменную 0, иначе 1
                     if(is_null($dostup))
                     {
-                         $data[] = '0';
+                        $data['mezhdu'][] = '0';
                     }
                     else
                     {
-                        $data[] = '1';
+                        $data['mezhdu'][] = '1';
                     }
+                    
                 }
             }
         }
