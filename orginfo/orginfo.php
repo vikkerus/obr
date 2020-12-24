@@ -1628,7 +1628,7 @@ function check_new_columns()
                     $mezhdu = $wpdb->get_var("SELECT section_name FROM $tabname WHERE section_slug = 'mezhdu'");
                     
                     // если раздела нет, то записываем в переменную 0, иначе 1
-                    if(is_null($dostup))
+                    if(is_null($mezhdu))
                     {
                         $data['mezhdu'][] = '0';
                     }
