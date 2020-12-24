@@ -182,7 +182,7 @@ add_action( 'wp_insert_site', 'org_activate');
 
 /*-----------------Преобразование данных отчёта в CSV-------------------*/
 
-// функция, преобразующая данные полученные в функции org_net_page() в файл CSV (возвращает имя файла)
+// функция, преобразующая данные полученные в функции org_svod_page() в файл CSV (возвращает имя файла)
 function org_net_csv()
 {
 	// строка, которая будет записана в csv файл
@@ -194,9 +194,9 @@ function org_net_csv()
 	
 	$link =  false;	
 	
-	if(function_exists('org_net_page'))
+	if(function_exists('org_svod_page'))
 	{
-		$data = org_net_page();
+		$data = org_svod_page();
 		
 		$heads = [
 			
@@ -338,7 +338,7 @@ function org_net_csv()
 /*-----------------Функции вывода пунктов меню/страниц-------------------*/
 
 // функция вывода страницы c отчётами для сети 
-function org_net_page()
+function org_svod_page()
 {	
 	$data = [];
 	
@@ -394,10 +394,29 @@ function org_net_page()
 		}
 	}
 	
-	load_template(dirname( __FILE__ ) . '/includes/network/org_net_page.php');
+	load_template(dirname( __FILE__ ) . '/includes/network/org_svod_page.php');
 	
 	return $data;
 }
+
+
+// функция вывода главной страницы плагина для сети
+function org_net_page()
+{
+    echo '<h2 class="org_title">Сведения об образовательной организации</h2>';
+    
+    load_template(dirname( __FILE__ ) . '/includes/network/org_net_page.php');
+}
+
+
+// функция вывода страницы обновлений для сети
+function org_new()
+{
+	echo '<h2 class="org_title">Обновление</h2>';
+	
+	org_new_page();
+}
+
 
 
 // функция вывода главной страницы плагина
@@ -1514,6 +1533,105 @@ function org_sotrud_page()
 }
 
 
+// обработка данных на странице обновлений для сети
+function org_new_page()
+{
+    $data = [];
+	
+    if ( is_multisite())
+	{
+		global $wpdb;
+		
+		// идентификаторы блогов в сети
+		$blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
+		
+		// проверяем есть ли массив с идентификаторами
+		if(isset($blogids) && is_array($blogids))
+		{
+			// формируем ассоциативный массив, в котором ключ - номер идентификатора
+			foreach ($blogids as $blog_id)
+			{	
+				$ids[$blog_id] = $blog_id;								
+			}
+			
+			if(is_array($ids) && !empty($ids))
+			{
+				foreach($ids as $key => $val)
+				{
+					if($val == 1)
+					{
+						$table_name = $wpdb->base_prefix.'org_infotable';
+						
+						$option_table = $wpdb->base_prefix.'options';
+					}
+					else
+					{
+						$table_name = $wpdb->base_prefix.$val.'_org_infotable';
+						
+						$option_table = $wpdb->base_prefix.$val.'_options';
+					}
+					
+                    // получаем названия таблиц плагина во всей сети
+					if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'"))
+					{						
+						$data[$key]['tables'] = $wpdb->get_var("SHOW TABLES LIKE '$table_name'");
+					}				
+				}				
+			}			
+		}
+	}
+	
+    
+    load_template(dirname( __FILE__ ) . '/includes/network/org_new_page.php');
+    
+    return $data;
+}
+
+
+function check_new_columns()
+{  
+    $data = [];
+    
+    if ( is_multisite())
+    {
+        global $wpdb;
+        
+        // получаем названия таблиц плагина во всей сети из указанной функции 
+        $tables = org_new_page();
+
+        // проверяем, массив ли пришёл
+        if(is_array($tables))
+        {
+            foreach($tables as $tab)
+            {
+                // проверяем, есть ли массив с именами таблиц плагина и записываем в переменную название таблицы плагина каждого сайта
+                if(isset($tab['tables']))
+                {
+                    $tabname = $tab['tables'];
+                    
+                    // проверяем в каждой таблице наличие раздела доступная среда
+                    $dostup = $wpdb->get_var("SELECT section_name FROM $tabname WHERE section_slug = 'dostup'");
+                    
+                    var_dump($dostup);
+                    
+                    // если раздела нет, то записываем в переменную 0, иначе 1
+                    if(is_null($dostup))
+                    {
+                         $data[] = '0';
+                    }
+                    else
+                    {
+                        $data[] = '1';
+                    }
+                }
+            }
+        }
+    }
+       
+    return $data;
+}
+
+
 /*-------------------------Шорткоды-------------------------*/
 
 // функция, собирающая параметры для страницы основных сведений на фронтэнде
@@ -2190,6 +2308,10 @@ function org_add_menu_pages()
 function org_network_menu_pages()
 {
 	add_menu_page( 'Сведения об Образовательной организации', 'Сведения об ОО', 'setup_network', 'orgnet', 'org_net_page', 'dashicons-format-aside','81.5' );
+    
+    add_submenu_page( 'orgnet','Сводка по сайтам', 'Сводка по сайтам', 'manage_options', 'orgsvod', 'org_svod_page' );
+    
+    add_submenu_page( 'orgnet','Обновление', 'Обновление', 'manage_options', 'orgnew', 'org_new' );
 	
 }
 
