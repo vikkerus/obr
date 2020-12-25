@@ -1468,6 +1468,23 @@ function org_dostup_page()
 		$wpdb->update($table_name, ['section_data' => $safe_string_main], ['section_slug' => 'dostup']);
 			
 	}
+    
+    
+    // проверяем в таблице наличие раздела доступная среда
+    $dostup = $wpdb->get_var("SELECT section_name FROM $table_name WHERE section_slug = 'dostup'");
+
+    // если раздела нет, то записываем в переменную 0, иначе 1
+    if(is_null($dostup))
+    {
+        $data['dostup'] = '0';
+    }
+    else
+    {
+        $data['dostup'] = '1';
+    }
+    
+    
+    
 	
 	load_template(dirname( __FILE__ ) . '/includes/org_dostup_page.php');
 	
