@@ -1640,6 +1640,72 @@ function check_new_columns()
                 }
             }
         }
+        
+        // экшен для формы с кнопкой "Обновить"
+        $data['action'] = $_SERVER['PHP_SELF'].'?page=orgnew&amp;updated=true';
+        
+        // проверки прав пользователя и скрытых полей 
+        if (isset($_POST['new_btn']))
+        {
+            if (function_exists('current_user_can') && !current_user_can('manage_options'))
+            {
+                die(e_('Hacker?', 'orgnew'));
+            }
+
+            if (function_exists('check_admin_referer'))
+            {
+                check_admin_referer('new_form');
+            }
+
+            // если пришёл пост массив, то начинаем проверять массив с таблицами на предмет наличия 2х разделов "Доступная среда" и "Международное сотрудничество"
+            // проверяем, массив ли пришёл
+            if(is_array($tables))
+            {
+                foreach($tables as $tab)
+                {
+                    // проверяем, есть ли массив с именами таблиц плагина и записываем в переменную название таблицы плагина каждого сайта
+                    if(isset($tab['tables']))
+                    {
+                        $tabname = $tab['tables'];
+
+                        // проверяем в каждой таблице наличие раздела доступная среда
+                        $dostup = $wpdb->get_var("SELECT section_name FROM $tabname WHERE section_slug = 'dostup'");
+
+                        // если раздела нет, то создаём его
+                        if(is_null($dostup))
+                        {
+                            // добавляем основные данные
+                            $wpdb->query("
+                                INSERT INTO 
+                                    $tabname(section_slug, section_name)
+                                VALUES
+                                    ('dostup','Доступная среда')                               
+                            ");
+                        }                    
+
+
+
+                        // проверяем в каждой таблице наличие раздела международное сотрудничество
+                        $mezhdu = $wpdb->get_var("SELECT section_name FROM $tabname WHERE section_slug = 'mezhdu'");
+
+                        // если раздела нет, то создаём его
+                        if(is_null($mezhdu))
+                        {
+                            // добавляем основные данные
+                            $wpdb->query("
+                                INSERT INTO 
+                                    $tabname(section_slug, section_name)
+                                VALUES
+                                    ('mezhdu','Международное сотрудничество')
+                            ");
+                        }
+                        
+                    }
+                }
+            }
+            
+        }
+        
     }
        
     return $data;
