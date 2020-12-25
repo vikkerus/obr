@@ -1,4 +1,4 @@
-<?php $data = check_new_columns(); echo '<pre>'; var_dump($data); echo '</pre>';?>
+<?php $data = check_new_columns();?>
 
 <?php
 
