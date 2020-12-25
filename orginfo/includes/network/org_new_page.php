@@ -42,3 +42,15 @@ if(!empty($data) && is_array($data))
 ?>
 
 
+<form name="new_form" id="new_form" method="post" action="<?php echo (is_string($data['action']) ? $data['action'] : '')?>">
+    <?php 	
+        if (function_exists('wp_nonce_field'))
+        {
+            wp_nonce_field('new_form');
+        }
+    ?>
+    <input style="margin-top: 15px;" class="form_btn" type="submit" value="Обновить" name="new_btn"> 
+    <p><b>После нажатия кнопки "Обновить", обновите страницу, чтобы увидеть изменения!</b></p>
+</form>
+
+
