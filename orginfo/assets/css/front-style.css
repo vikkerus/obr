@@ -12,6 +12,12 @@ a, a:hover, a:focus{
 	box-shadow: none !important;
 }
 
+.table-responsive{
+	display: block;
+	width: 100%;
+	overflow-x: auto;
+}
+
 .none-data{
 	color: red !important;
 	font-style: italic;
