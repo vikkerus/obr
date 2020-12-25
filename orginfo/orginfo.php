@@ -1543,6 +1543,20 @@ function org_sotrud_page()
 		$wpdb->update($table_name, ['section_data' => $safe_string_main], ['section_slug' => 'mezhdu']);
 			
 	}
+    
+    // проверяем в таблице наличие раздела международное сотрудничество
+    $mezhdu = $wpdb->get_var("SELECT section_name FROM $table_name WHERE section_slug = 'mezhdu'");
+
+    // если раздела нет, то записываем в переменную 0, иначе 1
+    if(is_null($mezhdu))
+    {
+        $data['mezhdu'] = '0';
+    }
+    else
+    {
+        $data['mezhdu'] = '1';
+    }
+    
 	
     load_template(dirname( __FILE__ ) . '/includes/org_sotrud_page.php');
     
