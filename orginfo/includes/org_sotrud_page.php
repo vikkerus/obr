@@ -1,9 +1,10 @@
-<?php  
+<?php  $data = org_sotrud_page(); ?>
 
-$data = org_sotrud_page();
+<?php // проверяем, если $data['dostup'] равен 1, то отображать форму, иначе писать "Обратитесь к администратору"
+ if($data['mezhdu'] === '1') : ?>
 
-// проверяем, есть ли в переданном массиве элемент action
-if(isset($data['action'])) : ?>
+<?php // проверяем, есть ли в переданном массиве элемент action
+ if(isset($data['action'])) : ?>
 <div class="page-mat">
 	<form name="sotr_form" id="sotr_form" method="post" action="<?php echo (is_string($data['action']) ? $data['action'] : '')?>">
 
@@ -86,6 +87,9 @@ if(isset($data['action'])) : ?>
 	</form>
 </div>
 <?php endif; ?>
+<?php else:?>
+Данный раздел отсутствует в базе данных. Обратитесь к администратору! 
+<?php endif;?>
 
 
 
