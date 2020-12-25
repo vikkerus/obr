@@ -1,9 +1,10 @@
-<?php  
+<?php  $data = org_dostup_page();?>
 
-$data = org_dostup_page();
+<?php // проверяем, если $data['dostup'] равен 1, то отображать форму, иначе писать "Обратитесь к администратору"
+ if($data['dostup'] === '1') : ?>
 
-// проверяем, есть ли в переданном массиве элемент action
-if(isset($data['action'])) : ?>
+<?php // проверяем, есть ли в переданном массиве элемент action
+ if(isset($data['action'])) : ?>
 <div class="page-mat">
 	<form name="dost_form" id="dost_form" method="post" action="<?php echo (is_string($data['action']) ? $data['action'] : '')?>">
 
@@ -287,7 +288,14 @@ if(isset($data['action'])) : ?>
 		</div>
 	</form>
 </div>
-<?php endif; ?>
+<?php endif;?>
+
+<?php else : ?>
+Данный раздел отсутствует в базе данных. Обратитесь к администратору!
+
+
+
+<?php endif;?>
 
 
 
