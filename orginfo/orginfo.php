@@ -429,7 +429,7 @@ function org_menu_page()
 // функция вывода страницы основных сведений
 function org_main_info()
 {
-	echo '<h2 class="org_title">Основные сведения</h2>';
+	echo '<h2 class="org_title">Основные сведения (Допускается заполнение полей в свободной форме)</h2>';
 	
 	org_main_info_page();
 }
@@ -456,7 +456,7 @@ function org_documents()
 // функция вывода страницы образование
 function org_education()
 {
-	echo '<h2 class="org_title">Образование</h2>';
+	echo '<h2 class="org_title">Образование (Допускается заполнение полей в свободной форме)</h2>';
 	
 	org_education_page();
 }
@@ -483,7 +483,7 @@ function org_pedagog()
 // функция вывода страницы мто
 function org_material()
 {
-	echo '<h2 class="org_title">Материально-техническое обеспечение и оснащенность образовательного процесса</h2>';
+	echo '<h2 class="org_title">Материально-техническое обеспечение и оснащенность образовательного процесса (Допускается заполнение полей в свободной форме)</h2>';
 	
 	org_material_page();
 }
@@ -492,7 +492,7 @@ function org_material()
 // функция вывода страницы стипендии
 function org_stipend()
 {
-	echo '<h2 class="org_title">Стипендии и иные виды материальной поддержки</h2>';
+	echo '<h2 class="org_title">Стипендии и иные виды материальной поддержки (Допускается заполнение полей в свободной форме)</h2>';
 	
 	org_stipend_page();
 }
@@ -501,7 +501,7 @@ function org_stipend()
 // функция вывода страницы платных услуг
 function org_platn()
 {
-	echo '<h2 class="org_title">Платные образовательные услуги</h2>';
+	echo '<h2 class="org_title">Платные образовательные услуги (Допускается заполнение полей в свободной форме)</h2>';
 	
 	org_platn_page();
 }
@@ -510,7 +510,7 @@ function org_platn()
 // функция вывода страницы фхд
 function org_finance()
 {
-	echo '<h2 class="org_title">Финансово-хозяйственная деятельность</h2>';
+	echo '<h2 class="org_title">Финансово-хозяйственная деятельность (Допускается заполнение полей в свободной форме)</h2>';
 	
 	org_finance_page();
 }
@@ -519,7 +519,7 @@ function org_finance()
 // функция вывода страницы вакантные места
 function org_vacancy()
 {
-	echo '<h2 class="org_title">Вакантные места для приема (перевода)</h2>';
+	echo '<h2 class="org_title">Вакантные места для приема (перевода) (Допускается заполнение полей в свободной форме)</h2>';
 	
 	org_vacancy_page();
 }
@@ -528,7 +528,7 @@ function org_vacancy()
 // функция вывода страницы доступная среда
 function org_dostup()
 {
-	echo '<h2 class="org_title">Доступная среда</h2>';
+	echo '<h2 class="org_title">Доступная среда (Допускается заполнение полей в свободной форме)</h2>';
 	
 	org_dostup_page();
 }
@@ -537,7 +537,7 @@ function org_dostup()
 // функция вывода страницы международное сотрудничество
 function org_sotrud()
 {
-	echo '<h2 class="org_title">Международное сотрудничество</h2>';
+	echo '<h2 class="org_title">Международное сотрудничество (Допускается заполнение полей в свободной форме)</h2>';
 	
 	org_sotrud_page();
 }
@@ -635,6 +635,7 @@ function org_main_info_page()
 		$main_info = [
 			
 			'info_name'  => trim($_POST['info_name']),
+            'short_name' => trim($_POST['short_name']),
 			'info_date'  => trim($_POST['info_date']),		
 			'info_place' => trim($_POST['info_place']),
 			'info_tel'   => trim($_POST['info_tel']),
@@ -647,6 +648,8 @@ function org_main_info_page()
 			'infofil'    => wp_unslash($_POST['infofil']),
             'inforep'    => wp_unslash($_POST['inforep']),
             'infoplace'  => wp_unslash($_POST['infoplace']),
+            'placesinfo' => wp_unslash($_POST['placesinfo']),
+            'siteaddress'=> wp_unslash($_POST['siteaddress']),
 			
 		];
 		
@@ -910,7 +913,13 @@ function org_education_page()
 		}
 			
 		$main_info = [
-						
+			
+            'edu_level'  => trim($_POST['edu_level']),
+            'edu_form'  => trim($_POST['edu_form']),
+            'edu_time'  => trim($_POST['edu_time']),
+            'edu_lang'  => trim($_POST['edu_lang']),
+            
+            
 			// данные из текстового редактора
 			'eduaccred' => wp_unslash($_POST['eduaccred']),
 			'eduadop' => wp_unslash($_POST['eduadop']),
@@ -920,6 +929,16 @@ function org_education_page()
             'eduperevod' => wp_unslash($_POST['eduperevod']),
             'edunir' => wp_unslash($_POST['edunir']),
             'eduprac' => wp_unslash($_POST['eduprac']),
+            
+            'accredtime' => wp_unslash($_POST['accredtime']),
+            'programinfo' => wp_unslash($_POST['programinfo']),
+            'teachplan' => wp_unslash($_POST['teachplan']),
+            'workannot' => wp_unslash($_POST['workannot']),
+            'calendargraf' => wp_unslash($_POST['calendargraf']),
+            'metoddocs' => wp_unslash($_POST['metoddocs']),
+            'programs' => wp_unslash($_POST['programs']),
+            'electron' => wp_unslash($_POST['electron']),
+            'licenz' => wp_unslash($_POST['licenz']),
 		
 		];
 			
@@ -1258,6 +1277,7 @@ function org_platn_page()
             // данные из текстового редактора
             'paidEdu'     => wp_unslash($_POST['paidEdu']),
             'paidParents' => wp_unslash($_POST['paidParents']),
+            'paidPrice'   => wp_unslash($_POST['paidPrice']),
 
         ];
 				
@@ -1318,6 +1338,7 @@ function org_finance_page()
             'finBMVolume'   => wp_unslash($_POST['finBMVolume']),
             'finPVolume'    => wp_unslash($_POST['finPVolume']),
             'volume'        => wp_unslash($_POST['volume']),
+            'fhdplan'       => wp_unslash($_POST['fhdplan']),
 			
 			
 		];
