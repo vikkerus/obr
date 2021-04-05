@@ -139,6 +139,35 @@ if(isset($data['action'])) : ?>
 					);
 				?>
 			</div>
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="input-block editor-block">
+				<label>Копия плана финансово-хозяйственной деятельности</label>               
+				<?php 
+					wp_editor(
+						(isset($field['fhdplan']) ? $field['fhdplan'] : ''), 
+						'fhdplan', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'fhdplan',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
 			
 			<div class="input-block">
 				<button class="form_btn" name="fin_btn" type="submit">Сохранить</button>
