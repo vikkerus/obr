@@ -11,8 +11,16 @@
 			<?php endif;?>
 		</div>
 	</div>
-
-	
+	<div class="info-block">
+		<div class="title">Краткое наименование образовательной организации</div>
+		<div class="content">
+			<?php if(isset($data['short_name']) && !empty($data['short_name'])) : ?>
+			<?php echo wp_unslash($data['short_name'])?>
+			<?php else:?>
+				<div class="none-data">нет данных</div>
+			<?php endif;?>
+		</div>
+	</div>
 	<div class="info-block">
 		<div class="title">Дата создания</div>
 		<?php if(isset($data['info_date']) && !empty($data['info_date'])) : ?>
@@ -132,6 +140,29 @@
 			<div class="none-data">нет данных</div>
 		<?php endif;?>	
 	</div>
+    <div class="info-block">
+		<div class="title">Информация о местах осуществления образовательной деятельности, в том числе не указанных в приложении к лицензии</div>	
+		<?php if(isset($data['placesinfo']) && !empty($data['placesinfo'])) : ?>
+			<div class="content">
+			<?php echo $data['placesinfo']?>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
+	</div>
     
+    
+    
+    
+    <div class="info-block">
+		<div class="title">Адреса официальных сайтов представительств и филиалов (при наличии) или страницах в информационно-телекоммуникационной сети интернет</div>	
+		<?php if(isset($data['siteaddress']) && !empty($data['siteaddress'])) : ?>
+			<div class="content">
+			<?php echo $data['siteaddress']?>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>	
+	</div>
     
 </div>
