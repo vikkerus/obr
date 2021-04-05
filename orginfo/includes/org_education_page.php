@@ -24,6 +24,287 @@ if(isset($data['action'])) : ?>
 		?>
 		
 		<div class="inputs">
+            <div class="input-block">
+				<label>Реализуемые уровни образования</label>
+				<input name="edu_level" type="text" value="<?php echo (isset($field['edu_level']) ? wp_unslash(htmlspecialchars($field['edu_level'])) : '')?>" class="field">
+			</div>
+            <div class="input-block">
+				<label>Формы обучения</label>
+				<input name="edu_form" type="text" value="<?php echo (isset($field['edu_form']) ? wp_unslash(htmlspecialchars($field['edu_form'])) : '')?>" class="field">
+			</div>
+            <div class="input-block">
+				<label>Нормативные сроки обучения</label>
+				<input name="edu_time" type="text" value="<?php echo (isset($field['edu_time']) ? wp_unslash(htmlspecialchars($field['edu_time'])) : '')?>" class="field">
+			</div>
+            
+            <div class="input-block editor-block education_obr">
+				<label>Сроки действия государственной аккредитации образзовательной программы (при наличии)</label>				
+				<?php 
+					wp_editor(
+						(isset($field['accredtime']) ? $field['accredtime'] : ''), 
+						'accredtime', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'accredtime',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            <div class="input-block editor-block education_obr">
+				<label>Описание образовательной программы с приложением её копии</label>				
+				<?php 
+					wp_editor(
+						(isset($field['programinfo']) ? $field['programinfo'] : ''), 
+						'programinfo', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'programinfo',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            <div class="input-block editor-block education_obr">
+				<label>Учебный план</label>				
+				<?php 
+					wp_editor(
+						(isset($field['teachplan']) ? $field['teachplan'] : ''), 
+						'teachplan', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'teachplan',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            <div class="input-block editor-block education_obr">
+				<label>Аннотации к рабочим программам</label>				
+				<?php 
+					wp_editor(
+						(isset($field['workannot']) ? $field['workannot'] : ''), 
+						'workannot', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'workannot',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            <div class="input-block editor-block education_obr">
+				<label>Календарный учебный график</label>				
+				<?php 
+					wp_editor(
+						(isset($field['calendargraf']) ? $field['calendargraf'] : ''), 
+						'calendargraf', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'calendargraf',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            <div class="input-block editor-block education_obr">
+				<label>Методические и иные документы, разработанные образовательной организацией для обеспечания образовательного процесса</label>				
+				<?php 
+					wp_editor(
+						(isset($field['metoddocs']) ? $field['metoddocs'] : ''), 
+						'metoddocs', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'metoddocs',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            <div class="input-block editor-block education_obr">
+				<label>Реализуемые образовательные программы с указанием учебных предметов, курсов, дисциплин (модулей), практики, предусмотренных соответствующей образовательной программой</label>				
+				<?php 
+					wp_editor(
+						(isset($field['programs']) ? $field['programs'] : ''), 
+						'programs', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'programs',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            <div class="input-block editor-block education_obr">
+				<label>Информация об использовании при реализации образовательной программы электронного обучения и дистанционных образовательных технологий</label>		
+				<?php 
+					wp_editor(
+						(isset($field['electron']) ? $field['electron'] : ''), 
+						'electron', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'electron',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            <div class="input-block editor-block education_obr">
+				<label>Информация о численности обучающихся по реализуемым образовательным программам</label>
+				<br>
+				<div><b>По каждой специальности/образовательной программе должны быть отображены следующие параметры:</b></div>
+				<div>Код</div>
+                <div>Наименование специальности, направления подготовки</div>
+                <div>Уровень образования</div>
+                <div>Форма обучения</div>
+                <div>Численность обучающихся, чел.</div>
+				<br>
+				<?php 
+					wp_editor(
+						(isset($field['educhisl']) ? $field['educhisl'] : ''), 
+						'educhisl', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'educhisl',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            <div class="input-block">
+				<label>Языки, на которых осуществляется образование (обучение)</label>
+				<input name="edu_lang" type="text" value="<?php echo (isset($field['edu_lang']) ? wp_unslash(htmlspecialchars($field['edu_lang'])) : '')?>" class="field">
+			</div>
+            <div class="input-block editor-block education_obr">
+				<label>Лицензия на осуществление образовательной деятельности</label>
+				<?php 
+					wp_editor(
+						(isset($field['licenz']) ? $field['licenz'] : ''), 
+						'licenz', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'licenz',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="input-block editor-block education_obr">
+				<label>Информация о результатах приема с различными условиями приема (на места, финансируемые за счет бюджетных ассигнований федерального бюджета, бюджетов субъектов Российской Федерации, местных бюджетов, по договорам об образовании за счет средств физических и (или) юридических лиц)</label>
+				<br>
+				<div><b>По каждой специальности/образовательной программе должны быть отображены следующие параметры:</b></div>
+                <div>Код</div>
+                <div>Наименование специальности, направления подготовки</div>
+                <div>Уровень образования</div>
+                <div>Форма обучения</div>
+                <div>Численность обучающихся, чел.</div>
+                <div>Средняя сумма баллов по аттестату</div>
+				<br>
+				<?php 
+					wp_editor(
+						(isset($field['edupriem']) ? $field['edupriem'] : ''), 
+						'edupriem', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'edupriem',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
 			<div class="input-block editor-block education_obr">
 				<label>Информация о сроке действия государственной аккредитации образовательной программы, о языках, на которых осуществляется образование (обучение)</label>
 				<br>
@@ -131,70 +412,6 @@ if(isset($data['action'])) : ?>
 					);
 				?>
 			</div>
-            
-            
-            <div class="input-block editor-block education_obr">
-				<label>Информация о численности обучающихся по реализуемым образовательным программам</label>
-				<br>
-				<div><b>По каждой специальности/образовательной программе должны быть отображены следующие параметры:</b></div>
-				<div>Код</div>
-                <div>Наименование специальности, направления подготовки</div>
-                <div>Уровень образования</div>
-                <div>Форма обучения</div>
-                <div>Численность обучающихся, чел.</div>
-				<br>
-				<?php 
-					wp_editor(
-						(isset($field['educhisl']) ? $field['educhisl'] : ''), 
-						'educhisl', 
-						array(
-							'wpautop'       => 0,
-							'media_buttons' => 1,
-							'textarea_name' => 'educhisl',
-							'tabindex'      => null,
-							'textarea_rows' => 10,
-							'teeny'         => 0,
-							'dfw'           => 0,
-							'tinymce'       => 1,
-							'quicktags'     => 1,
-							'drag_drop_upload' => true
-						)
-					);
-				?>
-			</div>
-            
-            
-            <div class="input-block editor-block education_obr">
-				<label>Информация о результатах приема с различными условиями приема (на места, финансируемые за счет бюджетных ассигнований федерального бюджета, бюджетов субъектов Российской Федерации, местных бюджетов, по договорам об образовании за счет средств физических и (или) юридических лиц)</label>
-				<br>
-				<div><b>По каждой специальности/образовательной программе должны быть отображены следующие параметры:</b></div>
-                <div>Код</div>
-                <div>Наименование специальности, направления подготовки</div>
-                <div>Уровень образования</div>
-                <div>Форма обучения</div>
-                <div>Численность обучающихся, чел.</div>
-                <div>Средняя сумма баллов по аттестату</div>
-				<br>
-				<?php 
-					wp_editor(
-						(isset($field['edupriem']) ? $field['edupriem'] : ''), 
-						'edupriem', 
-						array(
-							'wpautop'       => 0,
-							'media_buttons' => 1,
-							'textarea_name' => 'edupriem',
-							'tabindex'      => null,
-							'textarea_rows' => 10,
-							'teeny'         => 0,
-							'dfw'           => 0,
-							'tinymce'       => 1,
-							'quicktags'     => 1,
-							'drag_drop_upload' => true
-						)
-					);
-				?>
-			</div>
-            
             
             <div class="input-block editor-block education_obr">
 				<label>Информация о результатах перевода, восстановления и отчисления</label>
