@@ -56,5 +56,17 @@
 			<div class="none-data">нет данных</div>
 		<?php endif;?>		
 	</div>
+    
+    
+    <div class="info-block">
+		<div class="title">Копия плана финансово-хозяйственной деятельности</div>		
+		<?php if(isset($data['fhdplan']) && !empty($data['fhdplan'])) : ?>
+			<div class="content">
+			<?php echo $data['fhdplan'];?>
+			</div>
+		<?php else:?>
+			<div class="none-data">нет данных</div>
+		<?php endif;?>		
+	</div>
 
 </div>
