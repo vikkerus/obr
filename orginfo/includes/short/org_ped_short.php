@@ -345,7 +345,7 @@
 						</div>
 						
 						<div class="zam-item">
-							<div class="title">Педагогический стаж работы</div>						
+							<div class="title">Стаж работы педагогического работника по специальности</div>						
 							<?php if(isset($val['ped']) && !empty($val['ped'])) : ?>
 								<div class="content" itemprop= "specExperience">
 								<?php echo wp_unslash($val['ped'])?>
