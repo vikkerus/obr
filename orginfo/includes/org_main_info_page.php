@@ -27,6 +27,10 @@ if(isset($data['action'])) : ?>
 				<label>Полное наименование образовательной организации (по уставу)</label>
 				<input name="info_name" type="text" value="<?php echo (isset($field['info_name']) ? wp_unslash(htmlspecialchars($field['info_name'])) : '')?>" class="field">
 			</div>
+            <div class="input-block">
+				<label>Краткое наименование образовательной организации</label>
+				<input name="short_name" type="text" value="<?php echo (isset($field['short_name']) ? wp_unslash(htmlspecialchars($field['short_name'])) : '')?>" class="field">
+			</div>
 			<div class="input-block">
 				<label>Дата создания образовательной организации</label>
 				<input name="info_date" type="text" value="<?php echo (isset($field['info_date']) ? wp_unslash(htmlspecialchars($field['info_date'])) : '')?>" class="field">
@@ -175,6 +179,55 @@ if(isset($data['action'])) : ?>
 							'wpautop'       => 0,
 							'media_buttons' => 1,
 							'textarea_name' => 'infoplace',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            
+            <div class="input-block editor-block">
+				<label>Информация о местах осуществления образовательной деятельности, в том числе не указанных в приложении к лицензии</label>
+				<?php 
+					wp_editor(
+						(isset($field['placesinfo']) ? $field['placesinfo'] : ''), 
+						'placesinfo', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'placesinfo',
+							'tabindex'      => null,
+							'textarea_rows' => 10,
+							'teeny'         => 0,
+							'dfw'           => 0,
+							'tinymce'       => 1,
+							'quicktags'     => 1,
+							'drag_drop_upload' => true
+						)
+					);
+				?>
+			</div>
+            
+            
+            
+            
+            
+            <div class="input-block editor-block">
+				<label>Адреса официальных сайтов представительств и филиалов (при наличии) или страницах в информационно-телекоммуникационной сети интернет (можно указать адрес сайта учреждения)</label>
+				<?php 
+					wp_editor(
+						(isset($field['siteaddress']) ? $field['siteaddress'] : ''), 
+						'siteaddress', 
+						array(
+							'wpautop'       => 0,
+							'media_buttons' => 1,
+							'textarea_name' => 'siteaddress',
 							'tabindex'      => null,
 							'textarea_rows' => 10,
 							'teeny'         => 0,
