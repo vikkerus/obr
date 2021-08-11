@@ -26,7 +26,7 @@
 				<span class="url">[org_edu]</span>
 			</li>
 			<li>
-				<span class="main">«Образовательные стандарты»</span>
+				<span class="main">«Образовательные стандарты и требования»</span>
 				<span class="url">[org_stand]</span>
 			</li>
 			<li>
@@ -89,7 +89,7 @@
 				<span class="url"><?php echo home_url();?>/sveden/education</span>
 			</li>
 			<li>
-				<span class="main">«Образовательные стандарты»</span>
+				<span class="main">«Образовательные стандарты и требования»</span>
 				<span class="url"><?php echo home_url();?>/sveden/edustandarts</span>
 			</li>
 			<li>
