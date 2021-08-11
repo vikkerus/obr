@@ -155,7 +155,7 @@ function org_create_table()
 				('structure','Структура и органы управления образовательной организацией'),
 				('docs','Документы'),
 				('education','Образование'),
-				('standart','Образовательные стандарты'),
+				('standart','Образовательные стандарты и требования'),
 				('manage','Руководство. Педагогический (научно-педагогический) состав'),
 				('material','Материально-техническое обеспечение и оснащенность образовательного процесса'),
 				('stipend','Стипендии и иные виды материальной поддержки'),
@@ -465,7 +465,7 @@ function org_education()
 // функция вывода страницы образовательные стандарты
 function org_standart()
 {
-	echo '<h2 class="org_title">Образовательные стандарты</h2>';
+	echo '<h2 class="org_title">Образовательные стандарты и требования</h2>';
 	
 	org_standart_page();
 }	
@@ -2420,7 +2420,7 @@ function org_add_menu_pages()
 	add_submenu_page( 'orginfo','Структура и органы управления образовательной организацией', 'Структура', 'manage_options', 'orgstruct', 'org_scructure' );
 	add_submenu_page( 'orginfo','Документы', 'Документы', 'manage_options', 'orgdocs', 'org_documents' );
 	add_submenu_page( 'orginfo','Образование', 'Образование', 'manage_options', 'orgedu', 'org_education' );
-	add_submenu_page( 'orginfo','Образовательные стандарты', 'Образовательные стандарты', 'manage_options', 'orgstand', 'org_standart' );
+	add_submenu_page( 'orginfo','Образовательные стандарты и требования', 'Образовательные стандарты и требования', 'manage_options', 'orgstand', 'org_standart' );
 	add_submenu_page( 'orginfo','Руководство. Педагогический (научно-педагогический) состав', 'Руководство. Педагогический состав', 'manage_options', 'orgped', 'org_pedagog' );
 	add_submenu_page( 'orginfo','Материально-техническое обеспечение и оснащенность образовательного процесса', 'Материально-техническое обеспечение', 'manage_options', 'orgmat', 'org_material' );
 	add_submenu_page( 'orginfo','Стипендии и иные виды материальной поддержки', 'Стипендии', 'manage_options', 'orgstip', 'org_stipend' );
