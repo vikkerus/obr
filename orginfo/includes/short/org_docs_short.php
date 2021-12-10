@@ -292,7 +292,7 @@
         <div class="doc-block">
             <div class="content">
                 <?php //echo (org_get_status($data['docs_paid_link']) ? '' : $link_error)?>
-                <a itemprop="paidParents" href="<?php echo (isset($data['docs_paid_parent_link']) && !empty($data['docs_paid_parent_link']) ? $data['docs_paid_parent_link'] : $data['docs_paid_parent_url'])?>" title="Документ об установлении размера платы, взимаемой с родителей (законных представителей) за присмотр и уход  за детьми" target="_blank"><?php echo (isset($data['docs_paid_parent_name']) && !empty($data['docs_paid_parent_name'])) ? wp_unslash($data['docs_paid_parent_name']) : 'Документоб установлении размера платы, взимаемой с родителей (законных представителей) за присмотр и уход  за детьми'?></a>
+                <a itemprop="paidParents" href="<?php echo (isset($data['docs_paid_parent_link']) && !empty($data['docs_paid_parent_link']) ? $data['docs_paid_parent_link'] : $data['docs_paid_parent_url'])?>" title="Документ об установлении размера платы, взимаемой с родителей (законных представителей) за присмотр и уход  за детьми" target="_blank"><?php echo (isset($data['docs_paid_parent_name']) && !empty($data['docs_paid_parent_name'])) ? wp_unslash($data['docs_paid_parent_name']) : 'Документ об установлении размера платы, взимаемой с родителей (законных представителей) за присмотр и уход  за детьми'?></a>
             </div>
         </div>
         <?php else:?>
